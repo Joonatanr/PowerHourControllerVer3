@@ -12,6 +12,7 @@
 #include "buttons.h"
 #include "backlight.h"
 #include "speaker.h"
+#include "pot.h"
 #include <stdlib.h>
 
 //Hi priority timer runs at 10msec interval (might need to be faster)
@@ -84,6 +85,9 @@ Public void register_init(void)
 
     //Initialize speaker.
     speaker_init();
+
+    //Initialize adc and potentiometer handler.
+    pot_init();
 
     //Not quite sure what this does yet.
     //MAP_Interrupt_enableSleepOnIsrExit();

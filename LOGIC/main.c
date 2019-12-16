@@ -17,6 +17,7 @@
 #include "Menus/menu.h"
 #include "Scheduler.h"
 #include "speaker.h"
+#include "pot.h"
 
 //#define DEBUG_SEQUENCE
 
@@ -115,6 +116,7 @@ Private void timer_hi_prio(void)
     set_led_two_green(isButton(GREEN_BUTTON));
 
     buttons_cyclic10msec();
+    pot_cyclic_10ms();
 }
 
 
