@@ -57,7 +57,7 @@ Public void pot_init(void)
 
     /* Enabling/Toggling Conversion */
     MAP_ADC14_enableConversion();
-    MAP_ADC14_toggleConversionTrigger();
+    //MAP_ADC14_toggleConversionTrigger();
 
     /* Enabling interrupts */
     MAP_ADC14_enableInterrupt(ADC_INT12);
@@ -75,32 +75,59 @@ Public void pot_cyclic_10ms(void)
     if (adc_value > 12288u)
     {
         setPotLed(0, TRUE);
-        setPotLed(1, TRUE);
-        setPotLed(2, TRUE);
-        setPotLed(3, TRUE);
+        setPotLed(1, FALSE);
+        setPotLed(2, FALSE);
+        setPotLed(3, FALSE);
     }
     else if(adc_value > 8192u)
     {
         setPotLed(0, TRUE);
         setPotLed(1, TRUE);
-        setPotLed(2, TRUE);
+        setPotLed(2, FALSE);
         setPotLed(3, FALSE);
     }
     else if(adc_value > 4096u)
     {
         setPotLed(0, TRUE);
         setPotLed(1, TRUE);
-        setPotLed(2, FALSE);
+        setPotLed(2, TRUE);
         setPotLed(3, FALSE);
     }
     else
     {
         setPotLed(0, TRUE);
-        setPotLed(1, FALSE);
-        setPotLed(2, FALSE);
-        setPotLed(3, FALSE);
+        setPotLed(1, TRUE);
+        setPotLed(2, TRUE);
+        setPotLed(3, TRUE);
     }
 
+    MAP_ADC14_toggleConversionTrigger();
+}
+
+
+Public int pot_getSelectedRange()
+{
+    float adc_value = curADCResult;
+    int retVal = -1;
+
+    if (adc_value > 12288u)
+    {
+        retVal = 0;
+    }
+    else if(adc_value > 8192u)
+    {
+        retVal = 1;
+    }
+    else if(adc_value > 4096u)
+    {
+        retVal = 2;
+    }
+    else
+    {
+        retVal = 3;
+    }
+
+    return retVal;
 }
 
 
@@ -117,7 +144,7 @@ void ADC14_IRQHandler(void)
         curADCResult = MAP_ADC14_getResult(ADC_MEM12);
         //normalizedADCRes = (curADCResult * 3.3) / 16384;
 
-        ADC14_toggleConversionTrigger();
+        //ADC14_toggleConversionTrigger();
     }
 }
 
@@ -130,7 +157,7 @@ Private void setPotLed(int id, Boolean state)
 
     switch(id)
     {
-        case 0u:
+        case 2u:
             port = GPIO_PORT_P4;
             pins = GPIO_PIN6;
             break;
@@ -138,11 +165,11 @@ Private void setPotLed(int id, Boolean state)
             port = GPIO_PORT_P3;
             pins = GPIO_PIN3;
             break;
-        case 2u:
+        case 3u:
             port = GPIO_PORT_P3;
             pins = GPIO_PIN2;
             break;
-        case 3u:
+        case 0u:
             port = GPIO_PORT_P6;
             pins = GPIO_PIN0;
             break;

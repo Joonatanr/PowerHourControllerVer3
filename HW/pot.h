@@ -12,7 +12,7 @@
 
 extern void pot_init(void);
 extern void pot_cyclic_10ms(void);
-
+extern int pot_getSelectedRange(void);
 
 
 #endif /* HW_POT_H_ */

@@ -168,8 +168,8 @@ Public void display_cyclic_50msec(void)
                         }
                         for (; column < GET_FIRST_COLUMN(seg + 1u); column++)
                         {
-                            //write_data(priv_display_buffer[column][page]);
-                            write_data(~priv_display_buffer[column][page]);
+                            write_data(priv_display_buffer[column][page]);
+                            //write_data(~priv_display_buffer[column][page]);
                         }
                         prev_column = column;
                     }

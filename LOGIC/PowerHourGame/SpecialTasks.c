@@ -11,6 +11,7 @@
 #include "display_drv.h"
 #include "register.h"
 #include <stdlib.h>
+#include "pot.h"
 
 #define SMALL_SHOT_X 20u
 #define SMALL_SHOT_Y 32u
@@ -57,8 +58,8 @@ Private const SpecialTaskFunc priv_special_tasks_guys_array[] =
 Private char priv_str_buf[64];
 Private SpecialTaskFunc priv_selected_task_ptr;
 
-/* TODO : Generate more tasks. */
-Private Task_T priv_TextArrayGirls[] =
+/* Easy tasks. */
+Private Task_T priv_TextArrayGirlsLevel1[] =
 {
      { "The girl with ",     "the fanciest clothes"  , "drinks 2x"         , .counter = 0u  }, /* 1  */
      { "The girl with  ",    "the largest boobs"     , "drinks 2x"         , .counter = 0u  }, /* 2  */
@@ -74,7 +75,8 @@ Private Task_T priv_TextArrayGirls[] =
      { "All brunettes",      "drink 2x ",              NULL                , .counter = 0u  }, /* 13 */
 };
 
-Private Task_T priv_TextArrayGuys[] =
+/* Easy tasks. */
+Private Task_T priv_TextArrayGuysLevel1[] =
 {
      {  NULL                    , "Only guys drink",            NULL          , .counter = 0u  }, /* 1  */
      {  "Guys drink"            , "without",                    "using hands" , .counter = 0u  }, /* 2  */
@@ -86,6 +88,42 @@ Private Task_T priv_TextArrayGuys[] =
      {  "Last guy to put his"   , "finger on his nose",        "drinks 2x"    , .counter = 0u  }, /* 8  */
      {  "Choose one guy"        , "who drinks 3x ",             NULL          , .counter = 0u  }, /* 9  */
      {  "The guy with the"      , "biggest balls",            "drinks vodka"  , .counter = 0u  }, /* 10 */
+};
+
+/* Medium tasks */
+Private Task_T priv_TextArrayGirlsLevel2[] =
+{
+     { "PLACEHOLDER",     "PLACEHOLDER"  , "PLACEHOLDER"         , .counter = 0u  }, /* 1  */
+};
+
+/* Medium tasks. */
+Private Task_T priv_TextArrayGuysLevel2[] =
+{
+     { "PLACEHOLDER",     "PLACEHOLDER"  , "PLACEHOLDER"         , .counter = 0u  }, /* 1  */
+};
+
+/* Hard tasks. -> Sass mode engaged :D */
+Private Task_T priv_TextArrayGirlsLevel3[] =
+{
+     { "PLACEHOLDER",     "PLACEHOLDER"  , "PLACEHOLDER"         , .counter = 0u  }, /* 1  */
+};
+
+/* Hard tasks. -> Sass mode engaged : D */
+Private Task_T priv_TextArrayGuysLevel3[] =
+{
+     { "PLACEHOLDER",     "PLACEHOLDER"  , "PLACEHOLDER"         , .counter = 0u  }, /* 1  */
+};
+
+/* Hardcore tasks. -> Full Sass mode. */
+Private Task_T priv_TextArrayGirlsLevel4[] =
+{
+     { "PLACEHOLDER",     "PLACEHOLDER"  , "PLACEHOLDER"         , .counter = 0u  }, /* 1  */
+};
+
+/* Hardcore tasks. -> Full Sass mode. */
+Private Task_T priv_TextArrayGuysLevel4[] =
+{
+     { "PLACEHOLDER",     "PLACEHOLDER"  , "PLACEHOLDER"         , .counter = 0u  }, /* 1  */
 };
 
 
@@ -178,34 +216,84 @@ Private Boolean SpecialTaskWithRandomText(U8 sec, SpecialTaskType type)
     //Text is three lines and randomly selected from tasks from previous PH controller :)
 
     Boolean res = FALSE;
+    int taskLevel = pot_getSelectedRange();
+    Task_T * girlsSelectedArray;
+    Task_T * guysSelectedArray;
+    U16 number_of_items_girls = 0u;
+    U16 number_of_items_guys = 0u;
+
+    switch(taskLevel)
+    {
+        case 0:
+            girlsSelectedArray = priv_TextArrayGirlsLevel1;
+            number_of_items_girls = NUMBER_OF_ITEMS(priv_TextArrayGirlsLevel1);
+            guysSelectedArray = priv_TextArrayGuysLevel1;
+            number_of_items_guys = NUMBER_OF_ITEMS(priv_TextArrayGuysLevel1);
+            break;
+        case 1:
+            girlsSelectedArray = priv_TextArrayGirlsLevel2;
+            number_of_items_girls = NUMBER_OF_ITEMS(priv_TextArrayGirlsLevel2);
+            guysSelectedArray = priv_TextArrayGuysLevel2;
+            number_of_items_guys = NUMBER_OF_ITEMS(priv_TextArrayGuysLevel2);
+            break;
+        case 2:
+            girlsSelectedArray = priv_TextArrayGirlsLevel3;
+            number_of_items_girls = NUMBER_OF_ITEMS(priv_TextArrayGirlsLevel3);
+            guysSelectedArray = priv_TextArrayGuysLevel3;
+            number_of_items_guys = NUMBER_OF_ITEMS(priv_TextArrayGuysLevel3);
+            break;
+        case 3:
+            girlsSelectedArray = priv_TextArrayGirlsLevel4;
+            number_of_items_girls = NUMBER_OF_ITEMS(priv_TextArrayGirlsLevel4);
+            guysSelectedArray = priv_TextArrayGuysLevel4;
+            number_of_items_guys = NUMBER_OF_ITEMS(priv_TextArrayGuysLevel4);
+            break;
+        default:
+            /* Should not happen. */
+            girlsSelectedArray = priv_TextArrayGirlsLevel1;
+            number_of_items_girls = NUMBER_OF_ITEMS(priv_TextArrayGirlsLevel1);
+            guysSelectedArray = priv_TextArrayGuysLevel1;
+            number_of_items_guys = NUMBER_OF_ITEMS(priv_TextArrayGuysLevel1);
+            break;
+    }
 
     switch(sec)
     {
-    case(1u):
-       if (type == TASK_FOR_GIRLS)
-       {
-           priv_task_str_ptr = getRandomTaskFromArray(priv_TextArrayGirls, NUMBER_OF_ITEMS(priv_TextArrayGirls));
-       }
-       else if(type == TASK_FOR_GUYS)
-       {
-           priv_task_str_ptr = getRandomTaskFromArray(priv_TextArrayGuys, NUMBER_OF_ITEMS(priv_TextArrayGuys));
-       }
-       break;
-    case (2u):
-         display_clear();
-         display_drawStringCenter(priv_task_str_ptr->upper_text, 64u, 4u, FONT_MEDIUM_FONT, FALSE);
-       break;
-    case (3u):
-         display_drawStringCenter(priv_task_str_ptr->middle_text, 64u, 23u, FONT_MEDIUM_FONT, FALSE);
-       break;
-    case(4u):
-         display_drawStringCenter(priv_task_str_ptr->lower_text, 64u, 43u, FONT_MEDIUM_FONT, FALSE);
-       break;
-    case(12u):
-       res = TRUE;
-       break;
-    default:
-        break;
+        case(1u):
+            {
+               if (type == TASK_FOR_GIRLS)
+               {
+                   priv_task_str_ptr = getRandomTaskFromArray(girlsSelectedArray, number_of_items_girls);
+               }
+               else if(type == TASK_FOR_GUYS)
+               {
+                   priv_task_str_ptr = getRandomTaskFromArray(guysSelectedArray, number_of_items_guys);
+               }
+            }
+            break;
+        case (2u):
+            {
+                display_clear();
+                display_drawStringCenter(priv_task_str_ptr->upper_text, 64u, 4u, FONT_MEDIUM_FONT, FALSE);
+            }
+            break;
+        case (3u):
+            {
+                display_drawStringCenter(priv_task_str_ptr->middle_text, 64u, 23u, FONT_MEDIUM_FONT, FALSE);
+            }
+            break;
+        case(4u):
+            {
+                display_drawStringCenter(priv_task_str_ptr->lower_text, 64u, 43u, FONT_MEDIUM_FONT, FALSE);
+            }
+            break;
+        case(12u):
+            {
+                res = TRUE;
+            }
+            break;
+        default:
+            break;
     }
 
     return res;
