@@ -25,6 +25,7 @@ static volatile uint16_t curADCResult = 0u;
 //static volatile float normalizedADCRes;
 
 Private void setPotLed(int id, Boolean state);
+Private int currentRange = 0;
 
 
 Public void pot_init(void)
@@ -78,6 +79,7 @@ Public void pot_cyclic_10ms(void)
         setPotLed(1, FALSE);
         setPotLed(2, FALSE);
         setPotLed(3, FALSE);
+        currentRange = 0;
     }
     else if(adc_value > 8192u)
     {
@@ -85,6 +87,7 @@ Public void pot_cyclic_10ms(void)
         setPotLed(1, TRUE);
         setPotLed(2, FALSE);
         setPotLed(3, FALSE);
+        currentRange = 1;
     }
     else if(adc_value > 4096u)
     {
@@ -92,6 +95,7 @@ Public void pot_cyclic_10ms(void)
         setPotLed(1, TRUE);
         setPotLed(2, TRUE);
         setPotLed(3, FALSE);
+        currentRange = 2;
     }
     else
     {
@@ -99,6 +103,7 @@ Public void pot_cyclic_10ms(void)
         setPotLed(1, TRUE);
         setPotLed(2, TRUE);
         setPotLed(3, TRUE);
+        currentRange = 3;
     }
 
     MAP_ADC14_toggleConversionTrigger();
@@ -107,27 +112,7 @@ Public void pot_cyclic_10ms(void)
 
 Public int pot_getSelectedRange()
 {
-    float adc_value = curADCResult;
-    int retVal = -1;
-
-    if (adc_value > 12288u)
-    {
-        retVal = 0;
-    }
-    else if(adc_value > 8192u)
-    {
-        retVal = 1;
-    }
-    else if(adc_value > 4096u)
-    {
-        retVal = 2;
-    }
-    else
-    {
-        retVal = 3;
-    }
-
-    return retVal;
+    return currentRange;
 }
 
 

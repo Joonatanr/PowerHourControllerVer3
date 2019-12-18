@@ -33,7 +33,7 @@ Private void startSnakeGame(void);
 Public TimerHandler timer_10msec_callback = timer_hi_prio;
 Public TimerHandler timer_50msec_callback = timer_lo_prio;
 
-Private const char priv_version_string[] = "Machine 2.3";
+Private const char priv_version_string[] = "Machine 2.6";
 
 
 /* Settings Menu Items */
@@ -158,8 +158,9 @@ Private void showStartScreen(void)
     delay_msec(1000);
 
 #endif
-    display_drawStringCenter("Power Hour", 64u, 20u, FONT_LARGE_FONT, FALSE);
-    display_drawStringCenter(priv_version_string, 64u, 40u, FONT_LARGE_FONT, FALSE);
+    display_drawStringCenter("Power Hour", 64u, 5u, FONT_LARGE_FONT, FALSE);
+    display_drawStringCenter(priv_version_string, 64u, 20u, FONT_LARGE_FONT, FALSE);
+    display_drawStringCenter("Sass Edition", 64u, 40u, FONT_MEDIUM_FONT, FALSE);
 }
 
 /* Starts the main Power Hour game. */
