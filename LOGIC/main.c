@@ -158,9 +158,17 @@ Private void showStartScreen(void)
     delay_msec(1000);
 
 #endif
+
+
     display_drawStringCenter("Power Hour", 64u, 5u, FONT_LARGE_FONT, FALSE);
     display_drawStringCenter(priv_version_string, 64u, 20u, FONT_LARGE_FONT, FALSE);
     display_drawStringCenter("Sass Edition", 64u, 40u, FONT_MEDIUM_FONT, FALSE);
+
+
+//    display_drawBitmap(&girl_3_bitmap, 0u, 0u, TRUE);
+
+//    delay_msec(5000);
+
 }
 
 /* Starts the main Power Hour game. */

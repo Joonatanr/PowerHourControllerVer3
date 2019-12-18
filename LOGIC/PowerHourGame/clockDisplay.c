@@ -533,6 +533,9 @@ Private const IntroSequence priv_girl_intros[] =
 {
      {.bmp_ptr = &girl_1_bitmap, .bmp_x = 0u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT },
      {.bmp_ptr = &girl_2_bitmap, .bmp_x = 6u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT },
+
+     /* TODO : Test these. */
+     {.bmp_ptr = &girl_3_bitmap, .bmp_x = 6u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 70u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT },
 };
 
 //We start displaying a special task.

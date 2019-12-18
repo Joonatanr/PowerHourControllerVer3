@@ -13,6 +13,7 @@ typedef struct
 
 extern const Bitmap girl_1_bitmap;
 extern const Bitmap girl_2_bitmap;
+extern const Bitmap girl_3_bitmap;
 
 extern const Bitmap strong_dude_bitmap;
 extern const Bitmap chad_bitmap;
