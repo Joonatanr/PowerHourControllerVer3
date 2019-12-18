@@ -65,22 +65,27 @@ Private Task_T priv_TextArrayGirlsLevel1[] =
      { NULL,                 "Only girls drink"      , NULL                , .counter = 0u  }, /* 2  */
      { "Girls drink",        "without "      ,         "using hands"       , .counter = 0u  }, /* 3  */
      { "Choose one girl",    "who drinks 3x ",         NULL                , .counter = 0u  }, /* 4  */
-     { "All bad girls",      "drink 2x ",              NULL                , .counter = 0u  }, /* 5  */
-     { "The girl with",      "the longest hair ",      "drinks a shot"     , .counter = 0u  }, /* 6  */
+     { "The girl with",      "the longest hair ",      "drinks a shot"     , .counter = 0u  }, /* 5  */
+     { "The girl with",      "the highest voice",      "drinks a shot"     , .counter = 0u  }, /* 6  */
      { "All blondes",        "drink 2x ",              NULL                , .counter = 0u  }, /* 7  */
      { "All brunettes",      "drink 2x ",              NULL                , .counter = 0u  }, /* 8  */
+     { "The tallest girl",   "drinks 2x ",             NULL                , .counter = 0u  }, /* 9  */
+     { "The youngest girl",  "drinks 2x ",             NULL                , .counter = 0u  }, /* 10 */
 };
 
 /* Easy tasks. */
 Private Task_T priv_TextArrayGuysLevel1[] =
 {
      {  NULL                    , "Only guys drink",            NULL          , .counter = 0u  }, /* 1  */
-     {  "Guys drink"            , "without",                    "using hands" , .counter = 0u  }, /* 2  */
+     {  "Guys drink"            , "without",                 "using hands"    , .counter = 0u  }, /* 2  */
      {  "The toughest guy"      , "drinks 3x",                  NULL          , .counter = 0u  }, /* 3  */
      {  "The biggest playboy"   , "drinks 3x",                  NULL          , .counter = 0u  }, /* 4  */
-     {  NULL                    , "Guys must sing",         "a song together" , .counter = 0u  }, /* 7  */
-     {  "Last guy to put his"   , "finger on his nose",        "drinks 2x"    , .counter = 0u  }, /* 8  */
-     {  "Choose one guy"        , "who drinks 3x ",             NULL          , .counter = 0u  }, /* 9  */
+     {  NULL                    , "Guys must sing",         "a song together" , .counter = 0u  }, /* 5  */
+     {  "Last guy to put his"   , "finger on his nose",        "drinks 2x"    , .counter = 0u  }, /* 6  */
+     {  "Choose one guy"        , "who drinks 3x ",             NULL          , .counter = 0u  }, /* 7  */
+     {  "All guys"              , "drop and do 10  ",        "pushups"        , .counter = 0u  }, /* 8  */
+     {  "All guys with"         , "a six-pack ",             "drink 3x"       , .counter = 0u  }, /* 9  */
+     {  "The most wasted"       , "guy drinks",              "water-shot"     , .counter = 0u  }, /* 10 */
 };
 
 /* Medium tasks */
@@ -93,16 +98,24 @@ Private Task_T priv_TextArrayGirlsLevel2[] =
      { "All girls whose" ,   "name starts with",     "S drinks 2x"         , .counter = 0u  }, /* 5  */
      { "All bad girls",      "drink 2x ",              NULL                , .counter = 0u  }, /* 6  */
      { "All good girls",     "drink 2x ",              NULL                , .counter = 0u  }, /* 7  */
+     { "The girls with" ,    "the shortest skirt",   "drinks 2x"           , .counter = 0u  }, /* 8  */
+     { "All female" ,        "organisers",           "drink 2x"            , .counter = 0u  }, /* 9  */
+     { "Last girl to" ,      "put finger on",        "nose drinks 2x"      , .counter = 0u  }, /* 10 */
 };
 
 /* Medium tasks. */
 Private Task_T priv_TextArrayGuysLevel2[] =
 {
-     {  "The guy with the"      , "biggest balls",            "drinks vodka"  , .counter = 0u  }, /* 1  */
-     {  "Guys"                  , "Never have I ever",          NULL          , .counter = 0u  }, /* 2  */
-     {  "All guys lose"         , "One Item of Clothing",       NULL          , .counter = 0u  }, /* 3  */
-     {  "All guys whose"        , "name starts with",         "A drinks 2x"   , .counter = 0u  }, /* 4  */
-     {  "All couples  "         , "drink 2x",                   NULL          , .counter = 0u  }, /* 5  */
+     {  "The guy with the"      , "biggest balls",            "drinks vodka"    , .counter = 0u  },  /* 1  */
+     {  "Guys"                  , "Never have I ever",          NULL            , .counter = 0u  },  /* 2  */
+     {  "All guys lose"         , "One Item of Clothing",       NULL            , .counter = 0u  },  /* 3  */
+     {  "All guys whose"        , "name starts with",         "A drinks 2x"     , .counter = 0u  },  /* 4  */
+     {  "All couples  "         , "drink 2x",                   NULL            , .counter = 0u  },  /* 5  */
+     {  "All male"              , "organisers",               "drink 2x"        , .counter = 0u  },  /* 6  */
+     {  "The guy with"          , "the biggest beer",         "belly drinks 2x" , .counter = 0u  },  /* 7  */
+     {  "All guys with"         , "beards",                   "drink 2x"        , .counter = 0u  },  /* 8  */
+     {  "Sass"                  , "drinks 3x",                "unless wasted"   , .counter = 0u  },  /* 9  */
+     {  "Sass"                  , "needs to drink",           "without hands"   , .counter = 0u  },  /* 10 */
 };
 
 /* Hard tasks. -> Sass mode engaged :D */
@@ -114,6 +127,10 @@ Private Task_T priv_TextArrayGirlsLevel3[] =
      {  "All girls lose"       ,   "two items of ",              "clothing"    , .counter = 0u  }, /* 4  */
      {  "Girls with"           ,   ">5 flags&numbers",           "drink 3x"    , .counter = 0u  }, /* 5  */
      {  "Girls who've had"     ,   "sex with 1 of the",  "players drink 2x"    , .counter = 0u  }, /* 6  */
+     {  "Girls do"             ,   "bodyshots!!!",                     NULL    , .counter = 0u  }, /* 7  */
+     {  "All girls must"       ,   "kiss Sass"  ,            "on the cheek"    , .counter = 0u  }, /* 8  */
+     {  "Girl showing the"     ,   "least cleavage"  ,           "drinks 3x"   , .counter = 0u  }, /* 9  */
+     {  "The last girl"        ,   "to finish shot"  ,    "loses 1 clothing"   , .counter = 0u  }, /* 10 */
 };
 
 /* Hard tasks. -> Sass mode engaged : D */
@@ -125,31 +142,41 @@ Private Task_T priv_TextArrayGuysLevel3[] =
      {  "All guys lose"        , "two items of ",         "clothing"         , .counter = 0u  }, /* 4  */
      {  "Guys with"            , ">5 flags&numbers",      "drink 3x"         , .counter = 0u  }, /* 5  */
      {  "Guys who want to"     , "sleep with 1 of",       "the players drink", .counter = 0u  }, /* 6  */
+     {  "Guys do"              , "bodyshots!!!",                     NULL    , .counter = 0u  }, /* 7  */
+     {  "All Guys"             , "with a boner",          "drink 3x"         , .counter = 0u  }, /* 8  */
+     {  "The last guy"         , "to finish shot"  ,    "loses 2 clothing"   , .counter = 0u  }, /* 9  */
+     {  "All guys drink"       , "while doing"     ,    "pushups"            , .counter = 0u  }, /* 10 */
 };
 
 
 /* Hardcore tasks. -> Full Sass mode. */
 Private Task_T priv_TextArrayGirlsLevel4[] =
 {
-     { "1 girl must",     "do a lapdance"  , "to Sass"         , .counter = 0u  }, /*  1  */
-     { "All girls",       "lose 1 item"    , "of clothing"     , .counter = 0u  }, /*  2  */
-     { "2 girls",         "make out"       , "or drink 3x"     , .counter = 0u  }, /*  3  */
-     { "Vodka round!!!" , "for girls!!!"   , NULL              , .counter = 0u  }, /*  4  */
-     { "All clean",       "shaven girls"   , "drink 1x"        , .counter = 0u  }, /*  5  */
-     { "All girls",       "who masturbated", "today drink 2x"  , .counter = 0u  }, /*  6  */
-     { "Girls must",      "fake an orgasm" , "or drink 3x"     , .counter = 0u  }, /*  7  */
+     { "1 girl must",     "do a lapdance"       , "to Sass"           , .counter = 0u  }, /*  1  */
+     { "All girls",       "lose 1 item"         , "of clothing"       , .counter = 0u  }, /*  2  */
+     { "2 girls",         "make out"            , "or drink 3x"       , .counter = 0u  }, /*  3  */
+     { "Vodka round!!!" , "for girls!!!"        , NULL                , .counter = 0u  }, /*  4  */
+     { "All clean",       "shaven girls"        , "drink 1x"          , .counter = 0u  }, /*  5  */
+     { "All girls",       "who masturbated"     , "today drink 2x"    , .counter = 0u  }, /*  6  */
+     { "Girls must",      "fake an orgasm"      , "or drink 3x"       , .counter = 0u  }, /*  7  */
+     { "Girls must",      "take off shirt"      , "or drink 3x"       , .counter = 0u  }, /*  8  */
+     { "Girls  sit",      "on guy's laps"       , "for next round"    , .counter = 0u  }, /*  9  */
+     { "Everybody who",   "isnt't wearing a"    , "bra drinks vodka"  , .counter = 0u  }, /*  10 */
 };
 
 /* Hardcore tasks. -> Full Sass mode. */
 Private Task_T priv_TextArrayGuysLevel4[] =
 {
-     { "Sass must do",     "a lapdance"  , "to a girl"         , .counter = 0u  }, /*  1  */
-     { "Sass must do",     "a lapdance"  , "to a guy"          , .counter = 0u  }, /*  2  */
-     { "2 guys",           "make out"    , "or drink 3x"       , .counter = 0u  }, /*  3  */
-     { "Vodka round!!!" ,  "for girls!!!"   , NULL             , .counter = 0u  }, /*  4  */
-     { "Sass loses",       "3 items"     ,  "of clothing"      , .counter = 0u  }, /*  5  */
-     { "All guys",         "who wanked"  ,  "today drink 2x"   , .counter = 0u  }, /*  6  */
-     { "Guys must",      "fake an orgasm" , "or drink vodka"   , .counter = 0u  }, /*  7  */
+     { "Sass must do",     "a lapdance"     ,   "to a girl"         , .counter = 0u  }, /*  1  */
+     { "Sass must do",     "a lapdance"     ,   "to a guy"          , .counter = 0u  }, /*  2  */
+     { "2 guys",           "make out"       ,   "or drink 3x"       , .counter = 0u  }, /*  3  */
+     { "Vodka round!!!" ,  "for girls!!!"   ,   NULL                , .counter = 0u  }, /*  4  */
+     { "Sass loses",       "3 items"        ,   "of clothing"       , .counter = 0u  }, /*  5  */
+     { "All guys",         "who wanked"     ,   "today drink 2x"    , .counter = 0u  }, /*  6  */
+     { "Guys must",        "fake an orgasm" ,   "or drink vodka"    , .counter = 0u  }, /*  7  */
+     { "Guys must name",    "10 sex positions" ,  "or drink vodka"  , .counter = 0u  }, /*  8  */
+     { "Sass gets handjob", "Just kidding!!!" ,   "He drinks 3x"    , .counter = 0u  }, /*  9  */
+     { "Next round guys",   "do bodyshots"  ,  "from the girls"     , .counter = 0u  }, /*  10 */
 };
 
 
