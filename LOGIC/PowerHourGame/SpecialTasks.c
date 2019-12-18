@@ -91,6 +91,8 @@ Private Task_T priv_TextArrayGirlsLevel2[] =
      { "The girl with  ",    "the largest boobs"     , "drinks 2x"         , .counter = 0u  }, /* 3  */
      { "All couples  ",      "drink 2x"              , NULL                , .counter = 0u  }, /* 4  */
      { "All girls whose" ,   "name starts with",     "S drinks 2x"         , .counter = 0u  }, /* 5  */
+     { "All bad girls",      "drink 2x ",              NULL                , .counter = 0u  }, /* 6  */
+     { "All good girls",     "drink 2x ",              NULL                , .counter = 0u  }, /* 7  */
 };
 
 /* Medium tasks. */
@@ -106,13 +108,23 @@ Private Task_T priv_TextArrayGuysLevel2[] =
 /* Hard tasks. -> Sass mode engaged :D */
 Private Task_T priv_TextArrayGirlsLevel3[] =
 {
-     {  "Guys must"             , "do a ",                      "sexy dance"  , .counter = 0u  }, /* 1  */
+     {  "Girls must"             , "do a ",                      "sexy dance"  , .counter = 0u  }, /* 1  */
+     {  "Vodka round!!!",          "for girls!!!"   ,                   NULL   , .counter = 0u  }, /* 2  */
+     {  "Most naked"           ,   "girl drinks ",               "2x"          , .counter = 0u  }, /* 3  */
+     {  "All girls lose"       ,   "two items of ",              "clothing"    , .counter = 0u  }, /* 4  */
+     {  "Girls with"           ,   ">5 flags&numbers",           "drink 3x"    , .counter = 0u  }, /* 5  */
+     {  "Girls who've had"     ,   "sex with 1 of the",  "players drink 2x"    , .counter = 0u  }, /* 6  */
 };
 
 /* Hard tasks. -> Sass mode engaged : D */
 Private Task_T priv_TextArrayGuysLevel3[] =
 {
-     {  "Girls must"            , "do a ",                      "sexy dance"  , .counter = 0u  }, /* 1  */
+     {  "Guys must"            , "do a ",                      "sexy dance"  , .counter = 0u  }, /* 1  */
+     {  "Vodka round!!!",        "for guys!!!"   ,                   NULL    , .counter = 0u  }, /* 2  */
+     {  "Most naked"           , "guy drinks ",                "2x"          , .counter = 0u  }, /* 3  */
+     {  "All guys lose"        , "two items of ",         "clothing"         , .counter = 0u  }, /* 4  */
+     {  "Guys with"            , ">5 flags&numbers",      "drink 3x"         , .counter = 0u  }, /* 5  */
+     {  "Guys who want to"     , "sleep with 1 of",       "the players drink", .counter = 0u  }, /* 6  */
 };
 
 
@@ -123,6 +135,8 @@ Private Task_T priv_TextArrayGirlsLevel4[] =
      { "All girls",       "lose 1 item"    , "of clothing"     , .counter = 0u  }, /*  2  */
      { "2 girls",         "make out"       , "or drink 3x"     , .counter = 0u  }, /*  3  */
      { "Vodka round!!!" , "for girls!!!"   , NULL              , .counter = 0u  }, /*  4  */
+     { "All clean",       "shaven girls"   , "drink 1x"        , .counter = 0u  }, /*  5  */
+     { "All girls",       "who masturbated", "today drink 2x"  , .counter = 0u  }, /*  6  */
 };
 
 /* Hardcore tasks. -> Full Sass mode. */
@@ -131,7 +145,9 @@ Private Task_T priv_TextArrayGuysLevel4[] =
      { "Sass must do",     "a lapdance"  , "to a girl"         , .counter = 0u  }, /*  1  */
      { "Sass must do",     "a lapdance"  , "to a guy"          , .counter = 0u  }, /*  2  */
      { "2 guys",           "make out"    , "or drink 3x"       , .counter = 0u  }, /*  3  */
-     { "Vodka round!!!" , "for girls!!!"   , NULL              , .counter = 0u  }, /*  4  */
+     { "Vodka round!!!" ,  "for girls!!!"   , NULL             , .counter = 0u  }, /*  4  */
+     { "Sass loses",       "3 items"     ,  "of clothing"      , .counter = 0u  }, /*  5  */
+     { "All guys",         "who wanked"  ,  "today drink 2x"   , .counter = 0u  }, /*  6  */
 };
 
 
