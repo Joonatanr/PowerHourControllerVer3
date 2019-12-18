@@ -137,6 +137,7 @@ Private Task_T priv_TextArrayGirlsLevel4[] =
      { "Vodka round!!!" , "for girls!!!"   , NULL              , .counter = 0u  }, /*  4  */
      { "All clean",       "shaven girls"   , "drink 1x"        , .counter = 0u  }, /*  5  */
      { "All girls",       "who masturbated", "today drink 2x"  , .counter = 0u  }, /*  6  */
+     { "Girls must",      "fake an orgasm" , "or drink 3x"     , .counter = 0u  }, /*  7  */
 };
 
 /* Hardcore tasks. -> Full Sass mode. */
@@ -148,6 +149,7 @@ Private Task_T priv_TextArrayGuysLevel4[] =
      { "Vodka round!!!" ,  "for girls!!!"   , NULL             , .counter = 0u  }, /*  4  */
      { "Sass loses",       "3 items"     ,  "of clothing"      , .counter = 0u  }, /*  5  */
      { "All guys",         "who wanked"  ,  "today drink 2x"   , .counter = 0u  }, /*  6  */
+     { "Guys must",      "fake an orgasm" , "or drink vodka"   , .counter = 0u  }, /*  7  */
 };
 
 
