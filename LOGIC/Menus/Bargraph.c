@@ -163,9 +163,6 @@ Private void drawBackGround(void)
 
     //Draw down arrow.
     display_drawBitmapCenter(&downArrowBitmap, 64u, DOWN_ARROW_OFFSET_Y, FALSE);
-
-    //Draw rectangle around the bar.
-    /* TODO */
 }
 
 

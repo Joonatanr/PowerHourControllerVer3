@@ -12,6 +12,7 @@
 
 
 
+#define HYSTERESIS_VALUE 50u
 /* POT is connected to output 4.1 or A12 */
 
 /* POT_LED1 -> 4.6
@@ -21,9 +22,27 @@
  *
  */
 
+typedef struct
+{
+    U32 upper_range;
+    U32 lower_range;
+} pot_range_T;
+
+#define NUMBER_OF_POT_RANGES 4
+
+/* ADC value is 14 bit, so between 0 and 16384 , 4096 per quadrant*/
+Private const pot_range_T priv_pot_ranges[NUMBER_OF_POT_RANGES] =
+{
+     { .lower_range = 12288u + HYSTERESIS_VALUE,  .upper_range = 0x4000u                     },
+     { .lower_range = 8192u  + HYSTERESIS_VALUE,  .upper_range = 12287u - HYSTERESIS_VALUE   },
+     { .lower_range = 4096u  + HYSTERESIS_VALUE,  .upper_range = 8193u  - HYSTERESIS_VALUE   },
+     { .lower_range = 0u,                         .upper_range = 4095u  - HYSTERESIS_VALUE   }
+};
+
 static volatile uint16_t curADCResult = 0u;
 //static volatile float normalizedADCRes;
 
+Private void setPotLeds(int range);
 Private void setPotLed(int id, Boolean state);
 Private int currentRange = 0;
 
@@ -69,42 +88,25 @@ Public void pot_init(void)
 
 Public void pot_cyclic_10ms(void)
 {
-    /* TODO : Add hysteresis. */
     float adc_value = curADCResult;
+    int measured_range = -1;
+    U8 ix;
 
-    /* ADC value is 14 bit, so between 0 and 16384 */ /* 4096 per quadrant, lets first try with naive solution. */
-    if (adc_value > 12288u)
+    for (ix = 0u; ix < NUMBER_OF_POT_RANGES; ix++)
     {
-        setPotLed(0, TRUE);
-        setPotLed(1, FALSE);
-        setPotLed(2, FALSE);
-        setPotLed(3, FALSE);
-        currentRange = 0;
+        if (adc_value >= priv_pot_ranges[ix].lower_range && adc_value <= priv_pot_ranges[ix].upper_range)
+        {
+            measured_range = ix;
+            break;
+        }
     }
-    else if(adc_value > 8192u)
+
+    if (measured_range != -1)
     {
-        setPotLed(0, TRUE);
-        setPotLed(1, TRUE);
-        setPotLed(2, FALSE);
-        setPotLed(3, FALSE);
-        currentRange = 1;
+        currentRange = measured_range;
     }
-    else if(adc_value > 4096u)
-    {
-        setPotLed(0, TRUE);
-        setPotLed(1, TRUE);
-        setPotLed(2, TRUE);
-        setPotLed(3, FALSE);
-        currentRange = 2;
-    }
-    else
-    {
-        setPotLed(0, TRUE);
-        setPotLed(1, TRUE);
-        setPotLed(2, TRUE);
-        setPotLed(3, TRUE);
-        currentRange = 3;
-    }
+
+    setPotLeds(currentRange);
 
     MAP_ADC14_toggleConversionTrigger();
 }
@@ -127,9 +129,40 @@ void ADC14_IRQHandler(void)
     if (ADC_INT12 & status)
     {
         curADCResult = MAP_ADC14_getResult(ADC_MEM12);
-        //normalizedADCRes = (curADCResult * 3.3) / 16384;
+    }
+}
 
-        //ADC14_toggleConversionTrigger();
+
+Private void setPotLeds(int range)
+{
+    switch(range)
+    {
+        case 0:
+            setPotLed(0, TRUE);
+            setPotLed(1, FALSE);
+            setPotLed(2, FALSE);
+            setPotLed(3, FALSE);
+            break;
+        case 1:
+            setPotLed(0, TRUE);
+            setPotLed(1, TRUE);
+            setPotLed(2, FALSE);
+            setPotLed(3, FALSE);
+            break;
+        case 2:
+            setPotLed(0, TRUE);
+            setPotLed(1, TRUE);
+            setPotLed(2, TRUE);
+            setPotLed(3, FALSE);
+            break;
+        case 3:
+            setPotLed(0, TRUE);
+            setPotLed(1, TRUE);
+            setPotLed(2, TRUE);
+            setPotLed(3, TRUE);
+            break;
+        default:
+            break;
     }
 }
 
