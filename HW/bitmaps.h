@@ -20,6 +20,7 @@ extern const Bitmap girl_Sasha_bitmap;
 extern const Bitmap strong_dude_bitmap;
 extern const Bitmap chad_bitmap;
 extern const Bitmap man3_bitmap;
+extern const Bitmap dude4_bitmap;
 
 extern const Bitmap test_palmtree_bmp;
 extern const Bitmap beershot_bmp;

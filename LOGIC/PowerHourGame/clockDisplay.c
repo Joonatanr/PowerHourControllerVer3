@@ -490,6 +490,7 @@ Private const IntroSequence priv_guys_intros[] =
  {.bmp_ptr = &strong_dude_bitmap, .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 58u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE },
  {.bmp_ptr = &chad_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE },
  {.bmp_ptr = &man3_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 20u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE  },
+ {.bmp_ptr = &dude4_bitmap,       .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE  },
 };
 
 Private Boolean guysSpecialIntro(U8 sec)
