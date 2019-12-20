@@ -462,7 +462,6 @@ Private void setUpperText(const char * str)
     display_drawString(str, UPPER_TEXT_XLOC, UPPER_TEXT_YLOC, UPPER_TEXT_FONT, FALSE);
 }
 
-//TODO : Replace this area with defined points.
 Private void clearUpperText(void)
 {
     display_fillRectangle(UPPER_TEXT_XLOC, UPPER_TEXT_YLOC, UPPER_TEXT_HEIGHT, UPPER_TEXT_WIDTH, PATTERN_WHITE);

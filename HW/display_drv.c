@@ -490,7 +490,6 @@ Public void display_drawLine(Point begin, Point end, Boolean isBlack)
 }
 
 
-//TODO : Should take line breaks into account somehow.
 Public U16 display_getStringWidth(const char * str, FontType font)
 {
     const char *ps = str;
