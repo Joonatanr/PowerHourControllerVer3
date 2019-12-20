@@ -176,7 +176,6 @@ Public void buttons_setButtonMode(ButtonType btn, ButtonMode mode)
 }
 
 
-/* TODO : Test this. */
 Public void buttons_subscribeHoldDownListener(ButtonType btn, buttonListener listener)
 {
     Interrupt_disableMaster();

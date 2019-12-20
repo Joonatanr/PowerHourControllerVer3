@@ -424,15 +424,12 @@ Public void display_clear(void)
             priv_display_buffer[y][x] = 0x00u;
         }
     }
-    //TODO : Clearing validity bits should be replaced by a macro.
 }
 
 
 /* Sets or clears a single pixel. */
 Public void display_setPixel(U8 x, U8 y, Boolean val)
 {
-    /* TODO : Add some proper bit macros. */
-
     if ((x < NUMBER_OF_COLUMNS) && (y < NUMBER_OF_ROWS))
     {
         U8 page = y >> 3u;

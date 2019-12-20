@@ -166,7 +166,7 @@ Private const ControllerEvent priv_girls_drink_events[] =
      { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers girls!",       .shot_action = OVERRIDE_FUNCTION         , .func = &girlsSpecialTask    },
 };
 
-//TODO : Review this and add more tasks.
+
 /* This is a scheduler for special minutes.
  * It contains data about the frequency and offset of special minutes as well
  * as links to their respective actions. */
@@ -198,7 +198,7 @@ Public void clockDisplay_init(void)
     priv_timer_rect.location.y -= (font_height >> 1u);
 
     priv_timer_rect.size.height = font_height;
-    priv_timer_rect.size.width = 15u * 5u; //TODO : This should be changed, once font handling has been improved.
+    priv_timer_rect.size.width = 15u * 5u;
 
     priv_timer_state = CONTROLLER_INIT;
 }
@@ -206,7 +206,7 @@ Public void clockDisplay_init(void)
 
 Public void clockDisplay_start(void)
 {
-    display_clear(); //TODO : This is probably redundant.
+    display_clear();
     //We start counting.
     priv_timer_state = CONTROLLER_COUNTING;
 }
@@ -532,8 +532,6 @@ Private const IntroSequence priv_girl_intros[] =
 {
      { .bmp_ptr = &girl_1_bitmap, .bmp_x = 0u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE},
      { .bmp_ptr = &girl_2_bitmap, .bmp_x = 6u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE},
-
-     /* TODO : Test these. */
      { .bmp_ptr = &girl_3_bitmap,        .bmp_x = 6u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT, .isInverted = TRUE },
      { .bmp_ptr = &girl_9_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT, .isInverted = TRUE },
      { .bmp_ptr = &girl_Sasha_bitmap,    .bmp_x = 0u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 10u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT, .isInverted = TRUE },

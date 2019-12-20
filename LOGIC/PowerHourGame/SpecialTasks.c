@@ -271,11 +271,10 @@ Public Boolean girlsSpecialTask(U8 sec)
 Public Boolean guysSpecialTask(U8 sec)
 {
     Boolean res = FALSE;
-    static U8 test_counter = 0u; //TODO : This should be reviewed.
+    static U8 test_counter = 0u;
 
     if (sec == 0u)
     {
-        //priv_selected_task_ptr = &DrinkTwiceTask;
         priv_selected_task_ptr = priv_special_tasks_guys_array[test_counter];
         test_counter++;
         if(test_counter >= NUMBER_OF_ITEMS(priv_special_tasks_guys_array))

@@ -121,7 +121,6 @@ Private void timer_hi_prio(void)
 
 
 //This is called every 50 milliseconds.
-//Maybe this should be called more frequently?
 Private void timer_lo_prio(void)
 {
     //Call the main scheduler for logic tasks.
@@ -132,46 +131,10 @@ Private void timer_lo_prio(void)
 Private void showStartScreen(void)
 {
     display_clear();
-#ifdef    DEBUG_SEQUENCE
-
-    //Test setPixel function.
-    //display_setPixel(10, 10, TRUE);
-    //display_setPixel(20, 20, TRUE);
-    //display_setPixel(30, 30, TRUE);
-    //display_setPixel(40, 40, TRUE);
-    //display_setPixel(50, 50, TRUE);
-    //display_setPixel(60, 60, TRUE);
-
-    //Test line drawing.
-    //display_drawLine((Point){70,20}, (Point){90,20}, TRUE);
-
-    //Test rectangle drawing.
-    //display_drawRectangle(0, 0, 10, 10, 1);
-    //display_drawRectangle(0, 0, 6, 6, 2);
-    //display_drawRectangle(24, 15, 20, 20, 3);
-
-    //display_fillRectangle(0, 0, 3, 2, PATTERN_BLACK);
-    //MessageBox_ShowWithOk("Hello World!\n Power Hour");
-    display_drawStringCenter("Sound Test", 64u, 20u, FONT_LARGE_FONT, FALSE);
-    speaker_test();
-
-    delay_msec(1000);
-
-#endif
 
     display_drawStringCenter("Power Hour", 64u, 5u, FONT_LARGE_FONT, FALSE);
     display_drawStringCenter(priv_version_string, 64u, 20u, FONT_LARGE_FONT, FALSE);
     display_drawStringCenter("Sass Edition", 64u, 40u, FONT_MEDIUM_FONT, FALSE);
-
-#if 0
-    display_drawBitmap(&girl_Sasha_bitmap, 0u, 0u, TRUE);
-
-    delay_msec(5000);
-
-    display_drawBitmap(&man3_bitmap, 0u, 0u, TRUE);
-
-    delay_msec(5000);
-#endif
 }
 
 /* Starts the main Power Hour game. */

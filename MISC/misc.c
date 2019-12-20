@@ -37,13 +37,10 @@ Public Boolean parseRectangle(char * src, Rectangle * dest)
 }
 
 
-/* Returns a rectangle around a central point defined by location.
- * TODO : This should be replace by an inline function or a macro. */
+/* Returns a rectangle around a central point defined by location.*/
 Public inline Rectangle CreateRectangleAroundCenter(Point location, Size size)
 {
     Rectangle res;
-    //res.location.x = location.x - (size.width / 2);
-    //res.location.y = location.y - (size.height / 2);
     res.location.x = GET_X_FROM_CENTER(location.x, size.width);
     res.location.y = GET_Y_FROM_CENTER(location.y, size.height);
 

@@ -196,7 +196,6 @@ Public void uprintf(const char * str, ...)
             ps++;
 
             /* Currently supporting most of the basic options of printf... */
-            /* TODO : Test this function. */
             switch (*ps)
             {
             case 'c':

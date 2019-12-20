@@ -13,7 +13,7 @@
 
 typedef enum
 {
-    TASK_FOR_GIRLS, //TODO : Add more types.
+    TASK_FOR_GIRLS,
     TASK_FOR_GUYS,
     NUMBER_OF_TASK_TYPES
 } SpecialTaskType;
