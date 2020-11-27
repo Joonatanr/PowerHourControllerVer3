@@ -336,6 +336,19 @@ Public void set_cs_pin(U8 state)
 }
 
 
+Public void set_disp_reset_pin(U8 state)
+{
+    if (state)
+    {
+        GPIO_setOutputHighOnPin(GPIO_PORT_P4, GPIO_PIN1);
+    }
+    else
+    {
+        GPIO_setOutputLowOnPin(GPIO_PORT_P4, GPIO_PIN1);
+    }
+}
+
+
 Public U8 isBtnOne(void)
 {
     U8 res = 0x00u;

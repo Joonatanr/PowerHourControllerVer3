@@ -19,6 +19,23 @@
 #include "speaker.h"
 #include "pot.h"
 
+/*  P4.7 -> Red button   (UP)
+    P5.5 -> Green Button (LEFT)
+    P6.4 -> Black Button (RIGHT)
+    P5.4 -> Blue Button  (DOWN)
+
+
+    P1.5 -> Spi CLK
+    P1.6 -> Spi Tx
+    P1.7 -> A0
+    P4.3 -> CS
+
+    P4.1 -> DISP_RST
+    P5.6 -> BCKL
+*/
+
+
+
 //#define DEBUG_SEQUENCE
 
 Private void timer_hi_prio(void);
