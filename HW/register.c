@@ -212,6 +212,9 @@ Private void ports_init(void)
     /* Selecting P1.2 and P1.3 in UART mode */
     MAP_GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P1,
             GPIO_PIN1 | GPIO_PIN2 | GPIO_PIN3, GPIO_PRIMARY_MODULE_FUNCTION);
+
+    /* Set up reset pin in output mode. */
+    GPIO_setAsOutputPin(GPIO_PORT_P3, GPIO_PIN6);
 }
 
 Private void timerA_init(void)
@@ -340,11 +343,11 @@ Public void set_disp_reset_pin(U8 state)
 {
     if (state)
     {
-        GPIO_setOutputHighOnPin(GPIO_PORT_P4, GPIO_PIN1);
+        GPIO_setOutputHighOnPin(GPIO_PORT_P3, GPIO_PIN6);
     }
     else
     {
-        GPIO_setOutputLowOnPin(GPIO_PORT_P4, GPIO_PIN1);
+        GPIO_setOutputLowOnPin(GPIO_PORT_P3, GPIO_PIN6);
     }
 }
 

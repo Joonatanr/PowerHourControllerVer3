@@ -30,8 +30,15 @@
     P1.7 -> A0
     P4.3 -> CS
 
-    P4.1 -> DISP_RST
+    P4.1 -> Potentiometer input.
     P5.6 -> BCKL
+
+    P4.6 -> POT_LED1
+    P3.3 -> POT_LED2
+    P3.2 -> POT_LED3
+    P6.0 -> POT_LED4
+
+    P3.6 -> DISP_RESET
 */
 
 
