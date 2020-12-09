@@ -19,26 +19,32 @@
 #include "speaker.h"
 #include "pot.h"
 
-/*  P4.7 -> Red button   (UP)
-    P5.5 -> Green Button (LEFT)
-    P6.4 -> Black Button (RIGHT)
-    P5.4 -> Blue Button  (DOWN)
-
-
-    P1.5 -> Spi CLK
+/*  
+	P1.5 -> Spi CLK
     P1.6 -> Spi Tx
     P1.7 -> A0
-    P4.3 -> CS
-
+	
+	P2.7 -> Buzzer
+		
+	P3.2 -> POT_LED3
+	P3.3 -> POT_LED2
+	P3.6 -> DISP_RESET
+    
     P4.1 -> Potentiometer input.
+    P4.3 -> CS	
+	
+    P4.6 -> POT_LED1
+	P4.7 -> Red button   (UP)
+    
+    
+    P5.4 -> Blue Button  (DOWN)
+	P5.5 -> Green Button (LEFT)	
     P5.6 -> BCKL
 
-    P4.6 -> POT_LED1
-    P3.3 -> POT_LED2
-    P3.2 -> POT_LED3
-    P6.0 -> POT_LED4
 
-    P3.6 -> DISP_RESET
+    P6.0 -> POT_LED4
+    P6.4 -> Black Button (RIGHT)
+
 */
 
 
