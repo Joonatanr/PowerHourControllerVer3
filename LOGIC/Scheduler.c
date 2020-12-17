@@ -49,7 +49,8 @@ Private const Scheduler_LogicTask priv_tasks[NUMBER_OF_SCHEDULER_TASKS] =
 
 /*************  Private variable declarations.  **************/
 Private const Scheduler_LogicTask * priv_curr_app_ptr = NULL;
-Private U16 priv_task_timer = 0u;
+Private U16 priv_app_task_timer = 0u;
+Private U32 priv_task_timer = 0u;
 Private Boolean priv_isInitComplete = FALSE;
 Private Boolean priv_isAppPaused = FALSE;
 
@@ -135,12 +136,13 @@ void Scheduler_cyclic(void)
         return;
     }
 
+    priv_app_task_timer += SCHEDULER_PERIOD;
     priv_task_timer += SCHEDULER_PERIOD;
 
     /* Prevent overflow. */
-    if (priv_task_timer > 50000u)
+    if (priv_app_task_timer > 50000u)
     {
-        priv_task_timer = SCHEDULER_PERIOD;
+        priv_app_task_timer = SCHEDULER_PERIOD;
     }
 
     /* Deal with the current active logical module. */
@@ -148,9 +150,9 @@ void Scheduler_cyclic(void)
     {
         /* TODO : Review this, it will not work with a period of for example 20 .*/
         /* Might be good enough for testing. */
-        if ((priv_task_timer % priv_curr_app_ptr->period) == 0u)
+        if ((priv_app_task_timer % priv_curr_app_ptr->period) == 0u)
         {
-            priv_task_timer = 0u;
+            priv_app_task_timer = 0u;
             if (priv_curr_app_ptr->cyclic_fptr != NULL)
             {
                 /* Pause can happen for example because we are waiting for user input... */
