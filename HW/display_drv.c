@@ -12,6 +12,8 @@
 #include "register.h"
 #include "misc.h"
 
+#define ROTATE_180_DEGREES
+
 
 /*****************************************************************************************************
  *
@@ -96,10 +98,17 @@ Public void display_start(void)
     //Display start line set.
     disp_command(0x40u, FALSE);
 
+#ifdef ROTATE_180_DEGREES
+    //Set ADC in normal
+    disp_command(0xA0u, FALSE);
+    //Common output mode select
+    disp_command(0xC8u, FALSE);
+#else
     //Set ADC in reverse
     disp_command(0xA1u, FALSE);
     //Common output mode select
     disp_command(0xC0u, FALSE);
+#endif
 
     //display normal
     disp_command(0xA6u, FALSE);
@@ -726,6 +735,9 @@ Private inline void write_data(U8 data)
 
 Private inline void set_column(U8 column)
 {
+#ifdef ROTATE_180_DEGREES
+    column += 4u;
+#endif
     //Set column MSB.
     disp_command(0x10u | (column >> 4u),  FALSE);
     //Set column LSB.
