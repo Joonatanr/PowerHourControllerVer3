@@ -16,10 +16,10 @@
 
 /***** Private function definitions ***********/
 
-Private void redButtonListener(void);
-Private void blueButtonListener(void);
-Private void greenButtonListener(void);
-Private void blackButtonListener(void);
+Private void upButtonListener(void);
+Private void downButtonListener(void);
+Private void okButtonListener(void);
+Private void backButtonListener(void);
 
 Private void drawMenu(SelectionMenu * menu);
 
@@ -37,10 +37,10 @@ Public void menu_enterMenu(SelectionMenu * menu)
     drawMenu(priv_active_menu_ptr);
 
     //Subscribe to buttons.
-    buttons_subscribeListener(RED_BUTTON, redButtonListener);
-    buttons_subscribeListener(GREEN_BUTTON, greenButtonListener);
-    buttons_subscribeListener(BLUE_BUTTON, blueButtonListener);
-    buttons_subscribeListener(BLACK_BUTTON, blackButtonListener);
+    buttons_subscribeListener(UP_BUTTON, upButtonListener);
+    buttons_subscribeListener(OK_BUTTON, okButtonListener);
+    buttons_subscribeListener(DOWN_BUTTON, downButtonListener);
+    buttons_subscribeListener(CANCEL_BUTTON, backButtonListener);
 }
 
 /* Exit from menu unconditionally. */
@@ -127,7 +127,7 @@ Private void drawMenu(SelectionMenu * menu)
 }
 
 /* This is the OK key. */
-Private void greenButtonListener(void)
+Private void okButtonListener(void)
 {
     const MenuItem * item = menu_getSelectedItem(priv_active_menu_ptr);
     SelectionMenu * sub;
@@ -159,7 +159,7 @@ Private void greenButtonListener(void)
 
 
 /* This is the UP key   */
-Private void redButtonListener(void)
+Private void upButtonListener(void)
 {
     if (priv_active_menu_ptr != NULL)
     {
@@ -168,7 +168,7 @@ Private void redButtonListener(void)
 }
 
 /* This is the DOWN key. */
-Private void blueButtonListener(void)
+Private void downButtonListener(void)
 {
     if (priv_active_menu_ptr != NULL)
     {
@@ -177,7 +177,7 @@ Private void blueButtonListener(void)
 }
 
 /* This is the back button. */
-Private void blackButtonListener(void)
+Private void backButtonListener(void)
 {
     if (priv_active_menu_ptr != NULL)
     {

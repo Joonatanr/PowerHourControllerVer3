@@ -23,21 +23,21 @@ typedef enum
 /* Configuration part - Change this to suit the application. */
 typedef enum
 {
-    RED_BUTTON,     /* Up button    */
-    GREEN_BUTTON,   /* Left button  */
-    BLACK_BUTTON,   /* Right button */
-    BLUE_BUTTON,    /* Down button  */
+    BLUE_BUTTON,     /* Up button    */
+    YELLOW_BUTTON,   /* Left button  */
+    RED_BUTTON,      /* Right button */
+    GREEN_BUTTON,    /* Down button  */
 
     NUMBER_OF_BUTTONS
 } ButtonType;
 
-#define UP_BUTTON       RED_BUTTON
-#define LEFT_BUTTON     GREEN_BUTTON
-#define RIGHT_BUTTON    BLACK_BUTTON
-#define DOWN_BUTTON     BLUE_BUTTON
+#define UP_BUTTON       BLUE_BUTTON
+#define LEFT_BUTTON     YELLOW_BUTTON
+#define RIGHT_BUTTON    RED_BUTTON
+#define DOWN_BUTTON     GREEN_BUTTON
 
-#define OK_BUTTON       GREEN_BUTTON
-#define CANCEL_BUTTON   BLACK_BUTTON
+#define OK_BUTTON       YELLOW_BUTTON
+#define CANCEL_BUTTON   RED_BUTTON
 
 /**************************************************************/
 

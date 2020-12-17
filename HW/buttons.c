@@ -39,10 +39,10 @@ typedef struct
 
 Private const ButtonConf priv_button_config[NUMBER_OF_BUTTONS] =
 {
- {  .port = GPIO_PORT_P4, .pin = GPIO_PIN7 },      /* RED_BUTTON       */
- {  .port = GPIO_PORT_P5, .pin = GPIO_PIN5 },      /* GREEN_BUTTON     */
- {  .port = GPIO_PORT_P6, .pin = GPIO_PIN4 },      /* BLACK_BUTTON     */
- {  .port = GPIO_PORT_P5, .pin = GPIO_PIN4 },      /* BLUE_BUTTON      */
+ {  .port = GPIO_PORT_P5, .pin = GPIO_PIN4 },      /* BLUE_BUTTON       */
+ {  .port = GPIO_PORT_P4, .pin = GPIO_PIN7 },      /* YELLOW_BUTTON     */
+ {  .port = GPIO_PORT_P6, .pin = GPIO_PIN4 },      /* RED_BUTTON        */
+ {  .port = GPIO_PORT_P5, .pin = GPIO_PIN5 },      /* GREEN_BUTTON      */
 };
 
 

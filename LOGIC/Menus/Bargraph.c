@@ -116,10 +116,10 @@ Public void enterBarGraph(Bargraph_T * bar)
 {
     priv_active_bar = bar;
 
-    buttons_subscribeListener(RED_BUTTON, handleButtonUp);
-    buttons_subscribeListener(BLUE_BUTTON, handleButtonDown);
-    buttons_subscribeListener(BLACK_BUTTON, handleButtonAck);
-    buttons_subscribeListener(GREEN_BUTTON, handleButtonAck);
+    buttons_subscribeListener(UP_BUTTON, handleButtonUp);
+    buttons_subscribeListener(DOWN_BUTTON, handleButtonDown);
+    buttons_subscribeListener(OK_BUTTON, handleButtonAck);
+    buttons_subscribeListener(CANCEL_BUTTON, handleButtonAck);
 
     //priv_number_box = CreateRectangleAroundCenter((Point){64u, NUMBER_OFFSET_Y }, (Size){ 20u, 20u });
 
