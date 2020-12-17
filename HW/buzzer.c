@@ -27,7 +27,7 @@ Private U16 priv_cycle_counter;
 
 Public void buzzer_init(void)
 {
-    GPIO_setAsOutputPin(GPIO_PORT_P2, GPIO_PIN3);
+    GPIO_setAsOutputPin(GPIO_PORT_P2, GPIO_PIN7);
     buzzer_setBuzzer(FALSE);
 }
 
@@ -36,11 +36,11 @@ Public void buzzer_setBuzzer(Boolean state)
 {
     if (state)
     {
-        GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN3);
+        GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN7);
     }
     else
     {
-        GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN3);
+        GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN7);
     }
 }
 

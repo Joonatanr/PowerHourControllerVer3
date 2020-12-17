@@ -175,19 +175,19 @@ Private void setPotLed(int id, Boolean state)
 
     switch(id)
     {
-        case 2u:
+        case 0u:
             port = GPIO_PORT_P4;
             pins = GPIO_PIN6;
             break;
-        case 1u:
+        case 3u:
             port = GPIO_PORT_P3;
             pins = GPIO_PIN3;
             break;
-        case 3u:
+        case 1u:
             port = GPIO_PORT_P3;
             pins = GPIO_PIN2;
             break;
-        case 0u:
+        case 2u:
             port = GPIO_PORT_P6;
             pins = GPIO_PIN0;
             break;
