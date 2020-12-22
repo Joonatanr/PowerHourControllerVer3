@@ -21,4 +21,8 @@ extern void clockDisplay_start(void);
 extern void clockDisplay_cyclic1000msec(void);
 extern void clockDisplay_stop(void);
 
+extern void clockDisplay_setTaskFrequency(U8 freq);
+extern U16 clockDisplay_getTaskFrequency(void);
+
+
 #endif /* LOGIC_POWERHOURGAME_CLOCKDISPLAY_H_ */

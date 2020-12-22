@@ -10,6 +10,7 @@
 #include "display_drv.h"
 #include "buttons.h"
 #include "backlight.h"
+#include "LOGIC/PowerHourGame/clockDisplay.h"
 #include <LOGIC/SnakeGame/SnakeMain.h>
 
 #define BARGRAPH_BEGIN_X    14u
@@ -72,6 +73,7 @@ Public Bargraph_T BRIGHTNESS_BARGRAPH =
      .parent = NULL,
      .text = "Brightness",
      .value_changed = backlight_set_level,
+     .value_initial_fptr = NULL,
 };
 
 Public Bargraph_T SNAKE_SPEEED_BARGRAPH =
@@ -83,6 +85,19 @@ Public Bargraph_T SNAKE_SPEEED_BARGRAPH =
      .parent = NULL,
      .text = "Snake speed",
      .value_changed = snake_setSpeed,
+     .value_initial_fptr = NULL
+};
+
+Public Bargraph_T TASK_FREQUENCY_BARGRAPH =
+{
+     .max_value = 10u,
+     .min_value = 1u,
+     .increment = 1u,
+     .value = 3u,
+     .parent = NULL,
+     .text = "Task Frequency (minutes)",
+     .value_changed = clockDisplay_setTaskFrequency,
+     .value_initial_fptr = clockDisplay_getTaskFrequency
 };
 
 /*******************/
@@ -122,6 +137,11 @@ Public void enterBarGraph(Bargraph_T * bar)
     buttons_subscribeListener(CANCEL_BUTTON, handleButtonAck);
 
     //priv_number_box = CreateRectangleAroundCenter((Point){64u, NUMBER_OFFSET_Y }, (Size){ 20u, 20u });
+
+    if (bar->value_initial_fptr != NULL)
+    {
+        bar->value = bar->value_initial_fptr();
+    }
 
     drawBackGround();
     drawBarGraph();

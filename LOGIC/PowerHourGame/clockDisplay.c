@@ -11,6 +11,8 @@
 #include <LOGIC/PowerHourGame/SpecialTasks.h>
 #include "display_drv.h"
 #include "buzzer.h"
+#include "tumbler.h"
+#include "register.h"
 
 #define BEERSHOT_X 86
 #define BEERSHOT_Y 1
@@ -66,7 +68,6 @@ typedef enum
 } beershotState;
 
 
-
 typedef struct
 {
     U8 second;                      // When the event should be triggered.
@@ -76,13 +77,31 @@ typedef struct
     OverrideFunc    func;           // Optional parameter - This function will override all behaviour, used for special actions.
 } ControllerEvent;
 
+typedef enum
+{
+    TASK_CATEGORY_GIRLS,
+    TASK_CATEGORY_GUYS,
+    TASK_CATEGORY_BOARD,
+    TASK_CATEGORY_CORETEAM,
+    TASK_CATEGORY_ALUMNI,
+    TASK_CATEGORY_PAX,
+    TASK_CATEGORY_KT,
+    TASK_CATEGORY_SOC,
+    NUMBER_OF_TASK_CATEGORIES
+} SchedulerTaskCategory;
+
 typedef struct
 {
-    U8 frequency;
-    U8 offset;
     const ControllerEvent * event_array;
-    U8 event_cnt;
-} SchedulerTask;
+    U8                        event_cnt;
+    Tumbler_T             enable_tumblr;
+} SchedulerTaskConf_T;
+
+typedef struct
+{
+    U16 counter;
+    Boolean is_enabled;
+} SchedulerTaskState_T;
 
 //Just an idea.
 typedef struct
@@ -112,6 +131,7 @@ Private Boolean girlsSpecialIntro(U8 sec);
 Private Boolean guysSpecialIntro(U8 sec);
 
 Private void doFinalAction(void);
+Private U8 selectRandomTaskIndex(void);
 
 Private timekeeper_struct priv_timekeeper;
 Private controllerState priv_timer_state;
@@ -166,22 +186,86 @@ Private const ControllerEvent priv_girls_drink_events[] =
      { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers girls!",       .shot_action = OVERRIDE_FUNCTION         , .func = &girlsSpecialTask    },
 };
 
+Private const ControllerEvent priv_board_drink_events[] =
+{
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 20u, .upperText = "Fill shots",    .lowerText = "Boardies Round",      .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
+     { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers boardies!",    .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+};
+
+Private const ControllerEvent priv_cteam_drink_events[] =
+{
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 20u, .upperText = "Fill shots",    .lowerText = "Core Team Round",     .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
+     { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Core Team!",   .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+};
+
+Private const ControllerEvent priv_alumni_drink_events[] =
+{
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 20u, .upperText = "Fill shots",    .lowerText = "Alumni Round",        .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
+     { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Alumni!",      .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+};
+
+Private const ControllerEvent priv_pax_drink_events[] =
+{
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 20u, .upperText = "Fill shots",    .lowerText = "PAX Round",           .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
+     { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers PAX!",         .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+};
+
+Private const ControllerEvent priv_kt_drink_events[] =
+{
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 20u, .upperText = "Fill shots",    .lowerText = "KT Round",            .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
+     { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Paragrahv 5!",        .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+};
+
+Private const ControllerEvent priv_soc_drink_events[] =
+{
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 20u, .upperText = "Fill shots",    .lowerText = "Soc. Resp. Round",    .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
+     { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Soc!",         .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+};
+
 
 /* This is a scheduler for special minutes.
  * It contains data about the frequency and offset of special minutes as well
  * as links to their respective actions. */
-Private const SchedulerTask priv_scheduler[] =
+Private const SchedulerTaskConf_T priv_scheduler_conf[NUMBER_OF_TASK_CATEGORIES] =
 {
- {.frequency = 6u, .offset = 6u, .event_array = priv_girls_drink_events,    .event_cnt = NUMBER_OF_ITEMS(priv_girls_drink_events)   },
- {.frequency = 6u, .offset = 3u, .event_array = priv_guys_drink_events,     .event_cnt = NUMBER_OF_ITEMS(priv_guys_drink_events)    },
+     {.event_array = priv_girls_drink_events,   .event_cnt = NUMBER_OF_ITEMS(priv_girls_drink_events),  .enable_tumblr = TUMBLER_UPPER_2  },       /*TASK_CATEGORY_GIRLS     */
+     {.event_array = priv_guys_drink_events,    .event_cnt = NUMBER_OF_ITEMS(priv_guys_drink_events),   .enable_tumblr = TUMBLER_UPPER_3  },       /*TASK_CATEGORY_GUYS      */
+     {.event_array = priv_board_drink_events,   .event_cnt = NUMBER_OF_ITEMS(priv_board_drink_events),  .enable_tumblr = TUMBLER_UPPER_0  },       /*TASK_CATEGORY_BOARD     */
+     {.event_array = priv_cteam_drink_events,   .event_cnt = NUMBER_OF_ITEMS(priv_cteam_drink_events),  .enable_tumblr = TUMBLER_UPPER_1  },       /*TASK_CATEGORY_CORETEAM  */
+     {.event_array = priv_alumni_drink_events,  .event_cnt = NUMBER_OF_ITEMS(priv_alumni_drink_events), .enable_tumblr = TUMBLER_LOWER_0  },       /*TASK_CATEGORY_ALUMNI    */
+     {.event_array = priv_pax_drink_events,     .event_cnt = NUMBER_OF_ITEMS(priv_pax_drink_events),    .enable_tumblr = TUMBLER_LOWER_1  },       /*TASK_CATEGORY_PAX       */
+     {.event_array = priv_kt_drink_events,      .event_cnt = NUMBER_OF_ITEMS(priv_kt_drink_events),     .enable_tumblr = TUMBLER_LOWER_2  },       /*TASK_CATEGORY_KT        */
+     {.event_array = priv_soc_drink_events,     .event_cnt = NUMBER_OF_ITEMS(priv_soc_drink_events),    .enable_tumblr = TUMBLER_LOWER_3  },       /*TASK_CATEGORY_SOC       */
 };
 
+Private SchedulerTaskState_T priv_scheduler_state[NUMBER_OF_TASK_CATEGORIES];
 
 Private beershotState priv_beer_state;
 Private Rectangle priv_timer_rect;
 Private OverrideFunc priv_override_ptr;
 Private char priv_timer_str[10];
 Private U8 priv_override_counter;
+Private U8 priv_task_frequency = 3u; /* Default value is a task every 3 minutes. */
+
+
+/*****************************************************************************************************
+ *
+ * Public function definitions
+ *
+ *****************************************************************************************************/
+
 
 Public void clockDisplay_init(void)
 {
@@ -201,14 +285,22 @@ Public void clockDisplay_init(void)
     priv_timer_rect.size.width = 15u * 5u;
 
     priv_timer_state = CONTROLLER_INIT;
+
 }
 
 
 Public void clockDisplay_start(void)
 {
+    U8 ix;
+
     display_clear();
     //We start counting.
     priv_timer_state = CONTROLLER_COUNTING;
+
+    for (ix = 0u; ix < NUMBER_OF_TASK_CATEGORIES; ix++)
+    {
+        priv_scheduler_state[ix].counter = 0u;
+    }
 }
 
 
@@ -322,6 +414,17 @@ Public void clockDisplay_cyclic1000msec(void)
     }
 }
 
+Public void clockDisplay_setTaskFrequency(U8 freq)
+{
+    priv_task_frequency = freq;
+}
+
+Public U16 clockDisplay_getTaskFrequency(void)
+{
+    return (U16)priv_task_frequency;
+}
+
+/********* Private function definitions **********/
 Private void doFinalAction(void)
 {
     display_clear();
@@ -412,35 +515,100 @@ Private void drawBeerShot(beerShotAction action)
 Private U8 getScheduledSpecialTask(const ControllerEvent ** event_ptr)
 {
     U8 ix;
-    U8 offset;
     U8 res;
 
-    *event_ptr = priv_normal_minute_events;
-    res = NUMBER_OF_ITEMS(priv_normal_minute_events);
+    Boolean is_any_enabled = FALSE;
 
-    for (ix = 0u; ix < NUMBER_OF_ITEMS(priv_scheduler); ix++)
+    /* First we have to check if we have any tasks enabled at all... */
+
+    for (ix = 0u; ix < NUMBER_OF_TASK_CATEGORIES; ix++)
     {
-        if(priv_scheduler[ix].offset <= priv_timekeeper.minute)
+        if (tumbler_getState(priv_scheduler_conf[ix].enable_tumblr))
         {
-            offset = priv_timekeeper.minute - priv_scheduler[ix].offset;
-            if ((offset % priv_scheduler[ix].frequency) == 0u)
-            {
-                *event_ptr = priv_scheduler[ix].event_array;
-                res = priv_scheduler[ix].event_cnt;
-                break;
-            }
+            priv_scheduler_state[ix].is_enabled = TRUE;
+            is_any_enabled = TRUE;
         }
+        else
+        {
+            priv_scheduler_state[ix].is_enabled = FALSE;
+        }
+    }
+
+    if (((priv_timekeeper.minute % priv_task_frequency) == 0u) && (is_any_enabled == TRUE))
+    {
+        ix = selectRandomTaskIndex();
+        *event_ptr = priv_scheduler_conf[ix].event_array;
+        res = priv_scheduler_conf[ix].event_cnt;
+    }
+    else
+    {
+        *event_ptr = priv_normal_minute_events;
+        res = NUMBER_OF_ITEMS(priv_normal_minute_events);
     }
 
     return res;
 }
 
+
+/* It returns a random enabled task. However the function should prefer tasks that have not yet been displayed or have been displayed less than others. */
+Private U8 selectRandomTaskIndex(void)
+{
+    U8 max_count = 0u;
+    U8 min_count = 0xffu;
+    U8 ix;
+    U8 res = 0u;
+
+    U8 index_array[NUMBER_OF_TASK_CATEGORIES];
+    U8 index_length = 0u;
+
+    /* Lets first establish the MAX and MIN count that we have. */
+    for (ix = 0u; ix < NUMBER_OF_TASK_CATEGORIES; ix++)
+    {
+        max_count = MAX(priv_scheduler_state[ix].counter, max_count);
+        min_count = MIN(priv_scheduler_state[ix].counter, min_count);
+    }
+
+    if (max_count == min_count)
+    {
+        /* We have no preference in this case. We add all indexes that are enabled to the array. */
+        for (ix = 0u; ix < NUMBER_OF_TASK_CATEGORIES; ix++)
+        {
+            if (priv_scheduler_state[ix].is_enabled)
+            {
+                index_array[index_length] = ix;
+                index_length++;
+            }
+        }
+
+        max_count++;
+    }
+    else
+    {
+        /* We prefer tasks that have not been selected yet. */
+        for (ix = 0u; ix < NUMBER_OF_TASK_CATEGORIES; ix++)
+        {
+            if (priv_scheduler_state[ix].is_enabled && (priv_scheduler_state[ix].counter < max_count))
+            {
+                index_array[index_length] = ix;
+                index_length++;
+            }
+        }
+    }
+
+    res = index_array[generate_random_number(index_length - 1u)];
+
+
+    /* We set the selected count to the max. */
+    priv_scheduler_state[res].counter = max_count;
+
+    return res;
+}
+
+
 Private void drawTimer(void)
 {
-    //Currently for testing.
     convertTimerString(&priv_timekeeper, priv_timer_str);
 
-    //TODO : This is quite inefficient, should change it to a better solution.
     display_fillRectangle(priv_timer_rect.location.x,
                           priv_timer_rect.location.y,
                           priv_timer_rect.size.height,
@@ -486,10 +654,10 @@ Private void clearLowerText(void)
  *****************************************************************************************************/
 Private const IntroSequence priv_guys_intros[] =
 {
- {.bmp_ptr = &strong_dude_bitmap, .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 58u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE },
- {.bmp_ptr = &chad_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE },
- {.bmp_ptr = &man3_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 20u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE  },
- {.bmp_ptr = &dude4_bitmap,       .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE  },
+     {.bmp_ptr = &strong_dude_bitmap, .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 58u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE },
+     {.bmp_ptr = &chad_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE },
+     {.bmp_ptr = &man3_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 20u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE  },
+     {.bmp_ptr = &dude4_bitmap,       .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE  },
 };
 
 Private Boolean guysSpecialIntro(U8 sec)

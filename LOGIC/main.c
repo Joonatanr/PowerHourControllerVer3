@@ -69,8 +69,9 @@ Private const char priv_version_string[] = "Machine 3.0";
 /* Settings Menu Items */
 Private const MenuItem SettingsMenuItemArray[] =
 {
-   { .text = "Brightness",    .Action = MENU_ACTION_WIDGET  , .ActionArg.bargraph_ptr = &BRIGHTNESS_BARGRAPH   },
-   { .text = "Snake speed",   .Action = MENU_ACTION_WIDGET  , .ActionArg.bargraph_ptr = &SNAKE_SPEEED_BARGRAPH },
+   { .text = "Brightness",    .Action = MENU_ACTION_WIDGET  , .ActionArg.bargraph_ptr = &BRIGHTNESS_BARGRAPH        },
+   { .text = "Snake speed",   .Action = MENU_ACTION_WIDGET  , .ActionArg.bargraph_ptr = &SNAKE_SPEEED_BARGRAPH      },
+   { .text = "Task frequency",.Action = MENU_ACTION_WIDGET  , .ActionArg.bargraph_ptr = &TASK_FREQUENCY_BARGRAPH    }
 };
 
 Private SelectionMenu SettingsMenu =
@@ -176,7 +177,7 @@ Private void showStartScreen(void)
 
     display_drawStringCenter("Power Hour", 64u, 5u, FONT_LARGE_FONT, FALSE);
     display_drawStringCenter(priv_version_string, 64u, 20u, FONT_LARGE_FONT, FALSE);
-    display_drawStringCenter("Sass Edition", 64u, 40u, FONT_MEDIUM_FONT, FALSE);
+    display_drawStringCenter("BEST Edition", 64u, 40u, FONT_MEDIUM_FONT, FALSE);
 }
 
 /* Starts the main Power Hour game. */
