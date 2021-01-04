@@ -127,8 +127,19 @@ typedef struct
 Private void incrementTimer(void);
 Private void convertTimerString(timekeeper_struct * t, char * dest_str);
 Private void drawBeerShot(beerShotAction action);
+
+Private Boolean genericIntroFunction(const IntroSequence * intro_ptr, U8 sec);
+
 Private Boolean girlsSpecialIntro(U8 sec);
 Private Boolean guysSpecialIntro(U8 sec);
+
+Private Boolean alumniSpecialIntro(U8 sec);
+Private Boolean boardSpecialIntro(U8 sec);
+Private Boolean coreTeamSpecialIntro(U8 sec);
+Private Boolean ktSpecialIntro(U8 sec);
+Private Boolean paxSpecialIntro(U8 sec);
+Private Boolean SocRespSpecialIntro(U8 sec);
+
 
 Private void doFinalAction(void);
 Private U8 selectRandomTaskIndex(void);
@@ -188,7 +199,7 @@ Private const ControllerEvent priv_girls_drink_events[] =
 
 Private const ControllerEvent priv_board_drink_events[] =
 {
-     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = boardSpecialIntro    },
      { .second = 20u, .upperText = "Fill shots",    .lowerText = "Boardies Round",      .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
      { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers boardies!",    .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
@@ -196,7 +207,7 @@ Private const ControllerEvent priv_board_drink_events[] =
 
 Private const ControllerEvent priv_cteam_drink_events[] =
 {
-     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = coreTeamSpecialIntro },
      { .second = 20u, .upperText = "Fill shots",    .lowerText = "Core Team Round",     .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
      { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Core Team!",   .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
@@ -204,7 +215,7 @@ Private const ControllerEvent priv_cteam_drink_events[] =
 
 Private const ControllerEvent priv_alumni_drink_events[] =
 {
-     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = alumniSpecialIntro   },
      { .second = 20u, .upperText = "Fill shots",    .lowerText = "Alumni Round",        .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
      { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Alumni!",      .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
@@ -212,7 +223,7 @@ Private const ControllerEvent priv_alumni_drink_events[] =
 
 Private const ControllerEvent priv_pax_drink_events[] =
 {
-     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = paxSpecialIntro      },
      { .second = 20u, .upperText = "Fill shots",    .lowerText = "PAX Round",           .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
      { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers PAX!",         .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
@@ -220,7 +231,7 @@ Private const ControllerEvent priv_pax_drink_events[] =
 
 Private const ControllerEvent priv_kt_drink_events[] =
 {
-     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = ktSpecialIntro       },
      { .second = 20u, .upperText = "Fill shots",    .lowerText = "KT Round",            .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
      { .second = 59u, .upperText = "Proosit!",      .lowerText = "Paragrahv 5!",        .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
@@ -228,7 +239,7 @@ Private const ControllerEvent priv_kt_drink_events[] =
 
 Private const ControllerEvent priv_soc_drink_events[] =
 {
-     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = BEERSHOT_EMPTY            , .func = NULL                 }, /* TODO */
+     { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = SocRespSpecialIntro  },
      { .second = 20u, .upperText = "Fill shots",    .lowerText = "Soc. Resp. Round",    .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
      { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Soc!",         .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
@@ -414,7 +425,7 @@ Public void clockDisplay_cyclic1000msec(void)
     }
 }
 
-Public void clockDisplay_setTaskFrequency(U8 freq)
+Public void clockDisplay_setTaskFrequency(U16 freq)
 {
     priv_task_frequency = freq;
 }
@@ -652,33 +663,15 @@ Private void clearLowerText(void)
  * Intro functions.
  *
  *****************************************************************************************************/
-Private const IntroSequence priv_guys_intros[] =
-{
-     {.bmp_ptr = &strong_dude_bitmap, .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 58u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE },
-     {.bmp_ptr = &chad_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE },
-     {.bmp_ptr = &man3_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 20u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE  },
-     {.bmp_ptr = &dude4_bitmap,       .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE  },
-};
 
-Private Boolean guysSpecialIntro(U8 sec)
+Private Boolean genericIntroFunction(const IntroSequence * intro_ptr, U8 sec)
 {
     Boolean res = FALSE;
-
-    static const IntroSequence * intro_ptr = &priv_guys_intros[0];
-    static U8 intro_ix;
 
     switch(sec)
     {
     case(1u):
         display_clear();
-
-        intro_ptr = &priv_guys_intros[intro_ix];
-        intro_ix++;
-        if (intro_ix >= NUMBER_OF_ITEMS(priv_guys_intros))
-        {
-            intro_ix = 0u;
-        }
-
         display_drawBitmap(intro_ptr->bmp_ptr, intro_ptr->bmp_x, intro_ptr->bmp_y, intro_ptr->isInverted);
         break;
     case(2u):
@@ -695,10 +688,38 @@ Private Boolean guysSpecialIntro(U8 sec)
 }
 
 
+Private const IntroSequence priv_guys_intros[] =
+{
+     {.bmp_ptr = &strong_dude_bitmap, .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 58u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE },
+     {.bmp_ptr = &chad_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE },
+     {.bmp_ptr = &man3_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 20u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE  },
+     {.bmp_ptr = &dude4_bitmap,       .bmp_x = 0u, .bmp_y = 0u, .text_str = "Guys Round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE  },
+};
+
+
+Private Boolean guysSpecialIntro(U8 sec)
+{
+    static const IntroSequence * intro_ptr = &priv_guys_intros[0];
+    static U8 intro_ix;
+
+    if (sec == 1u)
+    {
+        intro_ptr = &priv_guys_intros[intro_ix];
+        intro_ix++;
+        if (intro_ix >= NUMBER_OF_ITEMS(priv_guys_intros))
+        {
+            intro_ix = 0u;
+        }
+    }
+
+    return genericIntroFunction(intro_ptr, sec);
+}
+
+
 Private const IntroSequence priv_girl_intros[] =
 {
-     { .bmp_ptr = &girl_1_bitmap, .bmp_x = 0u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE},
-     { .bmp_ptr = &girl_2_bitmap, .bmp_x = 6u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE},
+     { .bmp_ptr = &girl_1_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE},
+     { .bmp_ptr = &girl_2_bitmap,        .bmp_x = 6u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = FALSE},
      { .bmp_ptr = &girl_3_bitmap,        .bmp_x = 6u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT, .isInverted = TRUE },
      { .bmp_ptr = &girl_9_bitmap,        .bmp_x = 0u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 50u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT, .isInverted = TRUE },
      { .bmp_ptr = &girl_Sasha_bitmap,    .bmp_x = 0u, .bmp_y = 0u, .text_str = "Girls round!", .text_x = 10u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT, .isInverted = TRUE },
@@ -707,36 +728,170 @@ Private const IntroSequence priv_girl_intros[] =
 //We start displaying a special task.
 Private Boolean girlsSpecialIntro(U8 sec)
 {
-    Boolean res = FALSE;
     static const IntroSequence * intro_ptr = &priv_girl_intros[0];
     static U8 intro_ix;
 
-    switch(sec)
+    if (sec == 1u)
     {
-    case(1u):
-        display_clear();
         intro_ptr = &priv_girl_intros[intro_ix];
         intro_ix++;
         if (intro_ix >= NUMBER_OF_ITEMS(priv_girl_intros))
         {
             intro_ix = 0u;
         }
-
-        //display_drawBitmap(&test_girl_bitmap, 0u, 0u);
-        display_drawBitmap(intro_ptr->bmp_ptr, intro_ptr->bmp_x, intro_ptr->bmp_y, intro_ptr->isInverted);
-        break;
-    case(2u):
-        //display_drawString("Girls Round!", 50, 4, FONT_MEDIUM_FONT);
-        display_drawString(intro_ptr->text_str, intro_ptr->text_x, intro_ptr->text_y, intro_ptr->text_font, FALSE);
-        break;
-    case(10u):
-        res = TRUE;
-    break;
-    default:
-        break;
     }
 
-    return res;
+    return genericIntroFunction(intro_ptr, sec);
+}
+
+Private const IntroSequence priv_alumni_intros[] =
+{
+     { .bmp_ptr = &alumni1_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Alumni round!", .text_x = 4u , .text_y = 40u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+     { .bmp_ptr = &alumni2_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Alumni round!", .text_x = 40u, .text_y = 4u,  .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+     { .bmp_ptr = &alumni3_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Alumni round!", .text_x = 40u, .text_y = 4u,  .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+};
+
+
+Private Boolean alumniSpecialIntro(U8 sec)
+{
+    static const IntroSequence * intro_ptr = &priv_alumni_intros[0];
+    static U8 intro_ix;
+
+    if (sec == 1u)
+    {
+        intro_ptr = &priv_alumni_intros[intro_ix];
+        intro_ix++;
+        if (intro_ix >= NUMBER_OF_ITEMS(priv_alumni_intros))
+        {
+            intro_ix = 0u;
+        }
+    }
+
+    return genericIntroFunction(intro_ptr, sec);
+}
+
+Private const IntroSequence priv_board_intros[] =
+{
+     { .bmp_ptr = &board1_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Board round!", .text_x = 40u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+     { .bmp_ptr = &board2_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Board round!", .text_x = 40u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+};
+
+
+Private Boolean boardSpecialIntro(U8 sec)
+{
+    static const IntroSequence * intro_ptr = &priv_board_intros[0];
+    static U8 intro_ix;
+
+    if (sec == 1u)
+    {
+        intro_ptr = &priv_board_intros[intro_ix];
+        intro_ix++;
+        if (intro_ix >= NUMBER_OF_ITEMS(priv_board_intros))
+        {
+            intro_ix = 0u;
+        }
+    }
+
+    return genericIntroFunction(intro_ptr, sec);
+}
+
+Private const IntroSequence priv_coreteam_intros[] =
+{
+     { .bmp_ptr = &coreteam1_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Core Team round!", .text_x = 30u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+};
+
+Private Boolean coreTeamSpecialIntro(U8 sec)
+{
+    static const IntroSequence * intro_ptr = &priv_coreteam_intros[0];
+    static U8 intro_ix;
+
+    if (sec == 1u)
+    {
+        intro_ptr = &priv_coreteam_intros[intro_ix];
+        intro_ix++;
+        if (intro_ix >= NUMBER_OF_ITEMS(priv_coreteam_intros))
+        {
+            intro_ix = 0u;
+        }
+    }
+
+    return genericIntroFunction(intro_ptr, sec);
+}
+
+Private const IntroSequence priv_kt_intros[] =
+{
+     { .bmp_ptr = &kt1_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "KT round!", .text_x = 40u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+     { .bmp_ptr = &kt2_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "KT round!", .text_x = 40u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+};
+
+
+Private Boolean ktSpecialIntro(U8 sec)
+{
+    static const IntroSequence * intro_ptr = &priv_kt_intros[0];
+    static U8 intro_ix;
+
+    if (sec == 1u)
+    {
+        intro_ptr = &priv_kt_intros[intro_ix];
+        intro_ix++;
+        if (intro_ix >= NUMBER_OF_ITEMS(priv_kt_intros))
+        {
+            intro_ix = 0u;
+        }
+    }
+
+    return genericIntroFunction(intro_ptr, sec);
+}
+
+Private const IntroSequence priv_pax_intros[] =
+{
+     { .bmp_ptr = &pax1_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Pax round!", .text_x = 30u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+     { .bmp_ptr = &pax2_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Pax round!", .text_x = 40u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+     { .bmp_ptr = &pax3_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Pax round!", .text_x = 40u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+};
+
+
+Private Boolean paxSpecialIntro(U8 sec)
+{
+    static const IntroSequence * intro_ptr = &priv_pax_intros[0];
+    static U8 intro_ix;
+
+    if (sec == 1u)
+    {
+        intro_ptr = &priv_pax_intros[intro_ix];
+        intro_ix++;
+        if (intro_ix >= NUMBER_OF_ITEMS(priv_pax_intros))
+        {
+            intro_ix = 0u;
+        }
+    }
+
+    return genericIntroFunction(intro_ptr, sec);
+}
+
+Private const IntroSequence priv_socresp_intros[] =
+{
+     { .bmp_ptr = &socresp1_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Social Resp. Round!", .text_x = 20u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+     { .bmp_ptr = &socresp2_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Social Resp. Round!", .text_x = 40u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+};
+
+
+Private Boolean SocRespSpecialIntro(U8 sec)
+{
+    static const IntroSequence * intro_ptr = &priv_socresp_intros[0];
+    static U8 intro_ix;
+
+    if (sec == 1u)
+    {
+        intro_ptr = &priv_socresp_intros[intro_ix];
+        intro_ix++;
+        if (intro_ix >= NUMBER_OF_ITEMS(priv_socresp_intros))
+        {
+            intro_ix = 0u;
+        }
+    }
+
+    return genericIntroFunction(intro_ptr, sec);
 }
 
 

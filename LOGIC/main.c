@@ -170,10 +170,17 @@ Private void timer_lo_prio(void)
 
 }
 
+//#define BMP_TEST
+
 
 Private void showStartScreen(void)
 {
     display_clear();
+
+#ifdef BMP_TEST
+    display_drawBitmap(&girls2_bitmap, 0, 0, TRUE);
+    delay_msec(6000);
+#endif
 
     display_drawStringCenter("Power Hour", 64u, 5u, FONT_LARGE_FONT, FALSE);
     display_drawStringCenter(priv_version_string, 64u, 20u, FONT_LARGE_FONT, FALSE);
