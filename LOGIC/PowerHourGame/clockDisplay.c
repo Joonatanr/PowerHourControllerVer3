@@ -202,15 +202,15 @@ Private const ControllerEvent priv_board_drink_events[] =
      { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = boardSpecialIntro    },
      { .second = 20u, .upperText = "Fill shots",    .lowerText = "Boardies Round",      .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
-     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers boardies!",    .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers boardies!",    .shot_action = OVERRIDE_FUNCTION         , .func = boardSpecialTask     },
 };
 
 Private const ControllerEvent priv_cteam_drink_events[] =
 {
      { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = coreTeamSpecialIntro },
-     { .second = 20u, .upperText = "Fill shots",    .lowerText = "Core Team Round",     .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
+     { .second = 20u, .upperText = "Fill shots",    .lowerText = "CTeam Round",         .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
-     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Core Team!",   .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Core Team!",   .shot_action = OVERRIDE_FUNCTION         , .func = coreTeamSpecialTask  },
 };
 
 Private const ControllerEvent priv_alumni_drink_events[] =
@@ -218,7 +218,7 @@ Private const ControllerEvent priv_alumni_drink_events[] =
      { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = alumniSpecialIntro   },
      { .second = 20u, .upperText = "Fill shots",    .lowerText = "Alumni Round",        .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
-     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Alumni!",      .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Alumni!",      .shot_action = OVERRIDE_FUNCTION         , .func = alumniSpecialTask    },
 };
 
 Private const ControllerEvent priv_pax_drink_events[] =
@@ -226,7 +226,7 @@ Private const ControllerEvent priv_pax_drink_events[] =
      { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = paxSpecialIntro      },
      { .second = 20u, .upperText = "Fill shots",    .lowerText = "PAX Round",           .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
-     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers PAX!",         .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers PAX!",         .shot_action = OVERRIDE_FUNCTION         , .func = PaxSpecialTask       },
 };
 
 Private const ControllerEvent priv_kt_drink_events[] =
@@ -234,15 +234,15 @@ Private const ControllerEvent priv_kt_drink_events[] =
      { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = ktSpecialIntro       },
      { .second = 20u, .upperText = "Fill shots",    .lowerText = "KT Round",            .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
-     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Paragrahv 5!",        .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Paragrahv 5!",        .shot_action = OVERRIDE_FUNCTION         , .func = KtSpecialTask        },
 };
 
 Private const ControllerEvent priv_soc_drink_events[] =
 {
      { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = SocRespSpecialIntro  },
-     { .second = 20u, .upperText = "Fill shots",    .lowerText = "Soc. Resp. Round",    .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
+     { .second = 20u, .upperText = "Fill shots",    .lowerText = "SocResp Round",       .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
-     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Soc!",         .shot_action = BEERSHOT_BEGIN_EMPTYING   , .func = NULL                 }, /* TODO */
+     { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers Soc!",         .shot_action = OVERRIDE_FUNCTION         , .func = socRespSpecialTask   },
 };
 
 
@@ -797,7 +797,7 @@ Private Boolean boardSpecialIntro(U8 sec)
 
 Private const IntroSequence priv_coreteam_intros[] =
 {
-     { .bmp_ptr = &coreteam1_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Core Team round!", .text_x = 30u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
+     { .bmp_ptr = &coreteam1_bitmap,  .bmp_x = 0u, .bmp_y = 0u, .text_str = "Core Team round!", .text_x = 20u, .text_y = 4u, .text_font = FONT_MEDIUM_FONT , .isInverted = TRUE },
 };
 
 Private Boolean coreTeamSpecialIntro(U8 sec)

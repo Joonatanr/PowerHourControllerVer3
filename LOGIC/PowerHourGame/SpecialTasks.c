@@ -104,6 +104,52 @@ Private Task_T priv_TextArrayGuysLevel1[] =
      { "All guys whose" ,         "name starts with",     "S drinks 2x"       , .counter = 0u  }, /* 18 */
 };
 
+
+Private Task_T priv_TextArrayAlumniLevel1[] =
+{
+     { "Placeholder", "Alumni 1", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Alumni 2", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Alumni 3", "Level 1 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayCoreTeamLevel1[] =
+{
+     { "Placeholder", "Coreteam 1", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Coreteam 2", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Coreteam 3", "Level 1 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArraySocRespLevel1[] =
+{
+     { "Placeholder", "Socresp 1", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Socresp 2", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Socresp 3", "Level 1 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayKtLevel1[] =
+{
+     { "Placeholder", "Kt 1", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Kt 2", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Kt 3", "Level 1 " , .counter = 0u },
+};
+
+
+Private Task_T priv_TextArrayPaxLevel1[] =
+{
+     { "Placeholder", "Pax 1", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Pax 2", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Pax 3", "Level 1 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayBoardLevel1[] =
+{
+     { "Placeholder", "Board 1", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Board 2", "Level 1 " , .counter = 0u },
+     { "Placeholder", "Board 3", "Level 1 " , .counter = 0u },
+};
+
+
+
 /* Medium tasks */
 Private Task_T priv_TextArrayGirlsLevel2[] =
 {
@@ -149,6 +195,51 @@ Private Task_T priv_TextArrayGuysLevel2[] =
      {  "Guys must do",           "10 squats",                "before drinking" ,  .counter = 0u  },  /* 16 */
      {  "Guys that love",         "heavy metal",              "drink vodka"     ,  .counter = 0u  },  /* 17 */
 };
+
+
+Private Task_T priv_TextArrayAlumniLevel2[] =
+{
+     { "Placeholder", "Alumni 1", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Alumni 2", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Alumni 3", "Level 2 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayCoreTeamLevel2[] =
+{
+     { "Placeholder", "Coreteam 1", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Coreteam 2", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Coreteam 3", "Level 2 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArraySocRespLevel2[] =
+{
+     { "Placeholder", "Socresp 1", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Socresp 2", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Socresp 3", "Level 2 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayKtLevel2[] =
+{
+     { "Placeholder", "Kt 1", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Kt 2", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Kt 3", "Level 2 " , .counter = 0u },
+};
+
+
+Private Task_T priv_TextArrayPaxLevel2[] =
+{
+     { "Placeholder", "Pax 1", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Pax 2", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Pax 3", "Level 2 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayBoardLevel2[] =
+{
+     { "Placeholder", "Board 1", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Board 2", "Level 2 " , .counter = 0u },
+     { "Placeholder", "Board 3", "Level 2 " , .counter = 0u },
+};
+
 
 /* Hard tasks. -> Sass mode engaged :D */
 Private Task_T priv_TextArrayGirlsLevel3[] =
@@ -196,6 +287,49 @@ Private Task_T priv_TextArrayGuysLevel3[] =
      {  "Army guys",             "do 20 pushups",       NULL                 , .counter = 0u  }, /* 17 */
 };
 
+
+Private Task_T priv_TextArrayAlumniLevel3[] =
+{
+     { "Placeholder", "Alumni 1", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Alumni 2", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Alumni 3", "Level 3 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayCoreTeamLevel3[] =
+{
+     { "Placeholder", "Coreteam 1", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Coreteam 2", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Coreteam 3", "Level 3 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArraySocRespLevel3[] =
+{
+     { "Placeholder", "Socresp 1", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Socresp 2", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Socresp 3", "Level 3 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayKtLevel3[] =
+{
+     { "Placeholder", "Kt 1", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Kt 2", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Kt 3", "Level 3 " , .counter = 0u },
+};
+
+
+Private Task_T priv_TextArrayPaxLevel3[] =
+{
+     { "Placeholder", "Pax 1", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Pax 2", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Pax 3", "Level 3 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayBoardLevel3[] =
+{
+     { "Placeholder", "Board 1", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Board 2", "Level 3 " , .counter = 0u },
+     { "Placeholder", "Board 3", "Level 3 " , .counter = 0u },
+};
 
 /* Hardcore tasks. -> Full Sass mode. */
 Private Task_T priv_TextArrayGirlsLevel4[] =
@@ -247,6 +381,51 @@ Private Task_T priv_TextArrayGuysLevel4[] =
 };
 
 
+Private Task_T priv_TextArrayAlumniLevel4[] =
+{
+     { "Placeholder", "Alumni 1", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Alumni 2", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Alumni 3", "Level 4 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayCoreTeamLevel4[] =
+{
+     { "Placeholder", "Coreteam 1", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Coreteam 2", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Coreteam 3", "Level 4 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArraySocRespLevel4[] =
+{
+     { "Placeholder", "Socresp 1", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Socresp 2", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Socresp 3", "Level 4 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayKtLevel4[] =
+{
+     { "Placeholder", "Kt 1", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Kt 2", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Kt 3", "Level 4 " , .counter = 0u },
+};
+
+
+Private Task_T priv_TextArrayPaxLevel4[] =
+{
+     { "Placeholder", "Pax 1", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Pax 2", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Pax 3", "Level 4 " , .counter = 0u },
+};
+
+Private Task_T priv_TextArrayBoardLevel4[] =
+{
+     { "Placeholder", "Board 1", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Board 2", "Level 4 " , .counter = 0u },
+     { "Placeholder", "Board 3", "Level 4 " , .counter = 0u },
+};
+
+/*****************************************************************/
+
 Public Boolean girlsSpecialTask(U8 sec)
 {
     Boolean res = FALSE;
@@ -286,6 +465,43 @@ Public Boolean guysSpecialTask(U8 sec)
     res = priv_selected_task_ptr(sec, TASK_FOR_GUYS);
     return res;
 }
+
+
+Public Boolean alumniSpecialTask(U8 sec)
+{
+    return SpecialTaskWithRandomText(sec, TASK_FOR_ALUMNI);
+}
+
+
+Public Boolean boardSpecialTask(U8 sec)
+{
+    return SpecialTaskWithRandomText(sec, TASK_FOR_BOARD);
+}
+
+
+Public Boolean socRespSpecialTask(U8 sec)
+{
+    return SpecialTaskWithRandomText(sec, TASK_FOR_SOCRESP);
+}
+
+
+Public Boolean KtSpecialTask(U8 sec)
+{
+    return SpecialTaskWithRandomText(sec, TASK_FOR_KT);
+}
+
+
+Public Boolean PaxSpecialTask(U8 sec)
+{
+    return SpecialTaskWithRandomText(sec, TASK_FOR_PAX);
+}
+
+
+Public Boolean coreTeamSpecialTask(U8 sec)
+{
+    return SpecialTaskWithRandomText(sec, TASK_FOR_CORETEAM);
+}
+
 
 
 Private Boolean DrinkTwiceTask(U8 sec, SpecialTaskType type)
@@ -338,41 +554,149 @@ Private Boolean SpecialTaskWithRandomText(U8 sec, SpecialTaskType type)
     int taskLevel = pot_getSelectedRange();
     Task_T * girlsSelectedArray;
     Task_T * guysSelectedArray;
+    Task_T * alumniSelectedArray;
+    Task_T * boardSelectedArray;
+    Task_T * ktSelectedArray;
+    Task_T * paxSelectedArray;
+    Task_T * SocRespSelectedArray;
+    Task_T * coreTeamSelectedArray;
+
     U16 number_of_items_girls = 0u;
     U16 number_of_items_guys = 0u;
+    U16 number_of_items_alumni = 0u;
+    U16 number_of_items_board = 0u;
+    U16 number_of_items_kt = 0u;
+    U16 number_of_items_pax = 0u;
+    U16 number_of_items_socresp = 0u;
+    U16 number_of_items_coreteam = 0u;
 
     switch(taskLevel)
     {
         case 0:
             girlsSelectedArray = priv_TextArrayGirlsLevel1;
             number_of_items_girls = NUMBER_OF_ITEMS(priv_TextArrayGirlsLevel1);
+
             guysSelectedArray = priv_TextArrayGuysLevel1;
             number_of_items_guys = NUMBER_OF_ITEMS(priv_TextArrayGuysLevel1);
+
+            alumniSelectedArray = priv_TextArrayAlumniLevel1;
+            number_of_items_alumni = NUMBER_OF_ITEMS(priv_TextArrayAlumniLevel1);
+
+            boardSelectedArray = priv_TextArrayBoardLevel1;
+            number_of_items_board = NUMBER_OF_ITEMS(priv_TextArrayBoardLevel1);
+
+            ktSelectedArray = priv_TextArrayKtLevel1;
+            number_of_items_kt = NUMBER_OF_ITEMS(priv_TextArrayKtLevel1);
+
+            paxSelectedArray = priv_TextArrayPaxLevel1;
+            number_of_items_pax = NUMBER_OF_ITEMS(priv_TextArrayPaxLevel1);
+
+            SocRespSelectedArray = priv_TextArraySocRespLevel1;
+            number_of_items_socresp = NUMBER_OF_ITEMS(priv_TextArraySocRespLevel1);
+
+            coreTeamSelectedArray = priv_TextArrayCoreTeamLevel1;
+            number_of_items_coreteam = NUMBER_OF_ITEMS(priv_TextArrayCoreTeamLevel1);
             break;
         case 1:
             girlsSelectedArray = priv_TextArrayGirlsLevel2;
             number_of_items_girls = NUMBER_OF_ITEMS(priv_TextArrayGirlsLevel2);
+
             guysSelectedArray = priv_TextArrayGuysLevel2;
             number_of_items_guys = NUMBER_OF_ITEMS(priv_TextArrayGuysLevel2);
+
+            alumniSelectedArray = priv_TextArrayAlumniLevel2;
+            number_of_items_alumni = NUMBER_OF_ITEMS(priv_TextArrayAlumniLevel2);
+
+            boardSelectedArray = priv_TextArrayBoardLevel2;
+            number_of_items_board = NUMBER_OF_ITEMS(priv_TextArrayBoardLevel2);
+
+            ktSelectedArray = priv_TextArrayKtLevel2;
+            number_of_items_kt = NUMBER_OF_ITEMS(priv_TextArrayKtLevel2);
+
+            paxSelectedArray = priv_TextArrayPaxLevel2;
+            number_of_items_pax = NUMBER_OF_ITEMS(priv_TextArrayPaxLevel2);
+
+            SocRespSelectedArray = priv_TextArraySocRespLevel2;
+            number_of_items_socresp = NUMBER_OF_ITEMS(priv_TextArraySocRespLevel2);
+
+            coreTeamSelectedArray = priv_TextArrayCoreTeamLevel2;
+            number_of_items_coreteam = NUMBER_OF_ITEMS(priv_TextArrayCoreTeamLevel2);
             break;
         case 2:
             girlsSelectedArray = priv_TextArrayGirlsLevel3;
             number_of_items_girls = NUMBER_OF_ITEMS(priv_TextArrayGirlsLevel3);
+
             guysSelectedArray = priv_TextArrayGuysLevel3;
             number_of_items_guys = NUMBER_OF_ITEMS(priv_TextArrayGuysLevel3);
+
+            alumniSelectedArray = priv_TextArrayAlumniLevel3;
+            number_of_items_alumni = NUMBER_OF_ITEMS(priv_TextArrayAlumniLevel3);
+
+            boardSelectedArray = priv_TextArrayBoardLevel3;
+            number_of_items_board = NUMBER_OF_ITEMS(priv_TextArrayBoardLevel3);
+
+            ktSelectedArray = priv_TextArrayKtLevel3;
+            number_of_items_kt = NUMBER_OF_ITEMS(priv_TextArrayKtLevel3);
+
+            paxSelectedArray = priv_TextArrayPaxLevel3;
+            number_of_items_pax = NUMBER_OF_ITEMS(priv_TextArrayPaxLevel3);
+
+            SocRespSelectedArray = priv_TextArraySocRespLevel3;
+            number_of_items_socresp = NUMBER_OF_ITEMS(priv_TextArraySocRespLevel3);
+
+            coreTeamSelectedArray = priv_TextArrayCoreTeamLevel3;
+            number_of_items_coreteam = NUMBER_OF_ITEMS(priv_TextArrayCoreTeamLevel3);
             break;
         case 3:
             girlsSelectedArray = priv_TextArrayGirlsLevel4;
             number_of_items_girls = NUMBER_OF_ITEMS(priv_TextArrayGirlsLevel4);
+
             guysSelectedArray = priv_TextArrayGuysLevel4;
             number_of_items_guys = NUMBER_OF_ITEMS(priv_TextArrayGuysLevel4);
+
+            alumniSelectedArray = priv_TextArrayAlumniLevel4;
+            number_of_items_alumni = NUMBER_OF_ITEMS(priv_TextArrayAlumniLevel4);
+
+            boardSelectedArray = priv_TextArrayBoardLevel4;
+            number_of_items_board = NUMBER_OF_ITEMS(priv_TextArrayBoardLevel4);
+
+            ktSelectedArray = priv_TextArrayKtLevel4;
+            number_of_items_kt = NUMBER_OF_ITEMS(priv_TextArrayKtLevel4);
+
+            paxSelectedArray = priv_TextArrayPaxLevel4;
+            number_of_items_pax = NUMBER_OF_ITEMS(priv_TextArrayPaxLevel4);
+
+            SocRespSelectedArray = priv_TextArraySocRespLevel4;
+            number_of_items_socresp = NUMBER_OF_ITEMS(priv_TextArraySocRespLevel4);
+
+            coreTeamSelectedArray = priv_TextArrayCoreTeamLevel4;
+            number_of_items_coreteam = NUMBER_OF_ITEMS(priv_TextArrayCoreTeamLevel4);
             break;
         default:
             /* Should not happen. */
             girlsSelectedArray = priv_TextArrayGirlsLevel1;
             number_of_items_girls = NUMBER_OF_ITEMS(priv_TextArrayGirlsLevel1);
+
             guysSelectedArray = priv_TextArrayGuysLevel1;
             number_of_items_guys = NUMBER_OF_ITEMS(priv_TextArrayGuysLevel1);
+
+            alumniSelectedArray = priv_TextArrayAlumniLevel1;
+            number_of_items_alumni = NUMBER_OF_ITEMS(priv_TextArrayAlumniLevel1);
+
+            boardSelectedArray = priv_TextArrayBoardLevel1;
+            number_of_items_board = NUMBER_OF_ITEMS(priv_TextArrayBoardLevel1);
+
+            ktSelectedArray = priv_TextArrayKtLevel1;
+            number_of_items_kt = NUMBER_OF_ITEMS(priv_TextArrayKtLevel1);
+
+            paxSelectedArray = priv_TextArrayPaxLevel1;
+            number_of_items_pax = NUMBER_OF_ITEMS(priv_TextArrayPaxLevel1);
+
+            SocRespSelectedArray = priv_TextArraySocRespLevel1;
+            number_of_items_socresp = NUMBER_OF_ITEMS(priv_TextArraySocRespLevel1);
+
+            coreTeamSelectedArray = priv_TextArrayCoreTeamLevel1;
+            number_of_items_coreteam = NUMBER_OF_ITEMS(priv_TextArrayCoreTeamLevel1);
             break;
     }
 
@@ -380,13 +704,51 @@ Private Boolean SpecialTaskWithRandomText(U8 sec, SpecialTaskType type)
     {
         case(1u):
             {
-               if (type == TASK_FOR_GIRLS)
+               switch(type)
                {
-                   priv_task_str_ptr = getRandomTaskFromArray(girlsSelectedArray, number_of_items_girls);
-               }
-               else if(type == TASK_FOR_GUYS)
-               {
-                   priv_task_str_ptr = getRandomTaskFromArray(guysSelectedArray, number_of_items_guys);
+                   case TASK_FOR_GIRLS:
+                       {
+                           priv_task_str_ptr = getRandomTaskFromArray(girlsSelectedArray, number_of_items_girls);
+                       }
+                       break;
+                   case TASK_FOR_GUYS:
+                       {
+                           priv_task_str_ptr = getRandomTaskFromArray(guysSelectedArray, number_of_items_guys);
+                       }
+                       break;
+                   case TASK_FOR_ALUMNI:
+                       {
+                           priv_task_str_ptr = getRandomTaskFromArray(alumniSelectedArray, number_of_items_alumni);
+                       }
+                       break;
+                   case TASK_FOR_BOARD:
+                       {
+                           priv_task_str_ptr = getRandomTaskFromArray(boardSelectedArray, number_of_items_board);
+                       }
+                       break;
+                   case TASK_FOR_KT:
+                       {
+                           priv_task_str_ptr = getRandomTaskFromArray(ktSelectedArray, number_of_items_kt);
+                       }
+                       break;
+                   case TASK_FOR_SOCRESP:
+                       {
+                           priv_task_str_ptr = getRandomTaskFromArray(SocRespSelectedArray, number_of_items_socresp);
+                       }
+                       break;
+                   case TASK_FOR_PAX:
+                       {
+                           priv_task_str_ptr = getRandomTaskFromArray(paxSelectedArray, number_of_items_pax);
+                       }
+                       break;
+                   case TASK_FOR_CORETEAM:
+                       {
+                           priv_task_str_ptr = getRandomTaskFromArray(coreTeamSelectedArray, number_of_items_coreteam);
+                       }
+                       break;
+                   default:
+                       /* Should not happen. */
+                       break;
                }
             }
             break;
