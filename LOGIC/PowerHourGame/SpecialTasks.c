@@ -107,9 +107,16 @@ Private Task_T priv_TextArrayGuysLevel1[] =
 
 Private Task_T priv_TextArrayAlumniLevel1[] =
 {
-     { "Placeholder", "Alumni 1", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Alumni 2", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Alumni 3", "Level 1 " , .counter = 0u },
+     { "Oldest alumni", 	"drinks 2x", 				NULL 			, .counter = 0u 	},
+     { "Youngest alumni", 	"drinks 2x", 				NULL 			, .counter = 0u		},
+     { "One alumni", 		"must tell", 				"a joke " 		, .counter = 0u 	},
+	 { "All alumni",        "drink 2x", 				NULL			, .counter = 0u		},
+	 { "Everybody over 35", "skip 1 round", 			"rest drink 2x"	, .counter = 0u     },
+	 { "Alumni with a",   	"young BEST girlfriend", 	"drink 3x" 		, .counter = 0u     },
+     { "All alumni who",    "remember GA 2016", 		"drink 3x"		, .counter = 0u 	},
+	 { "Alumni who are",    "already drunk",    		"drink 3x"      , .counter = 0u     },
+	 { "Alumni who have", 	"been to Ekaterinburg", 	"drink 2x"		, .counter = 0u		},
+     { "Alumni board",      "drinks 3x"				    , NULL          , .counter = 0u		},
 };
 
 Private Task_T priv_TextArrayCoreTeamLevel1[] =
@@ -143,9 +150,9 @@ Private Task_T priv_TextArrayPaxLevel1[] =
 
 Private Task_T priv_TextArrayBoardLevel1[] =
 {
-     { "Placeholder", "Board 1", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Board 2", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Board 3", "Level 1 " , .counter = 0u },
+     { "All boardies", 		"drink 2x", 			NULL   , 				.counter = 0u },
+     { "Boardies have to", 	"distribute 5 shots", 	"amongst each other" , 	.counter = 0u },
+     { "Placeholder", "Board 3", "Level 1 " , 	.counter = 0u },
 };
 
 
@@ -199,9 +206,16 @@ Private Task_T priv_TextArrayGuysLevel2[] =
 
 Private Task_T priv_TextArrayAlumniLevel2[] =
 {
-     { "Placeholder", "Alumni 1", "Level 2 " , .counter = 0u },
-     { "Placeholder", "Alumni 2", "Level 2 " , .counter = 0u },
-     { "Placeholder", "Alumni 3", "Level 2 " , .counter = 0u },
+     { "Alumni who lost", 	"virginity in BEST event", 	"drink 3x " 	, 		.counter = 0u },
+     { "All drunk alumni",	"lost 1 item", 		      	"of clothing " 	, 		.counter = 0u },
+     { "Alumni who were", 	"in GA Estonian", 			"Evening drink 3x ",	.counter = 0u },
+	 { "All alumni who", 	"have been to Moscow", 		"drink 2x", 			.counter = 0u },
+	 { "Alumni who have", 	"done a Death Round", 		"skip this round!", 	.counter = 0u },
+	 { "Alumni who have",   "been senors at",           "Cantus, drink 3x",     .counter = 0u },
+     { "Alumni with most",  "flags & numbers", 		 	"drinks 3x", 			.counter = 0u },
+	 { "Alumni drink 1x",   "for every coreteam",       "they have been in.",   .counter = 0u },
+     { "All alumni that",   "have children", 			"drink 1 vodka shot", 	.counter = 0u },
+	 { "One alumni", 		"must tell ", 				"a dirty joke", 		.counter = 0u },
 };
 
 Private Task_T priv_TextArrayCoreTeamLevel2[] =
@@ -235,7 +249,7 @@ Private Task_T priv_TextArrayPaxLevel2[] =
 
 Private Task_T priv_TextArrayBoardLevel2[] =
 {
-     { "Placeholder", "Board 1", "Level 2 " , .counter = 0u },
+     { "All boardies", "lose 1 item", "of clothing " , .counter = 0u },
      { "Placeholder", "Board 2", "Level 2 " , .counter = 0u },
      { "Placeholder", "Board 3", "Level 2 " , .counter = 0u },
 };
@@ -290,8 +304,8 @@ Private Task_T priv_TextArrayGuysLevel3[] =
 
 Private Task_T priv_TextArrayAlumniLevel3[] =
 {
-     { "Placeholder", "Alumni 1", "Level 3 " , .counter = 0u },
-     { "Placeholder", "Alumni 2", "Level 3 " , .counter = 0u },
+     { "Alumni with", 		"biggest boobs", 	"drinks 3x " , 		.counter = 0u },
+     { "Everybody that"	  , "has met Kark", 	"drinks vodka " , 	.counter = 0u },
      { "Placeholder", "Alumni 3", "Level 3 " , .counter = 0u },
 };
 
