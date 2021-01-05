@@ -128,9 +128,16 @@ Private Task_T priv_TextArrayCoreTeamLevel1[] =
 
 Private Task_T priv_TextArraySocRespLevel1[] =
 {
-     { "Placeholder", "Socresp 1", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Socresp 2", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Socresp 3", "Level 1 " , .counter = 0u },
+     { "Social responsible", "drinks 2x and", "does 10 pushups" 	, .counter = 0u },
+     { "Social responsible", "takes off 1 pieces", "of clothing " 	, .counter = 0u },
+     { "Social responsible", "tells", "\"your mama\" joke " 		, .counter = 0u },
+	 { "Social responsible", "drinks 3x", NULL 						, .counter = 0u },
+	 { "Social responsible", "must say the toast", "all drink " 	, .counter = 0u },
+	 { "Youngest", 			 "social responsible", "takes a shot "  , .counter = 0u },
+	 { "Social responsible", "tells an", 	"embarranssing story"   , .counter = 0u },
+	 { "Social responsible", "makes sure", "everyone has a drink"   , .counter = 0u },
+	 { "Social responsible", "drinks without", "using hands " 		, .counter = 0u },
+	 { "Social responsible", "decides", "who drinks " 				, .counter = 0u },
 };
 
 Private Task_T priv_TextArrayKtLevel1[] =
