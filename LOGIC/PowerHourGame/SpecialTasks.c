@@ -312,8 +312,9 @@ Private Task_T priv_TextArrayGuysLevel3[] =
 Private Task_T priv_TextArrayAlumniLevel3[] =
 {
      { "Alumni with", 		"biggest boobs", 	"drinks 3x " , 		.counter = 0u },
-     { "Everybody that"	  , "has met Kark", 	"drinks vodka " , 	.counter = 0u },
-     { "Placeholder", "Alumni 3", "Level 3 " , .counter = 0u },
+     { "Everybody that"	  , "has met Kark", 	"drinks vodka ", 	.counter = 0u },
+     { "All alumni",        "must share", 		"a crazy story ",   .counter = 0u },
+	 { "Alumni with",       "the most exes",    "drinks vodka",     .counter = 0u },
 };
 
 Private Task_T priv_TextArrayCoreTeamLevel3[] =
@@ -404,9 +405,9 @@ Private Task_T priv_TextArrayGuysLevel4[] =
 
 Private Task_T priv_TextArrayAlumniLevel4[] =
 {
-     { "Placeholder", "Alumni 1", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Alumni 2", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Alumni 3", "Level 4 " , .counter = 0u },
+     { "One alumni", 	"gets spanked", NULL 	 				, .counter = 0u },
+     { "One alumni", 	"gets slapped",	"in the face" 			, .counter = 0u },
+     { "Alumni select", "who loses", 	"2 items of clothing "  , .counter = 0u },
 };
 
 Private Task_T priv_TextArrayCoreTeamLevel4[] =
