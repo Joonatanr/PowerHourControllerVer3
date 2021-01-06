@@ -58,6 +58,7 @@ Private void showStartScreen(void);
 
 Private void startGameHandler(void);
 Private void startSnakeGame(void);
+Private void showDedicationText(void);
 
 //Callback for register.c
 Public TimerHandler timer_10msec_callback = timer_hi_prio;
@@ -85,10 +86,10 @@ Private SelectionMenu SettingsMenu =
 /** Start Menu Items.*/
 Private const MenuItem StartMenuItemArray[] =
 {
-   { .text = "Start Game",  .Action = MENU_ACTION_FUNCTION    , .ActionArg.function_ptr = startGameHandler    },
-   { .text = "Play Snake",  .Action = MENU_ACTION_FUNCTION    , .ActionArg.function_ptr = startSnakeGame      },
-   { .text = "Settings",    .Action = MENU_ACTION_SUBMENU     , .ActionArg.subMenu_ptr = &SettingsMenu        },
-   { .text = "Exit",        .Action = MENU_ACTION_NONE        , .ActionArg =  NULL                            },
+   { .text = "Start Game",  .Action = MENU_ACTION_FUNCTION    , .ActionArg.function_ptr =   startGameHandler        },
+   { .text = "Play Snake",  .Action = MENU_ACTION_FUNCTION    , .ActionArg.function_ptr =   startSnakeGame          },
+   { .text = "Settings",    .Action = MENU_ACTION_SUBMENU     , .ActionArg.subMenu_ptr  =   &SettingsMenu           },
+   { .text = "About",       .Action = MENU_ACTION_FUNCTION    , .ActionArg.function_ptr =   &showDedicationText     },
 };
 
 Private SelectionMenu StartMenu =
@@ -199,3 +200,8 @@ Private void startSnakeGame(void)
     Scheduler_SetActiveApplication(APPLICATION_SNAKE);
 }
 
+Private void showDedicationText(void)
+{
+    /* Turns out we can't do this without making this into a dummy application for some reason. */
+    Scheduler_SetActiveApplication(APPLICATION_DEDICATION);
+}

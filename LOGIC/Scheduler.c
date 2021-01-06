@@ -15,14 +15,22 @@
 #include "display_drv.h"
 #include "LOGIC/TextTools/MessageBox.h"
 #include <driverlib.h>
+#include "main.h"
 
 /* NB! Current implementation assumes that only 1 task is active at any time, but this can be changed ofcourse. */
 /* NB! All lo prio interrupt tasks should come here. I think there is no point to create a separate scheduler for the
  *     hi prio interrupt. */
 
 
+
+
 /*************  Private function prototypes.  **************/
 Private void timer_1sec(void);
+
+Private void dedication_start(void);
+Private void dedication_cyclic50ms(void);
+Private void dedicationExitListener(void);
+
 
 /* NB! Currently period has to be divisible by 50. Might want to change this. */
 
@@ -30,7 +38,8 @@ Private void timer_1sec(void);
 Private const Scheduler_LogicTask priv_application_modules[NUMBER_OF_APPLICATIONS] =
 {
      { .period = 1000u, .init_fptr = clockDisplay_init, .start_fptr = clockDisplay_start, .cyclic_fptr = clockDisplay_cyclic1000msec, .stop_fptr = clockDisplay_stop },
-     { .period = 50u,   .init_fptr = snake_init,        .start_fptr = snake_start,        .cyclic_fptr = snake_cyclic50ms,            .stop_fptr = snake_stop        }
+     { .period = 50u,   .init_fptr = snake_init,        .start_fptr = snake_start,        .cyclic_fptr = snake_cyclic50ms,            .stop_fptr = snake_stop        },
+     { .period = 50u,   .init_fptr = NULL,              .start_fptr = dedication_start,   .cyclic_fptr = dedication_cyclic50ms,       .stop_fptr = NULL              },
 };
 
 
@@ -53,6 +62,9 @@ Private U16 priv_app_task_timer = 0u;
 Private U32 priv_task_timer = 0u;
 Private Boolean priv_isInitComplete = FALSE;
 Private Boolean priv_isAppPaused = FALSE;
+
+
+
 
 
 /* Should be called once at startup. */
@@ -103,9 +115,16 @@ void Scheduler_SetActiveApplication(Scheduler_LogicModuleEnum task)
     priv_curr_app_ptr = &priv_application_modules[task];
     priv_isAppPaused = FALSE;
     MessageBox_SetResponseHandler(NULL); //We make sure that the previous handler does not remain and cause any problems...
-    priv_curr_app_ptr->init_fptr();
+    if (priv_curr_app_ptr->init_fptr != NULL)
+    {
+        priv_curr_app_ptr->init_fptr();
+    }
     Interrupt_enableMaster();
-    priv_curr_app_ptr->start_fptr();
+
+    if (priv_curr_app_ptr->start_fptr != NULL)
+    {
+        priv_curr_app_ptr->start_fptr();
+    }
 }
 
 
@@ -113,7 +132,10 @@ void Scheduler_StopActiveApplication(void)
 {
     if (priv_curr_app_ptr != NULL)
     {
-        priv_curr_app_ptr->stop_fptr();
+        if (priv_curr_app_ptr->stop_fptr != NULL)
+        {
+            priv_curr_app_ptr->stop_fptr();
+        }
     }
     priv_curr_app_ptr = NULL;
 }
@@ -192,4 +214,48 @@ Private void timer_1sec(void)
 }
 
 
+Private Boolean priv_is_dedication_screen_exit = FALSE;
+
+/** Idea : Maybe make a text display application for other such instances in the future. */
+
+/* Dedication screen functions*/
+Private void dedication_start(void)
+{
+    priv_is_dedication_screen_exit = FALSE;
+
+    display_clear();
+    display_drawString("This Power Hour Machine",           0u, 2u,  FONT_ARIAL_TINY, FALSE);
+    display_drawString("was built by BEST alumni for",      0u, 11u, FONT_ARIAL_TINY, FALSE);
+    display_drawString("LBG Tallinn to celebrate",          0u, 20u, FONT_ARIAL_TINY, FALSE);
+    display_drawString("its 30th birthday",                 0u, 29u, FONT_ARIAL_TINY, FALSE);
+    display_drawString("8. January 2021",                   0u, 38u, FONT_ARIAL_TINY, FALSE);
+    display_drawString("by Mart, Magnus, Alvar,   ",        0u, 47u, FONT_ARIAL_TINY, FALSE);
+    display_drawString("Gritten and Joonatan      ",        0u, 56u, FONT_ARIAL_TINY, FALSE);
+
+    /* Lets draw the <sigh> ä signs */
+    display_setPixel(22u, 47u, TRUE);
+    display_setPixel(24u, 47u, TRUE);
+
+    /* Basically we wait for ANY key to be pressed. */
+    buttons_subscribeListener(UP_BUTTON,    dedicationExitListener);
+    buttons_subscribeListener(DOWN_BUTTON,  dedicationExitListener);
+    buttons_subscribeListener(RIGHT_BUTTON, dedicationExitListener);
+    buttons_subscribeListener(LEFT_BUTTON,  dedicationExitListener);
+}
+
+
+Private void dedicationExitListener(void)
+{
+    priv_is_dedication_screen_exit = TRUE;
+}
+
+
+Private void dedication_cyclic50ms(void)
+{
+    if (priv_is_dedication_screen_exit)
+    {
+        priv_is_dedication_screen_exit = FALSE;
+        returnToMain();
+    }
+}
 
