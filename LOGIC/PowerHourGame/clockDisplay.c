@@ -45,6 +45,8 @@
 typedef enum
 {
     CONTROLLER_INIT,
+    CONTROLLER_WARNING_TEXT,
+    CONTROLLER_WARNING_CONFIRM,
     CONTROLLER_COUNTING,
     CONTROLLER_OVERRIDDEN,
     CONTROLLER_FINAL,
@@ -169,6 +171,7 @@ Private void handleMessageBoxResponse(MsgBox_Response resp);
 
 Private void drawTimer(void);
 
+Private void showWarningText(void);
 
 /*****************************************************************************************************
  *
@@ -311,6 +314,7 @@ Public void clockDisplay_init(void)
 
 }
 
+volatile U32 priv_safety_button_timer = 0u;
 
 Public void clockDisplay_start(void)
 {
@@ -326,10 +330,9 @@ Public void clockDisplay_start(void)
     /* Set up buttons */
     subscribeButtonHandlers();
 
-
     //We start counting.
     priv_isFirstRun = TRUE;
-    priv_state = CONTROLLER_COUNTING;
+    priv_state = CONTROLLER_WARNING_TEXT;
 
     for (ix = 0u; ix < NUMBER_OF_TASK_CATEGORIES; ix++)
     {
@@ -353,19 +356,10 @@ Public void clockDisplay_cyclic1000msec(void)
     const ControllerEvent * event_ptr = NULL;
     beerShotAction action = BEERSHOT_NO_ACTION;
 
-
     static const ControllerEvent * currentMinuteEvents_ptr = priv_normal_minute_events;
     static U8 controllerEvents_cnt = NUMBER_OF_ITEMS(priv_normal_minute_events);
 
-    if (priv_state == CONTROLLER_INIT)
-    {
-        return;
-    }
-
-    if ((priv_timekeeper.second == 0u) && (priv_timekeeper.minute > 0u))
-    {
-        controllerEvents_cnt = getScheduledSpecialTask(&currentMinuteEvents_ptr);
-    }
+    priv_safety_button_timer++;
 
     /* TODO : This should be changed to a better implementation. */
     if (priv_timekeeper.second == 59u)
@@ -386,7 +380,25 @@ Public void clockDisplay_cyclic1000msec(void)
     case CONTROLLER_INIT:
         //We do not do anything here.
         break;
+    case CONTROLLER_WARNING_TEXT:
+        /* Display the text here. */
+        priv_safety_button_timer = 0u;
+        showWarningText();
+        priv_state = CONTROLLER_WARNING_CONFIRM;
+        break;
+    case CONTROLLER_WARNING_CONFIRM:
+        if ((priv_safety_button_timer) > 60u || isGreenSafetyBtn())
+        {
+            display_clear();
+            priv_state = CONTROLLER_COUNTING;
+        }
+        break;
     case CONTROLLER_COUNTING:
+        if ((priv_timekeeper.second == 0u) && (priv_timekeeper.minute > 0u))
+        {
+            controllerEvents_cnt = getScheduledSpecialTask(&currentMinuteEvents_ptr);
+        }
+
         incrementTimer();
         if (priv_isFirstRun)
         {
@@ -435,6 +447,11 @@ Public void clockDisplay_cyclic1000msec(void)
 
         break;
     case CONTROLLER_OVERRIDDEN:
+        if ((priv_timekeeper.second == 0u) && (priv_timekeeper.minute > 0u))
+        {
+            controllerEvents_cnt = getScheduledSpecialTask(&currentMinuteEvents_ptr);
+        }
+
         //We still increment timer.
         incrementTimer();
 
@@ -689,6 +706,19 @@ Private void clearLowerText(void)
     display_fillRectangle(LOWER_TEXT_XLOC, LOWER_TEXT_YLOC, LOWER_TEXT_HEIGHT, LOWER_TEXT_WIDTH, PATTERN_WHITE);
 }
 
+
+Private void showWarningText(void)
+{
+    display_clear();
+
+    /* Display the Warning. */
+    display_drawString("Warning! The makers of this",           0u, 0u,     FONT_ARIAL_TINY, FALSE);
+    display_drawString("device are not responsible",            0u, 11u,    FONT_ARIAL_TINY, FALSE);
+    display_drawString("for injury, drunkenness and",           0u, 22u,    FONT_ARIAL_TINY, FALSE);
+    display_drawString("/or nudity that may occur.",            0u, 33u,    FONT_ARIAL_TINY, FALSE);
+    display_drawString("Press LAUNCH to continue",              0u, 44u,    FONT_ARIAL_TINY, FALSE);
+    display_drawString("You have been warned!  ",               0u, 55u,    FONT_ARIAL_TINY, FALSE);
+}
 
 /*****************************************************************************************************
  *

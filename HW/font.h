@@ -14,6 +14,7 @@
 
 typedef enum
 {
+    FONT_ARIAL_TINY,
     FONT_SMALL_FONT,
     FONT_MEDIUM_FONT,
     FONT_LARGE_FONT,
