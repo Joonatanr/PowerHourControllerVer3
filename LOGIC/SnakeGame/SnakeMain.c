@@ -14,6 +14,7 @@
 #include "buzzer.h"
 #include "register.h"
 #include "misc.h"
+#include "LOGIC/main.h"
 
 /*
 This is the coordinate system used. Each game coordinate corresponds to 2x2 pixels.
@@ -653,7 +654,6 @@ Private void handleGameOver(void)
 #endif
         MessageBox_SetResponseHandler(handleMessageBoxResponse);
         MessageBox_ShowWithOk("Game over!");
-        priv_isGameOver = TRUE;
 }
 
 
@@ -664,6 +664,7 @@ Private void handleMessageBoxResponse(MsgBox_Response resp)
     if (resp == RESPONSE_OK)
     {
         buzzer_playBeeps(1u);
+        priv_isGameOver = TRUE;
     }
 }
 

@@ -16,7 +16,7 @@
 //#define MSGBOX_FONT FONT_SMALL_FONT
 
 #define MSGBOX_MIN_HEIGHT   25u
-#define MSGBOX_MIN_WIDTH    35u
+#define MSGBOX_MIN_WIDTH    75u
 #define MSGBOX_MARGIN       10u
 #define BUTTON_AREA_HEIGHT  18u
 
@@ -32,6 +32,7 @@ typedef enum
 {
     TYPE_TEXT,
     TYPE_OK,
+    TYPE_OK_CANCEL,
     NUMBER_OF_TYPES
 } MsgBox_Type;
 
@@ -41,7 +42,10 @@ Private void drawMessageBox(const char * text, Boolean includeButtonArea);
 Private void drawButton(const char * text, U8 xloc);
 Private Size getMessageSize(const char * text);
 Private void clearBoxDisplay(void);
+
 Private void handleOkPress(void);
+Private void handleCancelPress(void);
+
 Private void closeMessageBox(void);
 
 Private Rectangle priv_msg_box;
@@ -95,6 +99,17 @@ Public void MessageBox_cyclic100msec(void)
                 drawMessageBox(priv_text, TRUE);
                 drawButton("OK", 63u);
                 break;
+            case TYPE_OK_CANCEL:
+                drawMessageBox(priv_text, TRUE);
+                buttons_unsubscribeAll();
+
+                buttons_subscribeListener(OK_BUTTON , handleOkPress);
+                buttons_subscribeListener(CANCEL_BUTTON, handleCancelPress);
+
+                drawMessageBox(priv_text, TRUE);
+                drawButton("OK", 39u);
+                drawButton("CANCEL", 76u);
+                break;
             default:
                 /* Should not happen. */
                 break;
@@ -133,13 +148,22 @@ Public void MessageBox_Show(const char * text, U16 period)
     priv_type = TYPE_TEXT;
 }
 
-/* TODO : Add also option for cancel button and to get info on user feedback. */
+
 Public void MessageBox_ShowWithOk(const char * text)
 {
     strcpy(priv_text, text);
     priv_duration_period = 0u;
     priv_state = STATE_PENDING;
     priv_type = TYPE_OK;
+}
+
+
+Public void MessageBox_ShowWithOkCancel(const char * text)
+{
+    strcpy(priv_text, text);
+    priv_duration_period = 0u;
+    priv_state = STATE_PENDING;
+    priv_type = TYPE_OK_CANCEL;
 }
 
 /**************************** Private function definitions **************************/
@@ -276,6 +300,18 @@ Private void handleOkPress(void)
     {
         priv_response_handler(RESPONSE_OK);
     }
+    priv_response_handler = NULL;
+}
+
+Private void handleCancelPress(void)
+{
+    closeMessageBox();
+    /* Lets call this last, so that the active module can draw something on the display etc... */
+    if (priv_response_handler != NULL)
+    {
+        priv_response_handler(RESPONSE_CANCEL);
+    }
+    priv_response_handler = NULL;
 }
 
 
@@ -283,6 +319,7 @@ Private void closeMessageBox(void)
 {
     /* TODO : Also draw the previous image, so it does not get lost. */
 
+    //buttons_unsubscribeAll();
     Scheduler_SetActiveApplicationPause(FALSE);
     clearBoxDisplay();
     priv_state = STATE_IDLE;

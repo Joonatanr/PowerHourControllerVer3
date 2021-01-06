@@ -24,6 +24,8 @@ typedef void (* MsgBoxResponseHandler)(MsgBox_Response resp_code);
 
 extern void MessageBox_Show(const char * text, U16 period);
 extern void MessageBox_ShowWithOk(const char * text);
+extern void MessageBox_ShowWithOkCancel(const char * text);
+
 extern void MessageBox_SetResponseHandler(MsgBoxResponseHandler handler);
 
 extern void MessageBox_init(void);

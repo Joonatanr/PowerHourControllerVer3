@@ -16,7 +16,5 @@ extern void snake_cyclic50ms(void);
 extern void snake_stop(void);
 extern void snake_setSpeed(U16 speed);
 
-/* TODO : This should be made into a general implementation for returning to the main menu. */
-extern void returnToMain(void);
 
 #endif /* LOGIC_SNAKEGAME_SNAKEMAIN_H_ */

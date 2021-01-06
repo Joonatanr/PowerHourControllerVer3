@@ -13,6 +13,9 @@
 #include "buzzer.h"
 #include "tumbler.h"
 #include "register.h"
+#include "buttons.h"
+#include "LOGIC/TextTools/MessageBox.h"
+#include "LOGIC/main.h"
 
 #define BEERSHOT_X 86
 #define BEERSHOT_Y 1
@@ -45,6 +48,7 @@ typedef enum
     CONTROLLER_COUNTING,
     CONTROLLER_OVERRIDDEN,
     CONTROLLER_FINAL,
+    CONTROLLER_EXITING,
     CONTROLLER_NUMBER_OF_STATES
 } controllerState;
 
@@ -145,7 +149,7 @@ Private void doFinalAction(void);
 Private U8 selectRandomTaskIndex(void);
 
 Private timekeeper_struct priv_timekeeper;
-Private controllerState priv_timer_state;
+Private controllerState priv_state;
 
 Private U8 getScheduledSpecialTask(const ControllerEvent ** event_ptr);
 Private void setUpperText(const char * str);
@@ -154,6 +158,14 @@ Private void setLowerText(const char * str);
 Private void clearUpperText(void);
 Private void clearLowerText(void);
 
+Private void subscribeButtonHandlers(void);
+
+Private void HandleUpButton(void);
+Private void HandleDownButton(void);
+Private void HandleRightButton(void);
+Private void HandleLeftButton(void);
+
+Private void handleMessageBoxResponse(MsgBox_Response resp);
 
 Private void drawTimer(void);
 
@@ -269,7 +281,7 @@ Private OverrideFunc priv_override_ptr;
 Private char priv_timer_str[10];
 Private U8 priv_override_counter;
 Private U8 priv_task_frequency = 3u; /* Default value is a task every 3 minutes. */
-
+Private Boolean priv_isFirstRun = TRUE;
 
 /*****************************************************************************************************
  *
@@ -295,7 +307,7 @@ Public void clockDisplay_init(void)
     priv_timer_rect.size.height = font_height;
     priv_timer_rect.size.width = 15u * 5u;
 
-    priv_timer_state = CONTROLLER_INIT;
+    priv_state = CONTROLLER_INIT;
 
 }
 
@@ -305,8 +317,19 @@ Public void clockDisplay_start(void)
     U8 ix;
 
     display_clear();
+
+    /* Set up critical variables, as we might want to restart the game. */
+    priv_timekeeper.minute = 0u;
+    priv_timekeeper.second = 0u;
+    priv_state = CONTROLLER_INIT;
+
+    /* Set up buttons */
+    subscribeButtonHandlers();
+
+
     //We start counting.
-    priv_timer_state = CONTROLLER_COUNTING;
+    priv_isFirstRun = TRUE;
+    priv_state = CONTROLLER_COUNTING;
 
     for (ix = 0u; ix < NUMBER_OF_TASK_CATEGORIES; ix++)
     {
@@ -318,7 +341,7 @@ Public void clockDisplay_start(void)
 /* Should return all variables to their initial states. */
 Public void clockDisplay_stop(void)
 {
-    priv_timer_state = CONTROLLER_INIT;
+    priv_state = CONTROLLER_INIT;
     priv_timekeeper.minute = 0u;
     priv_timekeeper.second = 0u;
 }
@@ -329,10 +352,15 @@ Public void clockDisplay_cyclic1000msec(void)
     U8 ix;
     const ControllerEvent * event_ptr = NULL;
     beerShotAction action = BEERSHOT_NO_ACTION;
-    static Boolean isFirstRun = TRUE;
+
 
     static const ControllerEvent * currentMinuteEvents_ptr = priv_normal_minute_events;
     static U8 controllerEvents_cnt = NUMBER_OF_ITEMS(priv_normal_minute_events);
+
+    if (priv_state == CONTROLLER_INIT)
+    {
+        return;
+    }
 
     if ((priv_timekeeper.second == 0u) && (priv_timekeeper.minute > 0u))
     {
@@ -350,20 +378,20 @@ Public void clockDisplay_cyclic1000msec(void)
     if (priv_timekeeper.minute == 60u)
     {
         doFinalAction();
-        priv_timer_state = CONTROLLER_FINAL;
+        priv_state = CONTROLLER_FINAL;
     }
 
-    switch(priv_timer_state)
+    switch(priv_state)
     {
     case CONTROLLER_INIT:
         //We do not do anything here.
         break;
     case CONTROLLER_COUNTING:
         incrementTimer();
-        if (isFirstRun)
+        if (priv_isFirstRun)
         {
             event_ptr = &priv_initial_event;
-            isFirstRun = FALSE;
+            priv_isFirstRun = FALSE;
         }
         else
         {
@@ -396,7 +424,7 @@ Public void clockDisplay_cyclic1000msec(void)
         //Currently we still finish this cycle and special handling begins on the next.
         if (action == OVERRIDE_FUNCTION)
         {
-            priv_timer_state = CONTROLLER_OVERRIDDEN;
+            priv_state = CONTROLLER_OVERRIDDEN;
             priv_override_ptr = event_ptr->func;
             priv_override_counter = 0u;
         }
@@ -415,11 +443,15 @@ Public void clockDisplay_cyclic1000msec(void)
             display_clear();
             drawTimer();
             drawBeerShot(BEERSHOT_EMPTY);
-            priv_timer_state = CONTROLLER_COUNTING;
+            priv_state = CONTROLLER_COUNTING;
         }
         priv_override_counter++;
         break;
     case CONTROLLER_FINAL:
+        break;
+    case CONTROLLER_EXITING:
+        returnToMain();
+        break;
     default:
         break;
     }
@@ -894,4 +926,61 @@ Private Boolean SocRespSpecialIntro(U8 sec)
     return genericIntroFunction(intro_ptr, sec);
 }
 
+
+/********** Button Handlers  ********/
+
+Private void subscribeButtonHandlers(void)
+{
+    buttons_subscribeListener(UP_BUTTON,    HandleUpButton);
+    buttons_subscribeListener(DOWN_BUTTON,  HandleDownButton);
+    buttons_subscribeListener(RIGHT_BUTTON, HandleRightButton);
+    buttons_subscribeListener(LEFT_BUTTON,  HandleLeftButton);
+}
+
+
+Private void HandleUpButton(void)
+{
+    /* Placeholder. */
+}
+
+Private void HandleDownButton(void)
+{
+    /* Placeholder. */
+}
+
+
+Private void HandleRightButton(void)
+{
+    /* This will open up a message box that will allow the user to cancel the game. */
+    MessageBox_SetResponseHandler(handleMessageBoxResponse);
+    MessageBox_ShowWithOkCancel("Quit game?");
+}
+
+Private void HandleLeftButton(void)
+{
+    /* Placeholder. */
+}
+
+
+/* MessageBox Handler. */
+Private void handleMessageBoxResponse(MsgBox_Response resp)
+{
+    /* In reality this is the only type of response that we can get. */
+    /* This is really just for testing right now... */
+    if (resp == RESPONSE_OK)
+    {
+        /* We quit the game. */
+        priv_state = CONTROLLER_EXITING;
+    }
+    else if (resp == RESPONSE_CANCEL)
+    {
+        /* We resume the game. */
+        /* Re subscribe the button handlers. */
+        subscribeButtonHandlers();
+    }
+    else
+    {
+        /* Should not really happen. */
+    }
+}
 
