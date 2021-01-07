@@ -152,21 +152,36 @@ Private Task_T priv_TextArrayKtLevel1[] =
      { "Most wasted", "KT member takes" "1 vodka "                  , .counter = 0u },   /* 2  */
      { "KT president", "takes a shot", "of vodka "                  , .counter = 0u },   /* 3  */
      { "All KT members", "who have been senor", "skip this round "  , .counter = 0u },   /* 4  */
+     { "If KT founders", "are present", "they drink vodka "         , .counter = 0u },   /* 5  */
+     { "If KT founders", "are present", "they ship this round "     , .counter = 0u },   /* 6  */
+     { "All KT members", "drink 3x OR", "drink vodka "              , .counter = 0u },   /* 7  */
+     { "1 KT member", "must make toast", "and drink 2x "            , .counter = 0u },   /* 8  */
+     { "Most wasted", "KT member" "skips round "                    , .counter = 0u },   /* 9  */
+     { "All KT members", "drink water" "just kidding! vodka! "      , .counter = 0u },   /* 10 */
 };
 
 
 Private Task_T priv_TextArrayPaxLevel1[] =
 {
-     { "Placeholder", "Pax 1", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Pax 2", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Pax 3", "Level 1 " , .counter = 0u },
+     { "All participants", "from Russia", "drink vodka " ,              .counter = 0u }, /* 1   */
+     { "All participants", "from Latvia", "drink 2x " ,                 .counter = 0u }, /* 2   */
+     { "All participants", "from Poland", "drink vodka " ,              .counter = 0u }, /* 3   */
+     { "All participants", "from France", "drink wine OR drink 3x " ,   .counter = 0u }, /* 4   */
+     { "All participants", "drink 2x",      NULL ,                      .counter = 0u }, /* 5   */
+     { "All male participants",     "drink 2x", NULL ,                  .counter = 0u }, /* 6   */
+     { "All female participants",   "drink 2x", NULL ,                  .counter = 0u }, /* 7   */
+     { "All participants", "from Spain", "drink 2x " ,                  .counter = 0u }, /* 8   */
+     { "Most wasted PAX",  "drinks 2x", NULL ,                          .counter = 0u }, /* 9   */
+     { "Tallest PAX",      "drinks 2x", NULL ,                          .counter = 0u }, /* 10  */
+     { "Pax must distribute",      "8 drinks", "between them" ,         .counter = 0u }, /* 11  */
 };
+
 
 Private Task_T priv_TextArrayBoardLevel1[] =
 {
-     { "All boardies", 		"drink 2x", 			NULL   , 				.counter = 0u },
-     { "Boardies have to", 	"distribute 5 shots", 	"amongst each other" , 	.counter = 0u },
-     { "Placeholder", "Board 3", "Level 1 " , 	.counter = 0u },
+     { "All boardies", 		"drink 2x", 			NULL   , 				.counter = 0u },  /* 1   */
+     { "Boardies have to", 	"distribute 5 shots", 	"amongst each other" , 	.counter = 0u },  /* 2   */
+     { "President of LBG",  "drinks vodka",         NULL , 	                .counter = 0u },  /* 3   */
 };
 
 
@@ -253,7 +268,7 @@ Private Task_T priv_TextArrayKtLevel2[] =
 
 Private Task_T priv_TextArrayPaxLevel2[] =
 {
-     { "Placeholder", "Pax 1", "Level 2 " , .counter = 0u },
+     { "All participants", "from Russia", "drink vodka " ,   .counter = 0u },
      { "Placeholder", "Pax 2", "Level 2 " , .counter = 0u },
      { "Placeholder", "Pax 3", "Level 2 " , .counter = 0u },
 };
