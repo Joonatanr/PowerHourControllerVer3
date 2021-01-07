@@ -395,31 +395,37 @@ Private Task_T priv_TextArrayCoreTeamLevel3[] =
 
 Private Task_T priv_TextArraySocRespLevel3[] =
 {
-     { "Social resp. who", "has slept with 1 of", "the players drinks" ,    .counter = 0u },
-     { "Social responsible", "does a buffalo", NULL ,                       .counter = 0u },
-     { "Social responsible", "takes", "pants off " ,                        .counter = 0u },
-     { "Social responsible", "takes a shot", "with straight hand " ,        .counter = 0u },
-     { "Social responsible", "takes a body shot", NULL ,                    .counter = 0u },
-     { "Social responsible", "licks the shot glass", "like she means it" ,  .counter = 0u },
-     { "Social responsible", "takes 2 shots", NULL ,                        .counter = 0u },
-     { "Social responsible", "tells a dirty", "personal fantacy" ,          .counter = 0u },
-     { "Social resp. tells", " a dirty toast", "for the next round" ,       .counter = 0u },
-     { "Social responsible", "drinks and ", "fakes an orgasm" ,             .counter = 0u },
-     { "Social responsible", "tells his/her", "favorite boob size" ,        .counter = 0u },
+     { "Social resp. who", "has slept with 1 of", "the players drinks" ,    .counter = 0u },   /* 1  */
+     { "Social responsible", "does a buffalo", NULL ,                       .counter = 0u },   /* 2  */
+     { "Social responsible", "takes", "pants off " ,                        .counter = 0u },   /* 3  */
+     { "Social responsible", "takes a shot", "with straight hand " ,        .counter = 0u },   /* 4  */
+     { "Social responsible", "takes a body shot", NULL ,                    .counter = 0u },   /* 5  */
+     { "Social responsible", "licks the shot glass", "like she means it" ,  .counter = 0u },   /* 6  */
+     { "Social responsible", "takes 2 shots", NULL ,                        .counter = 0u },   /* 7  */
+     { "Social responsible", "tells a dirty", "personal fantacy" ,          .counter = 0u },   /* 8  */
+     { "Social resp. tells", " a dirty toast", "for the next round" ,       .counter = 0u },   /* 9  */
+     { "Social responsible", "drinks and ", "fakes an orgasm" ,             .counter = 0u },   /* 10 */
+     { "Social responsible", "tells his/her", "favorite boob size" ,        .counter = 0u },   /* 11 */
 };
+
 
 Private Task_T priv_TextArrayKtLevel3[] =
 {
-     { "All the KT", "members take", "off shirts " , .counter = 0u },
-     { "Placeholder", "Kt 2", "Level 3 " , .counter = 0u },
-     { "Placeholder", "Kt 3", "Level 3 " , .counter = 0u },
+     { "All the KT",        "members take",     "off shirts "       , .counter = 0u },   /* 1  */
+     { "Female KT members", "distribute 3",     "vodka shots "      , .counter = 0u },   /* 2  */
+     { "KT members do a",   "waterfall until",  "next shot "        , .counter = 0u },   /* 3  */
+     { "KT members do a",   "buffalo",          NULL                , .counter = 0u },   /* 4  */
+     { "KT remove 2", "items of clothing", "or take 2 vodka shots"  , .counter = 0u },   /* 5  */
+     { "Oldest KT member",  "must organize",   "a bodyshot"         , .counter = 0u },   /* 6  */
+     { "Most horny",  "KT member",             "drinks 3x"          , .counter = 0u },   /* 7  */
+     { "!Error code 0x00A45",  "Just kidding!","Drink 2x everybody" , .counter = 0u },   /* 8  */
 };
 
 
 Private Task_T priv_TextArrayPaxLevel3[] =
 {
-     { "Placeholder", "Pax 1", "Level 3 " , .counter = 0u },
-     { "Placeholder", "Pax 2", "Level 3 " , .counter = 0u },
+     { "All Pax girls sit", "on somebody's lap", "while drinking " , .counter = 0u },   /* 1  */
+     { "Most horny",  "PAX",             "drinks 3x"               , .counter = 0u },   /* 2  */
      { "Placeholder", "Pax 3", "Level 3 " , .counter = 0u },
 };
 
@@ -457,20 +463,20 @@ Private Task_T priv_TextArrayGirlsLevel4[] =
 /* Hardcore tasks */
 Private Task_T priv_TextArrayGuysLevel4[] =
 {
-     { "2 guys",           "make out"          ,   "or drink 3x"       , .counter = 0u  },  /*  3  */
-     { "Vodka round!!!" ,  "for girls!!!"      ,   NULL                , .counter = 0u  },  /*  4  */
-     { "All guys",         "who wanked"        ,   "today drink 2x"    , .counter = 0u  },  /*  6  */
-     { "Guys must",        "fake an orgasm"    ,   "or drink vodka"    , .counter = 0u  },  /*  7  */
-     { "Guys must name",    "10 sex positions" ,   "or drink vodka"    , .counter = 0u  },  /*  8  */
-     { "Next round guys",   "do bodyshots"     ,   "from the girls"    , .counter = 0u  },  /*  10 */
-     { "Girls give a",     "dare for guys"     ,   "to do next round"  , .counter = 0u  },  /*  11 */
-     { "All guys",         "get a spanking"    ,   "from the girls"    , .counter = 0u  },  /*  12 */
-     { "Guy who is",       "most wasted"       ,   "does a vodka"      , .counter = 0u  },  /*  14 */
-     { "All guys",         "lose"              ,   "their pants"       , .counter = 0u  },  /*  15 */
-     { "Guys",             "drink without"     ,   "using hands"       , .counter = 0u  },  /*  16 */
-     { "Guys that haven't","eaten pussy in 30"    ,"days drink vodka"  , .counter = 0u  },  /*  17 */
-     { "Guy wearing the"  ,"least clothes"        ,"drinks 3x"         , .counter = 0u  },  /*  18 */
-     { "2 guys must"      ,"make out or"          ,"drink vodka"       , .counter = 0u  },  /*  20 */
+     { "2 guys",           "make out"          ,   "or drink 3x"       , .counter = 0u  },  /*  1  */
+     { "Vodka round!!!" ,  "for girls!!!"      ,   NULL                , .counter = 0u  },  /*  2  */
+     { "All guys",         "who wanked"        ,   "today drink 2x"    , .counter = 0u  },  /*  3  */
+     { "Guys must",        "fake an orgasm"    ,   "or drink vodka"    , .counter = 0u  },  /*  4  */
+     { "Guys must name",    "10 sex positions" ,   "or drink vodka"    , .counter = 0u  },  /*  5  */
+     { "Next round guys",   "do bodyshots"     ,   "from the girls"    , .counter = 0u  },  /*  6  */
+     { "Girls give a",     "dare for guys"     ,   "to do next round"  , .counter = 0u  },  /*  7  */
+     { "All guys",         "get a spanking"    ,   "from the girls"    , .counter = 0u  },  /*  8  */
+     { "Guy who is",       "most wasted"       ,   "does a vodka"      , .counter = 0u  },  /*  9  */
+     { "All guys",         "lose"              ,   "their pants"       , .counter = 0u  },  /*  10 */
+     { "Guys",             "drink without"     ,   "using hands"       , .counter = 0u  },  /*  11 */
+     { "Guys that haven't","eaten pussy in 30"    ,"days drink vodka"  , .counter = 0u  },  /*  12 */
+     { "Guy wearing the"  ,"least clothes"        ,"drinks 3x"         , .counter = 0u  },  /*  13 */
+     { "2 guys must"      ,"make out or"          ,"drink vodka"       , .counter = 0u  },  /*  14 */
 };
 
 
@@ -522,6 +528,7 @@ Private Task_T priv_TextArrayPaxLevel4[] =
      { "Participant with", "best English", "drink x2" ,                 .counter = 0u },
      { "All participants", "kiss the person ", "next to them" ,         .counter = 0u },
      { "Pax who haven't",  "had sex during event", "drink x2" ,         .counter = 0u },
+     { "Pax drink like",   "somebody is sitting", "on their face "    , .counter = 0u },   /* 3  */
 };
 
 Private Task_T priv_TextArrayBoardLevel4[] =
