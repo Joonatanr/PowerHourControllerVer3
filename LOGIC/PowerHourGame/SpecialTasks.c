@@ -120,16 +120,16 @@ Private Task_T priv_TextArrayAlumniLevel1[] =
 
 Private Task_T priv_TextArrayCoreTeamLevel1[] =
 {
-     { "All core team", "members drink", "2x " ,                              .counter = 0u },  /* 1  */
-     { "All core team", "members drink", "3x " ,                              .counter = 0u },  /* 2  */
-     { "Project MO",    "drinks 3x",      NULL ,                              .counter = 0u },  /* 3  */
-     { "All CT members who", "have followed ghantt chart", "skip this round", .counter = 0u },  /* 4  */
-     { "Core team member", "who was most wasted", "last night drink 2x",      .counter = 0u },  /* 5  */
-     { "MO takes one shot", "for each CT member", "present",                  .counter = 0u },  /* 6  */
-     { "Core team member", "who slept least", "skip this round",              .counter = 0u },  /* 7  */
-     { "Whoever made breakfast", "for everybody today", "skip this round",    .counter = 0u },  /* 8  */
-     { "All core team", "girls drink 2x", NULL,                               .counter = 0u },  /* 9  */
-     { "All core team", "guys drink 2x", NULL,                                .counter = 0u },  /* 10 */
+     { "All core team",     "members drink", "2x " ,                              .counter = 0u },  /* 1  */
+     { "All core team",     "members drink", "3x " ,                              .counter = 0u },  /* 2  */
+     { "Project MO",        "drinks 3x",      NULL ,                              .counter = 0u },  /* 3  */
+     { "CT members who have", "followed ghantt chart", "skip this round",         .counter = 0u },  /* 4  */
+     { "Core team member", "who was most wasted", "last night drink 2x",          .counter = 0u },  /* 5  */
+     { "MO takes one shot", "for each CT member", "present",                      .counter = 0u },  /* 6  */
+     { "Core team member", "who slept least", "skip this round",                  .counter = 0u },  /* 7  */
+     { "Whoever made breakfast", "for everybody today", "skip this round",        .counter = 0u },  /* 8  */
+     { "All core team", "girls drink 2x", NULL,                                   .counter = 0u },  /* 9  */
+     { "All core team", "guys drink 2x", NULL,                                    .counter = 0u },  /* 10 */
 };
 
 Private Task_T priv_TextArraySocRespLevel1[] =
@@ -262,6 +262,8 @@ Private Task_T priv_TextArrayCoreTeamLevel2[] =
      { "Every male Core",       "team member",           "loses shirt " ,                .counter = 0u }, /* 6  */
      { "Every female ",         "coreteam member",       "loses 1 clothing item " ,      .counter = 0u }, /* 7  */
      { "One core team ",        "member must kiss",      "another on the cheek " ,       .counter = 0u }, /* 8  */
+     { "The core team makes ",  "a toast with their",    "team motto " ,                 .counter = 0u }, /* 9  */
+     { "All CT members",        "wearing black underwear", "drink 2x",                   .counter = 0u }, /* 10 */
 };
 
 
@@ -275,38 +277,46 @@ Private Task_T priv_TextArraySocRespLevel2[] =
 
 Private Task_T priv_TextArrayKtLevel2[] =
 {
-     { "Placeholder", "Kt 1", "Level 2 " , .counter = 0u },
-     { "Placeholder", "Kt 2", "Level 2 " , .counter = 0u },
-     { "Placeholder", "Kt 3", "Level 2 " , .counter = 0u },
+     { "All KT members", "do 10 pushups",         "before drink " ,          .counter = 0u },  /* 1 */
+     { "KT members drink", "1x for each",         "Cantus experienced "  ,   .counter = 0u },  /* 2 */
+     { "KT members drink", "1x for every party",  "organized this year " ,   .counter = 0u },  /* 3 */
+     { "KT members ",      "divide 8 shots",      "amongst themselves",      .counter = 0u },  /* 4 */
+     { "KT member with ",  "the largest penis",   "drinks vodka",            .counter = 0u },  /* 5 */
+     { "KT members who ",  "are single skip this","others drink vodka",      .counter = 0u },  /* 6 */
+     { "The fastest drinker",   "in KT",          "drinks 3x",               .counter = 0u },  /* 7 */
+     { "All female ",      "KT members",          "drink 3x",                .counter = 0u },  /* 8 */
+     { "KT members who have", "pulled the root",  "from the ground 3x",      .counter = 0u },  /* 9 */
+     { "All KT members",      "drink 1x for every","other KT member here",   .counter = 0u },  /* 10 */
 };
 
 
 Private Task_T priv_TextArrayPaxLevel2[] =
 {
-     { "All participants", "from Russia", "drink vodka " ,              .counter = 0u },
-     { "All virgin", "participants", "drink x2 " ,                      .counter = 0u },
-     { "Oldest participant", "tells who", "drinks x2 " ,                .counter = 0u },
-     { "Youngest participant", NULL, "drinks x2 " ,                     .counter = 0u },
-     { "All participants", "drink", NULL ,                              .counter = 0u },
-     { "Who can speak German", "screems Heil Hitler", "and drinks " ,   .counter = 0u },
-     { "Who spent more than", "than 30 min on ML ", "drinks " ,         .counter = 0u },
-     { "Oldest participant", "pours a ", "shot round" ,                 .counter = 0u },
-     { "Spanish speaking", "participant tells", "a toast" ,             .counter = 0u },
-     { "Shortest participant", "drinks", "1 shot! " ,                   .counter = 0u },
+     { "All participants", "from Russia", "drink vodka " ,              .counter = 0u }, /* 1  */
+     { "All virgin", "participants", "drink x2 " ,                      .counter = 0u }, /* 2  */
+     { "Oldest participant", "tells who", "drinks x2 " ,                .counter = 0u }, /* 3  */
+     { "Youngest participant", NULL, "drinks x2 " ,                     .counter = 0u }, /* 4  */
+     { "All participants", "drink", NULL ,                              .counter = 0u }, /* 5  */
+     { "Who can speak German", "screams Heil Hitler", "and drinks " ,   .counter = 0u }, /* 6  */
+     { "Who spent more than", "than 30 min on ML ", "drinks 2x" ,       .counter = 0u }, /* 7  */
+     { "Oldest participant", "pours a ", "shot round" ,                 .counter = 0u }, /* 8  */
+     { "Spanish speaking", "participant tells", "a toast" ,             .counter = 0u }, /* 9  */
+     { "Shortest participant", "drinks", "1 shot of vodka " ,           .counter = 0u }, /* 10 */
 };
 
 Private Task_T priv_TextArrayBoardLevel2[] =
 {
-     { "All boardies", "lose 1 item", "of clothing " ,                          .counter = 0u },
-     { "HR tells the toast", "and drinks", "x2 " ,                              .counter = 0u },
-     { "President gives ", "a quick speech", "and drinks x2 " ,                 .counter = 0u },
-     { "Virgin Boardie", "is the only", "who doesn't drink" ,                   .counter = 0u },
-     { "Treasurer makes sure", "who is least drunk", "and drinks with him " ,   .counter = 0u },
-     { "PR makes a promo", "speech for", "the next alcohol " ,                  .counter = 0u },
-     { "CR has to make", "some1 drink", "x2 " ,                                 .counter = 0u },
-     { "All boardies", "spank ", "each other " ,                                .counter = 0u },
-     { "President makes", "a long boring ", "1 min speech " ,                   .counter = 0u },
-     { "All boardies", "drink", "x2" ,                                          .counter = 0u },
+     { "All boardies",          "lose 1 item", "of clothing " ,                    .counter = 0u },  /* 1  */
+     { "HR tells the toast",    "and drinks", "x2 " ,                              .counter = 0u },  /* 2  */
+     { "President gives ",      "a quick speech", "and drinks x2 " ,               .counter = 0u },  /* 3  */
+     { "Virgin Boardie",        "is the only", "who doesn't drink" ,               .counter = 0u },  /* 4  */
+     { "Treasurer makes sure",  "who is least drunk", "and drinks with him " ,     .counter = 0u },  /* 5  */
+     { "PR makes a promo", "    speech for", "the next alcohol " ,                 .counter = 0u },  /* 6  */
+     { "CR has to make",        "someone drink", "x2 " ,                           .counter = 0u },  /* 7  */
+     { "All boardies",          "spank ", "each other " ,                          .counter = 0u },  /* 8  */
+     { "President makes",       "a long boring ", "1 min speech " ,                .counter = 0u },  /* 9  */
+     { "All boardies",          "drink", "x2" ,                                    .counter = 0u },  /* 10 */
+     { "Every boardie who",     "has had sex in" , "last 3 days drink 3x ",        .counter = 0u },  /* 11 */
 };
 
 
@@ -329,6 +339,7 @@ Private Task_T priv_TextArrayGirlsLevel3[] =
      { " Girls must make"      ,  "a naughty"   ,                "toast"       , .counter = 0u  }, /* 16 */
      { " Girls must make"      ,  "a kinky"   ,                  "toast"       , .counter = 0u  }, /* 17 */
      {  "All girls must",         "drink under",         "the table"           , .counter = 0u  }, /* 18 */
+     {  "All girls must",         "drink with hands",    "on their butts"      , .counter = 0u  }, /* 19 */
 };
 
 
@@ -356,10 +367,14 @@ Private Task_T priv_TextArrayGuysLevel3[] =
 
 Private Task_T priv_TextArrayAlumniLevel3[] =
 {
-     { "Alumni with", 		"biggest boobs", 	"drinks 3x " , 		.counter = 0u },
-     { "Everybody that"	  , "has met Kark", 	"drinks vodka ", 	.counter = 0u },
-     { "All alumni",        "must share", 		"a crazy story ",   .counter = 0u },
-	 { "Alumni with",       "the most exes",    "drinks vodka",     .counter = 0u },
+     { "Alumni with", 		"biggest boobs", 	    "drinks 3x " , 		    .counter = 0u },  /* 1  */
+     { "Everybody that"	  , "has met Kark",     	"drinks vodka ", 	    .counter = 0u },  /* 2  */
+     { "All alumni",        "must share", 		    "a crazy story ",       .counter = 0u },  /* 3  */
+	 { "Alumni with",       "the most exes",        "drinks vodka",         .counter = 0u },  /* 4  */
+	 { "Alumni that went",  "to Tatra JAM",         "lose their shirt " ,   .counter = 0u },  /* 5  */
+	 { "Alumni must teach", "BESTies a good ",      "sex trick ",           .counter = 0u },  /* 6  */
+	 { "All alumni that",   "had a threesome",      "drink 3x",             .counter = 0u },  /* 7  */
+	 { "Alumni must do",    "the Tunak beginning",  "Yodelling",            .counter = 0u },  /* 8  */
 };
 
 Private Task_T priv_TextArrayCoreTeamLevel3[] =
