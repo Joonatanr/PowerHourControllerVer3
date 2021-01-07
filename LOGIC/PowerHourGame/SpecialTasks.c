@@ -283,16 +283,30 @@ Private Task_T priv_TextArrayKtLevel2[] =
 
 Private Task_T priv_TextArrayPaxLevel2[] =
 {
-     { "All participants", "from Russia", "drink vodka " ,   .counter = 0u },
-     { "Placeholder", "Pax 2", "Level 2 " , .counter = 0u },
-     { "Placeholder", "Pax 3", "Level 2 " , .counter = 0u },
+     { "All participants", "from Russia", "drink vodka " ,              .counter = 0u },
+     { "All virgin", "participants", "drink x2 " ,                      .counter = 0u },
+     { "Oldest participant", "tells who", "drinks x2 " ,                .counter = 0u },
+     { "Youngest participant", NULL, "drinks x2 " ,                     .counter = 0u },
+     { "All participants", "drink", NULL ,                              .counter = 0u },
+     { "Who can speak German", "screems Heil Hitler", "and drinks " ,   .counter = 0u },
+     { "Who spent more than", "than 30 min on ML ", "drinks " ,         .counter = 0u },
+     { "Oldest participant", "pours a ", "shot round" ,                 .counter = 0u },
+     { "Spanish speaking", "participant tells", "a toast" ,             .counter = 0u },
+     { "Shortest participant", "drinks", "1 shot! " ,                   .counter = 0u },
 };
 
 Private Task_T priv_TextArrayBoardLevel2[] =
 {
-     { "All boardies", "lose 1 item", "of clothing " , .counter = 0u },
-     { "Placeholder", "Board 2", "Level 2 " , .counter = 0u },
-     { "Placeholder", "Board 3", "Level 2 " , .counter = 0u },
+     { "All boardies", "lose 1 item", "of clothing " ,                          .counter = 0u },
+     { "HR tells the toast", "and drinks", "x2 " ,                              .counter = 0u },
+     { "President gives ", "a quick speech", "and drinks x2 " ,                 .counter = 0u },
+     { "Virgin Boardie", "is the only", "who doesn't drink" ,                   .counter = 0u },
+     { "Treasurer makes sure", "who is least drunk", "and drinks with him " ,   .counter = 0u },
+     { "PR makes a promo", "speech for", "the next alcohol " ,                  .counter = 0u },
+     { "CR has to make", "some1 drink", "x2 " ,                                 .counter = 0u },
+     { "All boardies", "spank ", "each other " ,                                .counter = 0u },
+     { "President makes", "a long boring ", "1 min speech " ,                   .counter = 0u },
+     { "All boardies", "drink", "x2" ,                                          .counter = 0u },
 };
 
 
@@ -357,9 +371,17 @@ Private Task_T priv_TextArrayCoreTeamLevel3[] =
 
 Private Task_T priv_TextArraySocRespLevel3[] =
 {
-     { "Placeholder", "Socresp 1", "Level 3 " , .counter = 0u },
-     { "Placeholder", "Socresp 2", "Level 3 " , .counter = 0u },
-     { "Placeholder", "Socresp 3", "Level 3 " , .counter = 0u },
+     { "Social resp. who", "has slept with 1 of", "the players drinks" ,    .counter = 0u },
+     { "Social responsible", "does a buffalo", NULL ,                       .counter = 0u },
+     { "Social responsible", "takes", "pants off " ,                        .counter = 0u },
+     { "Social responsible", "takes a shot", "with straight hand " ,        .counter = 0u },
+     { "Social responsible", "takes a body shot", NULL ,                    .counter = 0u },
+     { "Social responsible", "licks the shot glass", "like she means it" ,  .counter = 0u },
+     { "Social responsible", "takes 2 shots", NULL ,                        .counter = 0u },
+     { "Social responsible", "tells a dirty", "personal fantacy" ,          .counter = 0u },
+     { "Social resp. tells", " a dirty toast", "for the next round" ,       .counter = 0u },
+     { "Social responsible", "drinks and ", "fakes an orgasm" ,             .counter = 0u },
+     { "Social responsible", "tells his/her", "favorite boob size" ,        .counter = 0u },
 };
 
 Private Task_T priv_TextArrayKtLevel3[] =
@@ -444,9 +466,16 @@ Private Task_T priv_TextArrayCoreTeamLevel4[] =
 
 Private Task_T priv_TextArraySocRespLevel4[] =
 {
-     { "Placeholder", "Socresp 1", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Socresp 2", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Socresp 3", "Level 4 " , .counter = 0u },
+     { "Social responsible", "shotguns a can", "of beer / cider " ,     .counter = 0u },
+     { "Social responsible", "slaps MO and ", "and calls him Sally " ,  .counter = 0u },
+     { "Social responsible", "takes 3 shots", NULL ,                    .counter = 0u },
+     { "Social responsible", "shows his/her", "orgasm face " ,          .counter = 0u },
+     { "Social resp. takes", "of his/her shoe", "and drinks from it" ,  .counter = 0u },
+     { "Social responsible", "chugs a ", "can of beer/cider " ,         .counter = 0u },
+     { "Social responsible", "kisses player", "next to him/her " ,      .counter = 0u },
+     { "Social responsible", "drinks 2x", "and loses shirt!" ,          .counter = 0u },
+     { "Social responsible", "tells a dirty ", "personal secret! " ,    .counter = 0u },
+     { "Social responsible", "chugs a beer", "and does 20 pushups" ,    .counter = 0u },
 };
 
 Private Task_T priv_TextArrayKtLevel4[] =
@@ -459,9 +488,16 @@ Private Task_T priv_TextArrayKtLevel4[] =
 
 Private Task_T priv_TextArrayPaxLevel4[] =
 {
-     { "Placeholder", "Pax 1", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Pax 2", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Pax 3", "Level 4 " , .counter = 0u },
+     { "Greek participant", "tells who is", "the sexiest pax" ,         .counter = 0u },
+     { "All participants", "drink", "x3" ,                              .counter = 0u },
+     { "All pax who have", "had sex during event", "drink x2" ,         .counter = 0u },
+     { "Most sexually", "experienced pax", "drink x2" ,                 .counter = 0u },
+     { "All participants", "lose 2 pieces", "of clothing" ,             .counter = 0u },
+     { "French pax", "does", "limousin dance!" ,                        .counter = 0u },
+     { "Drunkest pax takes", "his sock off and", " drinks through it" , .counter = 0u },
+     { "Participant with", "best English", "drink x2" ,                 .counter = 0u },
+     { "All participants", "kiss the person ", "next to them" ,         .counter = 0u },
+     { "Pax who haven't",  "had sex during event", "drink x2" ,         .counter = 0u },
 };
 
 Private Task_T priv_TextArrayBoardLevel4[] =
