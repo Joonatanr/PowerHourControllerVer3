@@ -106,44 +106,52 @@ Private Task_T priv_TextArrayGuysLevel1[] =
 
 Private Task_T priv_TextArrayAlumniLevel1[] =
 {
-     { "Oldest alumni", 	"drinks 2x", 				NULL 			, .counter = 0u 	},
-     { "Youngest alumni", 	"drinks 2x", 				NULL 			, .counter = 0u		},
-     { "One alumni", 		"must tell", 				"a joke " 		, .counter = 0u 	},
-	 { "All alumni",        "drink 2x", 				NULL			, .counter = 0u		},
-	 { "Everybody over 35", "skip 1 round", 			"rest drink 2x"	, .counter = 0u     },
-	 { "Alumni with a",   	"young BEST girlfriend", 	"drink 3x" 		, .counter = 0u     },
-     { "All alumni who",    "remember GA 2016", 		"drink 3x"		, .counter = 0u 	},
-	 { "Alumni who are",    "already drunk",    		"drink 3x"      , .counter = 0u     },
-	 { "Alumni who have", 	"been to Ekaterinburg", 	"drink 2x"		, .counter = 0u		},
-     { "Alumni board",      "drinks 3x"				    , NULL          , .counter = 0u		},
+     { "Oldest alumni", 	"drinks 2x", 				NULL 			, .counter = 0u 	}, /* 1  */
+     { "Youngest alumni", 	"drinks 2x", 				NULL 			, .counter = 0u		}, /* 2  */
+     { "One alumni", 		"must tell", 				"a joke " 		, .counter = 0u 	}, /* 3  */
+	 { "All alumni",        "drink 2x", 				NULL			, .counter = 0u		}, /* 4  */
+	 { "Everybody over 35", "skip 1 round", 			"rest drink 2x"	, .counter = 0u     }, /* 5  */
+	 { "Alumni with a",   	"young BEST girlfriend", 	"drink 3x" 		, .counter = 0u     }, /* 6  */
+     { "All alumni who",    "remember GA 2016", 		"drink 3x"		, .counter = 0u 	}, /* 7  */
+	 { "Alumni who are",    "already drunk",    		"drink 3x"      , .counter = 0u     }, /* 8  */
+	 { "Alumni who have", 	"been to Ekaterinburg", 	"drink 2x"		, .counter = 0u		}, /* 9  */
+     { "Alumni board",      "drinks 3x"				    , NULL          , .counter = 0u		}, /* 10 */
 };
 
 Private Task_T priv_TextArrayCoreTeamLevel1[] =
 {
-     { "Placeholder", "Coreteam 1", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Coreteam 2", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Coreteam 3", "Level 1 " , .counter = 0u },
+     { "All core team", "members drink", "2x " ,                              .counter = 0u },  /* 1  */
+     { "All core team", "members drink", "3x " ,                              .counter = 0u },  /* 2  */
+     { "Project MO",    "drinks 3x",      NULL ,                              .counter = 0u },  /* 3  */
+     { "All CT members who", "have followed ghantt chart", "skip this round", .counter = 0u },  /* 4  */
+     { "Core team member", "who was most wasted", "last night drink 2x",      .counter = 0u },  /* 5  */
+     { "MO takes one shot", "for each CT member", "present",                  .counter = 0u },  /* 6  */
+     { "Core team member", "who slept least", "skip this round",              .counter = 0u },  /* 7  */
+     { "Whoever made breakfast", "for everybody today", "skip this round",    .counter = 0u },  /* 8  */
+     { "All core team", "girls drink 2x", NULL,                               .counter = 0u },  /* 9  */
+     { "All core team", "guys drink 2x", NULL,                                .counter = 0u },  /* 10 */
 };
 
 Private Task_T priv_TextArraySocRespLevel1[] =
 {
-     { "Social responsible", "drinks 2x and", "does 10 pushups" 	, .counter = 0u },
-     { "Social responsible", "takes off 1 pieces", "of clothing " 	, .counter = 0u },
-     { "Social responsible", "tells", "\"your mama\" joke " 		, .counter = 0u },
-	 { "Social responsible", "drinks 3x", NULL 						, .counter = 0u },
-	 { "Social responsible", "must say the toast", "all drink " 	, .counter = 0u },
-	 { "Youngest", 			 "social responsible", "takes a shot "  , .counter = 0u },
-	 { "Social responsible", "tells an", 	"embarranssing story"   , .counter = 0u },
-	 { "Social responsible", "makes sure", "everyone has a drink"   , .counter = 0u },
-	 { "Social responsible", "drinks without", "using hands " 		, .counter = 0u },
-	 { "Social responsible", "decides", "who drinks " 				, .counter = 0u },
+     { "Social responsible", "drinks 2x and", "does 10 pushups" 	, .counter = 0u },  /* 1  */
+     { "Social responsible", "takes off 1 pieces", "of clothing " 	, .counter = 0u },  /* 2  */
+     { "Social responsible", "tells", "\"your mama\" joke " 		, .counter = 0u },  /* 3  */
+	 { "Social responsible", "drinks 3x", NULL 						, .counter = 0u },  /* 4  */
+	 { "Social responsible", "must say the toast", "all drink " 	, .counter = 0u },  /* 5  */
+	 { "Youngest", 			 "social responsible", "takes a shot "  , .counter = 0u },  /* 6  */
+	 { "Social responsible", "tells an", 	"embarrassing story"    , .counter = 0u },  /* 7  */
+	 { "Social responsible", "makes sure", "everyone has a drink"   , .counter = 0u },  /* 8  */
+	 { "Social responsible", "drinks without", "using hands " 		, .counter = 0u },  /* 9  */
+	 { "Social responsible", "decides", "who drinks " 				, .counter = 0u },  /* 10 */
 };
 
 Private Task_T priv_TextArrayKtLevel1[] =
 {
-     { "Placeholder", "Kt 1", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Kt 2", "Level 1 " , .counter = 0u },
-     { "Placeholder", "Kt 3", "Level 1 " , .counter = 0u },
+     { "All KT members", "take a shot", "of vodka "                 , .counter = 0u },   /* 1  */
+     { "Most wasted", "KT member takes" "1 vodka "                  , .counter = 0u },   /* 2  */
+     { "KT president", "takes a shot", "of vodka "                  , .counter = 0u },   /* 3  */
+     { "All KT members", "who have been senor", "skip this round "  , .counter = 0u },   /* 4  */
 };
 
 
@@ -223,8 +231,8 @@ Private Task_T priv_TextArrayAlumniLevel2[] =
 
 Private Task_T priv_TextArrayCoreTeamLevel2[] =
 {
-     { "Placeholder", "Coreteam 1", "Level 2 " , .counter = 0u },
-     { "Placeholder", "Coreteam 2", "Level 2 " , .counter = 0u },
+     { "Core team must",   "do waterfall",      "until next round",             .counter = 0u },
+     { "Core team member", "who has hooked up", "drinks vodka",                 .counter = 0u },
      { "Placeholder", "Coreteam 3", "Level 2 " , .counter = 0u },
 };
 
