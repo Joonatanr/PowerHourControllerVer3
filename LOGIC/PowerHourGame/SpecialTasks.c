@@ -251,12 +251,19 @@ Private Task_T priv_TextArrayAlumniLevel2[] =
 	 { "One alumni", 		"must tell ", 				"a dirty joke", 		.counter = 0u },
 };
 
+
 Private Task_T priv_TextArrayCoreTeamLevel2[] =
 {
-     { "Core team must",   "do waterfall",      "until next round",             .counter = 0u },
-     { "Core team member", "who has hooked up", "drinks vodka",                 .counter = 0u },
-     { "Placeholder", "Coreteam 3", "Level 2 " , .counter = 0u },
+     { "Core team must",        "do waterfall",          "until next round",             .counter = 0u }, /* 1  */
+     { "Core team member",      "who has hooked up",     "drinks vodka",                 .counter = 0u }, /* 2  */
+     { "Core team member",      "with biggest boobs",    "drinks 3x " ,                  .counter = 0u }, /* 3  */
+     { "Core team member",      "with most flags &",     "numbers drinks 3x " ,          .counter = 0u }, /* 4  */
+     { "Every member of CT",    "on the gossip wall",    "drinks 3x " ,                  .counter = 0u }, /* 5  */
+     { "Every male Core",       "team member",           "loses shirt " ,                .counter = 0u }, /* 6  */
+     { "Every female ",         "coreteam member",       "loses 1 clothing item " ,      .counter = 0u }, /* 7  */
+     { "One core team ",        "member must kiss",      "another on the cheek " ,       .counter = 0u }, /* 8  */
 };
+
 
 Private Task_T priv_TextArraySocRespLevel2[] =
 {
@@ -264,6 +271,7 @@ Private Task_T priv_TextArraySocRespLevel2[] =
      { "Placeholder", "Socresp 2", "Level 2 " , .counter = 0u },
      { "Placeholder", "Socresp 3", "Level 2 " , .counter = 0u },
 };
+
 
 Private Task_T priv_TextArrayKtLevel2[] =
 {
