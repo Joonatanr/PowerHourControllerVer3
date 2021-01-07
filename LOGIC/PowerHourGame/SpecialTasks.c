@@ -375,13 +375,22 @@ Private Task_T priv_TextArrayAlumniLevel3[] =
 	 { "Alumni must teach", "BESTies a good ",      "sex trick ",           .counter = 0u },  /* 6  */
 	 { "All alumni that",   "had a threesome",      "drink 3x",             .counter = 0u },  /* 7  */
 	 { "Alumni must do",    "the Tunak beginning",  "Yodelling",            .counter = 0u },  /* 8  */
+	 { "All married alumni","must drink 4x",        NULL,                   .counter = 0u },  /* 9  */
+	 { "All alumni",        "take off",             "shirts ",              .counter = 0u },  /* 10 */
 };
 
 Private Task_T priv_TextArrayCoreTeamLevel3[] =
 {
-     { "Placeholder", "Coreteam 1", "Level 3 " , .counter = 0u },
-     { "Placeholder", "Coreteam 2", "Level 3 " , .counter = 0u },
-     { "Placeholder", "Coreteam 3", "Level 3 " , .counter = 0u },
+     { "Core team members",      "lose their", "pants ",                         .counter = 0u       }, /* 1  */
+     { "Core team members",      "drink a ", "buffalo ",                         .counter = 0u       }, /* 2  */
+     { "Main Organizer",         "must twerk", "while drinking " ,               .counter = 0u       }, /* 3  */
+     { "All CT members must",    "name who they", "want to sleep with",          .counter = 0u       }, /* 4  */
+     { "2 CT members must",      "kiss or everybody", "drinks vodka shot",       .counter = 0u       }, /* 5  */
+     { "FR responsible must",    "make sales speech", "while removing shirt" ,   .counter = 0u       }, /* 6  */
+     { "Pax responsible must",   "organize a", "bodyshot" ,                      .counter = 0u       }, /* 7  */
+     { "The core team",          "drinks while on", "all fours",                 .counter = 0u       }, /* 8  */
+     { "The core team",          "drinks a shot of", "vodka",                    .counter = 0u       }, /* 9  */
+     { "If there is any",        "Soplica, then drink it!",  "Twoje zdrowie!",    .counter = 0u      }, /* 10 */
 };
 
 Private Task_T priv_TextArraySocRespLevel3[] =
@@ -401,7 +410,7 @@ Private Task_T priv_TextArraySocRespLevel3[] =
 
 Private Task_T priv_TextArrayKtLevel3[] =
 {
-     { "Placeholder", "Kt 1", "Level 3 " , .counter = 0u },
+     { "All the KT", "members take", "off shirts " , .counter = 0u },
      { "Placeholder", "Kt 2", "Level 3 " , .counter = 0u },
      { "Placeholder", "Kt 3", "Level 3 " , .counter = 0u },
 };
