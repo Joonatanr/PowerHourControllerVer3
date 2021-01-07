@@ -179,9 +179,16 @@ Private Task_T priv_TextArrayPaxLevel1[] =
 
 Private Task_T priv_TextArrayBoardLevel1[] =
 {
-     { "All boardies", 		"drink 2x", 			NULL   , 				.counter = 0u },  /* 1   */
-     { "Boardies have to", 	"distribute 5 shots", 	"amongst each other" , 	.counter = 0u },  /* 2   */
-     { "President of LBG",  "drinks vodka",         NULL , 	                .counter = 0u },  /* 3   */
+     { "All boardies", 		    "drink 2x", 			NULL   , 				.counter = 0u },  /* 1   */
+     { "Boardies have to", 	    "distribute 5 shots", 	"amongst each other" , 	.counter = 0u },  /* 2   */
+     { "President of LBG",      "drinks vodka",         NULL , 	                .counter = 0u },  /* 3   */
+     { "Boardies drink 2x",     "Ex-boardies can",    "skip this round" ,       .counter = 0u },  /* 4   */
+     { "All female boardies",   "drink 2x",           NULL ,                    .counter = 0u },  /* 5   */
+     { "All male boardies",     "drink 2x",             NULL ,                  .counter = 0u },  /* 6   */
+     { "Corporate Relations",   "drinks 2x",          NULL ,                    .counter = 0u },  /* 7   */
+     { "Human Resources",       "drinks 2x",          NULL ,                    .counter = 0u },  /* 8   */
+     { "Treasurer",             "drinks 2x",          NULL ,                    .counter = 0u },  /* 9   */
+     { "Public Relations",      "drinks 2x",          NULL ,                    .counter = 0u },  /* 10  */
 };
 
 
