@@ -411,28 +411,40 @@ Private Task_T priv_TextArraySocRespLevel3[] =
 
 Private Task_T priv_TextArrayKtLevel3[] =
 {
-     { "All the KT",        "members take",     "off shirts "       , .counter = 0u },   /* 1  */
-     { "Female KT members", "distribute 3",     "vodka shots "      , .counter = 0u },   /* 2  */
-     { "KT members do a",   "waterfall until",  "next shot "        , .counter = 0u },   /* 3  */
-     { "KT members do a",   "buffalo",          NULL                , .counter = 0u },   /* 4  */
-     { "KT remove 2", "items of clothing", "or take 2 vodka shots"  , .counter = 0u },   /* 5  */
-     { "Oldest KT member",  "must organize",   "a bodyshot"         , .counter = 0u },   /* 6  */
-     { "Most horny",  "KT member",             "drinks 3x"          , .counter = 0u },   /* 7  */
-     { "!Error code 0x00A45",  "Just kidding!","Drink 2x everybody" , .counter = 0u },   /* 8  */
+     { "All the KT",        "members take",     "off shirts "               , .counter = 0u },   /* 1  */
+     { "Female KT members", "distribute 3",     "vodka shots "              , .counter = 0u },   /* 2  */
+     { "KT members do a",   "waterfall until",  "next shot "                , .counter = 0u },   /* 3  */
+     { "KT members do a",   "buffalo",          NULL                        , .counter = 0u },   /* 4  */
+     { "KT remove 2", "items of clothing", "or take 2 vodka shots"          , .counter = 0u },   /* 5  */
+     { "Oldest KT member",  "must organize",   "a bodyshot"                 , .counter = 0u },   /* 6  */
+     { "Most horny",  "KT member",             "drinks 3x"                  , .counter = 0u },   /* 7  */
+     { "!Error code 0x00A45",  "Just kidding!","Drink 2x everybody"         , .counter = 0u },   /* 8  */
+     { "All KT members who",  "performed oral sex","this week, drink 3x"    , .counter = 0u },   /* 9  */
+     { "KT members who",  "want to try anal","skip this round"              , .counter = 0u },   /* 10 */
 };
 
 
 Private Task_T priv_TextArrayPaxLevel3[] =
 {
-     { "All Pax girls sit", "on somebody's lap", "while drinking " , .counter = 0u },   /* 1  */
-     { "Most horny",  "PAX",             "drinks 3x"               , .counter = 0u },   /* 2  */
-     { "Placeholder", "Pax 3", "Level 3 " , .counter = 0u },
+     { "All Pax girls sit", "on somebody's lap", "while drinking "  ,   .counter = 0u },   /* 1  */
+     { "Most horny",  "PAX",             "drinks 3x"                ,   .counter = 0u },   /* 2  */
+     { "All PAX who performed",  "oral sex","this week, drink 3x"   ,   .counter = 0u },   /* 3  */
+     { "!Error code 0x0311",  "Just kidding!","Drink 2x everybody"  ,   .counter = 0u },   /* 4  */
+     { "All PAX who", "have tried 69", "drink 2x",                      .counter = 0u },   /* 5  */
+     { "All PAX lose", "2 items of", "clothing",                        .counter = 0u },   /* 6  */
+     { "All PAX guys lose", "pants", NULL,                              .counter = 0u },   /* 7  */
+     { "The most drunk", "participant", "sings a song",                 .counter = 0u },   /* 8  */
+     { "All participants", "must", "drink 3x",                          .counter = 0u },   /* 9  */
+     { "Participants must", "feed each other", "their shot",            .counter = 0u },   /* 10 */
+     { "All participants", "must", "drink vodka",                       .counter = 0u },   /* 11 */
+     { "All PAX who had", "sex last night", "shout BAZINGA! and drink", .counter = 0u },   /* 12 */
+
 };
 
 Private Task_T priv_TextArrayBoardLevel3[] =
 {
-     { "Placeholder", "Board 1", "Level 3 " , .counter = 0u },
-     { "Placeholder", "Board 2", "Level 3 " , .counter = 0u },
+     { "All boardies who", "have tried 69", "drink 2x",                     .counter = 0u },
+     { "The president must", "drink 2x and describe",  "a sex fantasy" ,    .counter = 0u },
      { "Placeholder", "Board 3", "Level 3 " , .counter = 0u },
 };
 
@@ -518,22 +530,23 @@ Private Task_T priv_TextArrayKtLevel4[] =
 
 Private Task_T priv_TextArrayPaxLevel4[] =
 {
-     { "Greek participant", "tells who is", "the sexiest pax" ,         .counter = 0u },
-     { "All participants", "drink", "x3" ,                              .counter = 0u },
-     { "All pax who have", "had sex during event", "drink x2" ,         .counter = 0u },
-     { "Most sexually", "experienced pax", "drink x2" ,                 .counter = 0u },
-     { "All participants", "lose 2 pieces", "of clothing" ,             .counter = 0u },
-     { "French pax", "does", "limousin dance!" ,                        .counter = 0u },
-     { "Drunkest pax takes", "his sock off and", " drinks through it" , .counter = 0u },
-     { "Participant with", "best English", "drink x2" ,                 .counter = 0u },
-     { "All participants", "kiss the person ", "next to them" ,         .counter = 0u },
-     { "Pax who haven't",  "had sex during event", "drink x2" ,         .counter = 0u },
-     { "Pax drink like",   "somebody is sitting", "on their face "    , .counter = 0u },   /* 3  */
+     { "Greek participant", "tells who is", "the sexiest pax" ,         .counter = 0u },   /*  1  */
+     { "All participants", "drink", "x3" ,                              .counter = 0u },   /*  2  */
+     { "All pax who have", "had sex during event", "drink x2" ,         .counter = 0u },   /*  3  */
+     { "Most sexually", "experienced pax", "drink x2" ,                 .counter = 0u },   /*  4  */
+     { "All participants", "lose 2 pieces", "of clothing" ,             .counter = 0u },   /*  5  */
+     { "French pax", "does", "limousin dance!" ,                        .counter = 0u },   /*  6  */
+     { "Drunkest pax takes", "his sock off and", " drinks through it" , .counter = 0u },   /*  7  */
+     { "Participant with", "best English", "drink x2" ,                 .counter = 0u },   /*  8  */
+     { "All participants", "kiss the person ", "next to them" ,         .counter = 0u },   /*  9  */
+     { "Pax who haven't",  "had sex during event", "drink x2" ,         .counter = 0u },   /*  10 */
+     { "Pax drink like",   "somebody is sitting", "on their face "    , .counter = 0u },   /*  11 */
+     { "All participant", "couples must kiss", "before drinking",       .counter = 0u },   /*  12 */
 };
 
 Private Task_T priv_TextArrayBoardLevel4[] =
 {
-     { "Placeholder", "Board 1", "Level 4 " , .counter = 0u },
+     { "Boardies must", "re-enact a", "sex position" , .counter = 0u },
      { "Placeholder", "Board 2", "Level 4 " , .counter = 0u },
      { "Placeholder", "Board 3", "Level 4 " , .counter = 0u },
 };
