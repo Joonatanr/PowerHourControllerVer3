@@ -220,35 +220,36 @@ Private Task_T priv_TextArrayGirlsLevel2[] =
 /* Medium tasks. */
 Private Task_T priv_TextArrayGuysLevel2[] =
 {
-     {  "The guy with the"      , "biggest balls",            "drinks vodka"    ,  .counter = 0u  },  /* 1  */
-     {  "Guys"                  , "Never have I ever",          NULL            ,  .counter = 0u  },  /* 2  */
-     {  "All guys lose"         , "One Item of Clothing",       NULL            ,  .counter = 0u  },  /* 3  */
-     {  "All guys whose"        , "name starts with",         "A drinks 2x"     ,  .counter = 0u  },  /* 4  */
-     {  "All couples  "         , "drink 2x",                   NULL            ,  .counter = 0u  },  /* 5  */
-     {  "All male"              , "organisers",               "drink 2x"        ,  .counter = 0u  },  /* 6  */
-     {  "The guy with"          , "the biggest beer",         "belly drinks 2x" ,  .counter = 0u  },  /* 7  */
-     {  "All guys with"         , "beards",                   "drink 2x"        ,  .counter = 0u  },  /* 8  */
-     {  "All former senors",      "drink vodka",               NULL             ,  .counter = 0u  },  /* 11 */
-     {  "All guys who are",       "virgins drink 2x",         "and best of luck!", .counter = 0u  },  /* 12 */
-     {  "Guys who have",          "kissed a dude",            "drink vodka!"    ,  .counter = 0u  },  /* 13 */
-     {  "Guys must",              "say meow",                 "after drinking!" ,  .counter = 0u  },  /* 14 */
-     {  "Guys must do",           "10 squats",                "before drinking" ,  .counter = 0u  },  /* 16 */
-     {  "Guys that love",         "heavy metal",              "drink vodka"     ,  .counter = 0u  },  /* 17 */
+     {  "The guy with the"      , "biggest balls",            "drinks vodka"        ,  .counter = 0u  },  /* 1  */
+     {  "Guys"                  , "Never have I ever",          NULL                ,  .counter = 0u  },  /* 2  */
+     {  "All guys lose"         , "One Item of Clothing",       NULL                ,  .counter = 0u  },  /* 3  */
+     {  "All guys whose"        , "name starts with",         "A drinks 2x"         ,  .counter = 0u  },  /* 4  */
+     {  "All couples  "         , "drink 2x",                   NULL                ,  .counter = 0u  },  /* 5  */
+     {  "All male"              , "organisers",               "drink 2x"            ,  .counter = 0u  },  /* 6  */
+     {  "The guy with"          , "the biggest beer",         "belly drinks 2x"     ,  .counter = 0u  },  /* 7  */
+     {  "All guys with"         , "beards",                   "drink 2x"            ,  .counter = 0u  },  /* 8  */
+     {  "All former senors",      "drink vodka",               NULL                 ,  .counter = 0u  },  /* 9  */
+     {  "All guys who are",       "virgins drink 2x",         "and best of luck!"   ,  .counter = 0u  },  /* 10 */
+     {  "Guys who have",          "kissed a dude",            "drink vodka!"        ,  .counter = 0u  },  /* 11 */
+     {  "Guys must",              "say meow",                 "after drinking!"     ,  .counter = 0u  },  /* 12 */
+     {  "Guys must do",           "10 squats",                "before drinking"     ,  .counter = 0u  },  /* 13 */
+     {  "Guys that love",         "heavy metal",              "drink vodka"         ,  .counter = 0u  },  /* 14 */
+     {  "Guys say No Homo!",      "Look each other in",       "the eyes and drink"  ,  .counter = 0u  },  /* 15 */
 };
 
 
 Private Task_T priv_TextArrayAlumniLevel2[] =
 {
-     { "Alumni who lost", 	"virginity in BEST event", 	"drink 3x " 	, 		.counter = 0u },
-     { "All drunk alumni",	"lost 1 item", 		      	"of clothing " 	, 		.counter = 0u },
-     { "Alumni who were", 	"in GA Estonian", 			"Evening drink 3x ",	.counter = 0u },
-	 { "All alumni who", 	"have been to Moscow", 		"drink 2x", 			.counter = 0u },
-	 { "Alumni who have", 	"done a Death Round", 		"skip this round!", 	.counter = 0u },
-	 { "Alumni who have",   "been senors at",           "Cantus, drink 3x",     .counter = 0u },
-     { "Alumni with most",  "flags & numbers", 		 	"drinks 3x", 			.counter = 0u },
-	 { "Alumni drink 1x",   "for every coreteam",       "they have been in.",   .counter = 0u },
-     { "All alumni that",   "have children", 			"drink 1 vodka shot", 	.counter = 0u },
-	 { "One alumni", 		"must tell ", 				"a dirty joke", 		.counter = 0u },
+     { "Alumni who lost", 	"virginity in BEST event", 	"drink 3x " 	, 		.counter = 0u }, /* 1  */
+     { "All drunk alumni",	"lost 1 item", 		      	"of clothing " 	, 		.counter = 0u }, /* 2  */
+     { "Alumni who were", 	"in GA Estonian", 			"Evening drink 3x ",	.counter = 0u }, /* 3  */
+	 { "All alumni who", 	"have been to Moscow", 		"drink 2x", 			.counter = 0u }, /* 4  */
+	 { "Alumni who have", 	"done a Death Round", 		"skip this round!", 	.counter = 0u }, /* 5  */
+	 { "Alumni who have",   "been senors at",           "Cantus, drink 3x",     .counter = 0u }, /* 6  */
+     { "Alumni with most",  "flags & numbers", 		 	"drinks 3x", 			.counter = 0u }, /* 7  */
+	 { "Alumni drink 1x",   "for every coreteam",       "they have been in.",   .counter = 0u }, /* 8  */
+     { "All alumni that",   "have children", 			"drink 1 vodka shot", 	.counter = 0u }, /* 9  */
+	 { "One alumni", 		"must tell ", 				"a dirty joke", 		.counter = 0u }, /* 10 */
 };
 
 
@@ -269,9 +270,16 @@ Private Task_T priv_TextArrayCoreTeamLevel2[] =
 
 Private Task_T priv_TextArraySocRespLevel2[] =
 {
-     { "Placeholder", "Socresp 1", "Level 2 " , .counter = 0u },
-     { "Placeholder", "Socresp 2", "Level 2 " , .counter = 0u },
-     { "Placeholder", "Socresp 3", "Level 2 " , .counter = 0u },
+     { "Social Responsible", "distributes 3", "shots "          ,       .counter = 0u },          /* 1  */
+     { "Social Responsible", "must name 10", "sex positions "   ,       .counter = 0u },          /* 2  */
+     { "Social Responsible", "must make a toast", "with Borat voice " , .counter = 0u },          /* 3  */
+     { "Social Responsible", "must drink", "vodka "             ,       .counter = 0u },          /* 4  */
+     { "Soc. Resp. drinks 1x","for each girl", "kissed during event",   .counter = 0u },          /* 5  */
+     { "Social Responsible", "makes a toast like", "James Bond"       , .counter = 0u },          /* 6  */
+     { "Soc. Resp. drinks 1x", "for every inch", "of his penis"       , .counter = 0u },          /* 7  */
+     { "Social Responsible", "can skip this", "round"                 , .counter = 0u },          /* 8  */
+     { "Social Responsible", "must drink", "on his knees"             , .counter = 0u },          /* 9  */
+     { "Soc. Resp. gets", "kissed on the cheek", "by all the girls"   , .counter = 0u },          /* 10 */
 };
 
 
