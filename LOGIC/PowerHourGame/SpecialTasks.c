@@ -546,6 +546,7 @@ Private Task_T priv_TextArrayCoreTeamLevel4[] =
      { "Core team guys", "must do a", "sexy dance",                       .counter = 0u },      /*  9  */
      { "Core team girls", "must do a", "sexy dance",                      .counter = 0u },      /*  10 */
      { "Core team member", "with biggest boobs", "takes off shirt",       .counter = 0u },      /*  11 */
+     { "CT members must", "make out with the", "glass while drinking",    .counter = 0u },      /*  12 */
 };
 
 
@@ -563,11 +564,22 @@ Private Task_T priv_TextArraySocRespLevel4[] =
      { "Social responsible", "chugs a beer", "and does 20 pushups" ,    .counter = 0u },     /*  10 */
 };
 
+
 Private Task_T priv_TextArrayKtLevel4[] =
 {
-     { "Placeholder", "Kt 1", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Kt 2", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Kt 3", "Level 4 " , .counter = 0u },
+     { "All KT members", "lose 2", "items of clothing " ,               .counter = 0u },              /*  1  */
+     { "KT drinks", "vodka", "for 2 rounds "            ,               .counter = 0u },              /*  2  */
+     { "Most wasted", "KT member", "drinks water "      ,               .counter = 0u },              /*  3  */
+     { "KT guys", "get a lapdance", NULL,                               .counter = 0u },              /*  4  */
+     { "KT guys", "must do a lapdance", NULL,                           .counter = 0u },              /*  5  */
+     { "KT members ", "must organize a", "bodyshot",                    .counter = 0u },              /*  6  */
+     { "The KT member who", "likes paragraph 5", "the most BUFFALO",    .counter = 0u },              /*  7  */
+     { "All KT members", "drink under table", "for 5 rounds",           .counter = 0u },              /*  8  */
+     { "All KT members", "do a buffalo", NULL,                          .counter = 0u },              /*  9  */
+     { "KT members who", "havent organized an", "event, drink vodka",   .counter = 0u },              /*  10 */
+     { "All KT members", "must sing", "until the next round " ,         .counter = 0u },              /*  11 */
+     { "KT members...",  "VODKA", "ROUND! " ,                           .counter = 0u },              /*  12 */
+     { "KT members...",  "VODKA", "ROUND! " ,                           .counter = 0u },              /*  13 */
 };
 
 
@@ -589,9 +601,19 @@ Private Task_T priv_TextArrayPaxLevel4[] =
 
 Private Task_T priv_TextArrayBoardLevel4[] =
 {
-     { "Boardies must", "re-enact a", "sex position" , .counter = 0u },
-     { "Placeholder", "Board 2", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Board 3", "Level 4 " , .counter = 0u },
+     { "Boardies must", "re-enact a", "sex position" ,                  .counter = 0u },   /*  1   */
+     { "Drunkest boardie", "drinks while", "twerking ",                 .counter = 0u },   /*  2   */
+     { "The president", "must do a", "striptease ",                     .counter = 0u },   /*  3   */
+     { "All boardie girls", "must make out", "or drink vodka",          .counter = 0u },   /*  4   */
+     { "All Boardies", "lose their", "shirts" ,                         .counter = 0u },   /*  5   */
+     { "The Boardie who", "lost their virginity", "last drinks 3x" ,    .counter = 0u },   /*  6   */
+     { "The president", "drinks vodka", NULL,                           .counter = 0u },   /*  7   */
+     { "The Treasurer", "drinks vodka", NULL,                           .counter = 0u },   /*  8   */
+     { "The HR", "drinks vodka", NULL,                                  .counter = 0u },   /*  9   */
+     { "The PR", "drinks vodka", NULL,                                  .counter = 0u },   /*  10  */
+     { "The CR", "drinks vodka", NULL,                                  .counter = 0u },   /*  11  */
+     { "One boardie", "must do a", "striptease ",                       .counter = 0u },   /*  12  */
+     { "The president", "gets a", "lapdance ",                          .counter = 0u },   /*  13  */
 };
 
 /*****************************************************************/
