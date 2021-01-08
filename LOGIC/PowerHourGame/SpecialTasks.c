@@ -389,17 +389,17 @@ Private Task_T priv_TextArrayAlumniLevel3[] =
 
 Private Task_T priv_TextArrayCoreTeamLevel3[] =
 {
-     { "Core team members",      "lose their", "pants ",                         .counter = 0u       }, /* 1  */
-     { "Core team members",      "drink a ", "buffalo ",                         .counter = 0u       }, /* 2  */
-     { "Main Organizer",         "must twerk", "while drinking " ,               .counter = 0u       }, /* 3  */
-     { "All CT members must",    "name who they", "want to sleep with",          .counter = 0u       }, /* 4  */
-     { "2 CT members must",      "kiss or everybody", "drinks vodka shot",       .counter = 0u       }, /* 5  */
-     { "FR responsible must",    "make sales speech", "while removing shirt" ,   .counter = 0u       }, /* 6  */
-     { "Pax responsible must",   "organize a", "bodyshot" ,                      .counter = 0u       }, /* 7  */
-     { "The core team",          "drinks while on", "all fours",                 .counter = 0u       }, /* 8  */
-     { "The core team",          "drinks a shot of", "vodka",                    .counter = 0u       }, /* 9  */
-     { "If there is any",        "Soplica, then drink it!",  "Twoje zdrowie!",   .counter = 0u      },  /* 10 */
-     { "All CT members",         "who have been in",  "handcuffs drink 3x",      .counter = 0u      },  /* 11 */
+     { "Core team members",      "lose their", "pants ",                         .counter = 0u      }, /* 1  */
+     { "Core team members",      "drink a ", "buffalo ",                         .counter = 0u      }, /* 2  */
+     { "Main Organizer",         "must twerk", "while drinking " ,               .counter = 0u      }, /* 3  */
+     { "All CT members must",    "name who they", "want to sleep with",          .counter = 0u      }, /* 4  */
+     { "2 CT members must",      "kiss or everybody", "drinks vodka shot",       .counter = 0u      }, /* 5  */
+     { "FR responsible must",    "make sales speech", "while removing shirt" ,   .counter = 0u      }, /* 6  */
+     { "Pax responsible must",   "organize a", "bodyshot" ,                      .counter = 0u      }, /* 7  */
+     { "The core team",          "drinks while on", "all fours",                 .counter = 0u      }, /* 8  */
+     { "The core team",          "drinks a shot of", "vodka",                    .counter = 0u      }, /* 9  */
+     { "If there is any",        "Soplica, then drink it!",  "Twoje zdrowie!",   .counter = 0u      }, /* 10 */
+     { "All CT members",         "who have been in",  "handcuffs drink 3x",      .counter = 0u      }, /* 11 */
 };
 
 Private Task_T priv_TextArraySocRespLevel3[] =
@@ -519,10 +519,18 @@ Private Task_T priv_TextArrayGuysLevel4[] =
 
 Private Task_T priv_TextArrayAlumniLevel4[] =
 {
-     { "One alumni", 	"gets spanked", NULL 	 				, .counter = 0u },
-     { "One alumni", 	"gets slapped",	"in the face" 			, .counter = 0u },
-     { "Alumni select", "who loses", 	"2 items of clothing "  , .counter = 0u },
+     { "One alumni", 	"gets spanked", NULL 	 				        , .counter = 0u },    /*  1  */
+     { "One alumni", 	"gets slapped",	"in the face" 			        , .counter = 0u },    /*  2  */
+     { "Alumni select", "who loses", 	"2 items of clothing "          , .counter = 0u },    /*  3  */
+     { "Alumni must teach", "and demonstrate a",    "new sex position " , .counter = 0u },    /*  4  */
+     { "All alumni must", "do a buffalo",       NULL                    , .counter = 0u },    /*  5  */
+     { "All alumni must", "name a BEST event",       "they had sex in"  , .counter = 0u },    /*  6  */
+     { "All alumni lose", "1 item of",       "clothing"                 , .counter = 0u },    /*  7  */
+     { "All alumni drink", "a round of ",    "vodka"                    , .counter = 0u },    /*  8  */
+     { "Alumni must",      "organize ",      "a bodyshot"               , .counter = 0u },    /*  9  */
+     { "Oldest alumni",    "distributes 3 ",      "vodka shots"         , .counter = 0u },    /*  10 */
 };
+
 
 Private Task_T priv_TextArrayCoreTeamLevel4[] =
 {
