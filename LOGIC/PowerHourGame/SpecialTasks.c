@@ -529,28 +529,38 @@ Private Task_T priv_TextArrayAlumniLevel4[] =
      { "All alumni drink", "a round of ",    "vodka"                    , .counter = 0u },    /*  8  */
      { "Alumni must",      "organize ",      "a bodyshot"               , .counter = 0u },    /*  9  */
      { "Oldest alumni",    "distributes 3 ",      "vodka shots"         , .counter = 0u },    /*  10 */
+     { "If Kark is present","he drinks 3x ",      NULL                  , .counter = 0u },    /*  11 */
 };
 
 
 Private Task_T priv_TextArrayCoreTeamLevel4[] =
 {
-     { "Placeholder", "Coreteam 1", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Coreteam 2", "Level 4 " , .counter = 0u },
-     { "Placeholder", "Coreteam 3", "Level 4 " , .counter = 0u },
+     { "Coreteam girls must", "make out or", "drink vodka "             , .counter = 0u },      /*  1  */
+     { "Coreteam guys must" , "make out or", "drink vodka "             , .counter = 0u },      /*  2  */
+     { "Coreteam members", "chug a beer or", "cider "                   , .counter = 0u },      /*  3  */
+     { "Coreteam girls", "squeeze their",    "boobs while drinking "    , .counter = 0u },      /*  4  */
+     { "Main Organizer", "loses 2 items of", "clothing "                , .counter = 0u },      /*  5  */
+     { "Core team must", "sacrifice 5 items", "of clothing total"       , .counter = 0u },      /*  6  */
+     { "One CT member",  "must give another", "member a lapdance"       , .counter = 0u },      /*  7  */
+     { "Core team decides", "who takes off", "1 item of clothing",        .counter = 0u },      /*  8  */
+     { "Core team guys", "must do a", "sexy dance",                       .counter = 0u },      /*  9  */
+     { "Core team girls", "must do a", "sexy dance",                      .counter = 0u },      /*  10 */
+     { "Core team member", "with biggest boobs", "takes off shirt",       .counter = 0u },      /*  11 */
 };
+
 
 Private Task_T priv_TextArraySocRespLevel4[] =
 {
-     { "Social responsible", "shotguns a can", "of beer / cider " ,     .counter = 0u },
-     { "Social responsible", "slaps MO and ", "and calls him Sally " ,  .counter = 0u },
-     { "Social responsible", "takes 3 shots", NULL ,                    .counter = 0u },
-     { "Social responsible", "shows his/her", "orgasm face " ,          .counter = 0u },
-     { "Social resp. takes", "of his/her shoe", "and drinks from it" ,  .counter = 0u },
-     { "Social responsible", "chugs a ", "can of beer/cider " ,         .counter = 0u },
-     { "Social responsible", "kisses player", "next to him/her " ,      .counter = 0u },
-     { "Social responsible", "drinks 2x", "and loses shirt!" ,          .counter = 0u },
-     { "Social responsible", "tells a dirty ", "personal secret! " ,    .counter = 0u },
-     { "Social responsible", "chugs a beer", "and does 20 pushups" ,    .counter = 0u },
+     { "Social responsible", "shotguns a can", "of beer / cider " ,     .counter = 0u },     /*  1  */
+     { "Social responsible", "slaps MO and ", "and calls him Sally " ,  .counter = 0u },     /*  2  */
+     { "Social responsible", "takes 3 shots", NULL ,                    .counter = 0u },     /*  3  */
+     { "Social responsible", "shows his/her", "orgasm face " ,          .counter = 0u },     /*  4  */
+     { "Social resp. takes", "of his/her shoe", "and drinks from it" ,  .counter = 0u },     /*  5  */
+     { "Social responsible", "chugs a ", "can of beer/cider " ,         .counter = 0u },     /*  6  */
+     { "Social responsible", "kisses player", "next to him/her " ,      .counter = 0u },     /*  7  */
+     { "Social responsible", "drinks 2x", "and loses shirt!" ,          .counter = 0u },     /*  8  */
+     { "Social responsible", "tells a dirty ", "personal secret! " ,    .counter = 0u },     /*  9  */
+     { "Social responsible", "chugs a beer", "and does 20 pushups" ,    .counter = 0u },     /*  10 */
 };
 
 Private Task_T priv_TextArrayKtLevel4[] =
