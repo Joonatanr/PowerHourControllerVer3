@@ -390,7 +390,8 @@ Private Task_T priv_TextArrayCoreTeamLevel3[] =
      { "Pax responsible must",   "organize a", "bodyshot" ,                      .counter = 0u       }, /* 7  */
      { "The core team",          "drinks while on", "all fours",                 .counter = 0u       }, /* 8  */
      { "The core team",          "drinks a shot of", "vodka",                    .counter = 0u       }, /* 9  */
-     { "If there is any",        "Soplica, then drink it!",  "Twoje zdrowie!",    .counter = 0u      }, /* 10 */
+     { "If there is any",        "Soplica, then drink it!",  "Twoje zdrowie!",   .counter = 0u      },  /* 10 */
+     { "All CT members",         "who have been in",  "handcuffs drink 3x",      .counter = 0u      },  /* 11 */
 };
 
 Private Task_T priv_TextArraySocRespLevel3[] =
@@ -441,6 +442,7 @@ Private Task_T priv_TextArrayPaxLevel3[] =
      { "Pax drink 1x for", "each day since they", "last masturbated",           .counter = 0u },   /* 13 */ /* :D :D :D */
 };
 
+
 Private Task_T priv_TextArrayBoardLevel3[] =
 {
      { "All boardies who",   "have tried 69", "drink 2x",                       .counter = 0u },  /* 1  */
@@ -448,8 +450,16 @@ Private Task_T priv_TextArrayBoardLevel3[] =
      { "All boardies",       "must drink 3x",  NULL ,                           .counter = 0u },  /* 3  */
      { "The board can ",     "command who will",  "remove their shirt" ,        .counter = 0u },  /* 4  */
      { "All who want to",    "sleep with a boardie ", "drink 2x",               .counter = 0u },  /* 5  */
-
+     { "Boardie with",       "the biggest boobs", "drinks 3x",                  .counter = 0u },  /* 6  */
+     { "The boardie with",   "the craziest sex", "life drinks 3x",              .counter = 0u },  /* 7  */
+     { "All ex-boardies",    "drink vodka", NULL,                               .counter = 0u },  /* 8  */
+     { "The Treasurer",      "loses 1 item of",  "clothing" ,                   .counter = 0u },  /* 9  */
+     { "The President",      "loses 1 item of",  "clothing" ,                   .counter = 0u },  /* 10 */
+     { "The CR",             "loses 1 item of",  "clothing" ,                   .counter = 0u },  /* 11 */
+     { "The PR",             "loses 1 item of",  "clothing" ,                   .counter = 0u },  /* 12 */
+     { "The HR",             "loses 1 item of",  "clothing" ,                   .counter = 0u },  /* 13 */
 };
+
 
 /* Hardcore tasks.  */
 Private Task_T priv_TextArrayGirlsLevel4[] =
@@ -474,6 +484,8 @@ Private Task_T priv_TextArrayGirlsLevel4[] =
      { "Girls must make"   ,"a toast with"   ,      "a kinky voice"     , .counter = 0u  },  /* 19 */
      { "Girls that still"  ,"have shirts on" ,      "must drink 3x"     , .counter = 0u  },  /* 20 */
      { "Girls drink 1x for", "each day since they", "last masturbated",   .counter = 0u  },  /* 21 */
+     { "All girls who",      "have been in",        "handcuffs drink 3x", .counter = 0u  },  /* 22 */
+     { "All girls who",      "swallow drink 1x",    "who spit drink 3x",  .counter = 0u  },  /* 23 */
 };
 
 /* Hardcore tasks */
