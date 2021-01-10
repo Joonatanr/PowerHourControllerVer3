@@ -215,7 +215,7 @@ Private const ControllerEvent priv_girls_drink_events[] =
 Private const ControllerEvent priv_board_drink_events[] =
 {
      { .second = 7u,  .upperText = "",              .lowerText = "",                    .shot_action = OVERRIDE_FUNCTION         , .func = boardSpecialIntro    },
-     { .second = 20u, .upperText = "Fill shots",    .lowerText = "Boardies Round",      .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
+     { .second = 20u, .upperText = "Fill shots",    .lowerText = "Board Round",         .shot_action = BEERSHOT_BEGIN_FILLING    , .func = NULL                 },
      { .second = 45u, .upperText = "Ready",         .lowerText = NULL,                  .shot_action = BEERSHOT_FULL             , .func = NULL                 },
      { .second = 59u, .upperText = "Proosit!",      .lowerText = "Cheers boardies!",    .shot_action = OVERRIDE_FUNCTION         , .func = boardSpecialTask     },
 };
@@ -624,8 +624,11 @@ Private U8 selectRandomTaskIndex(void)
     /* Lets first establish the MAX and MIN count that we have. */
     for (ix = 0u; ix < NUMBER_OF_TASK_CATEGORIES; ix++)
     {
-        max_count = MAX(priv_scheduler_state[ix].counter, max_count);
-        min_count = MIN(priv_scheduler_state[ix].counter, min_count);
+        if (priv_scheduler_state[ix].is_enabled)
+        {
+            max_count = MAX(priv_scheduler_state[ix].counter, max_count);
+            min_count = MIN(priv_scheduler_state[ix].counter, min_count);
+        }
     }
 
     if (max_count == min_count)
